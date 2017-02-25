@@ -17,6 +17,8 @@ namespace QuanLyDoanVien
         {
             InitializeComponent();
             load_data();
+            //hieu comment
+            //hieu cm2
         }
 
         private void load_data()
