@@ -14,7 +14,7 @@ namespace QuanLyDoanVien
     {
         public FormCanBoVanPhongDoan()
         {
-            InitializeComponent();
+            InitializeComponent();//hihi
         }
     }
 }
