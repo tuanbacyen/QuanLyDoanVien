@@ -5,8 +5,6 @@
       <Column Name="CanBoDoanID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MaCanBoDoan" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="HoVaTenKhaiSinh" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="HoDem" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MaChucVu" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
@@ -69,7 +67,7 @@
       <Column Name="SiSo" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="MaHeDaoTao" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MaNganh" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="KhoaHoc" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="KhoaHoc" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="LopQuanLy_SinhVien" Member="SinhViens" ThisKey="MaLop" OtherKey="MaLop" Type="SinhVien" />
       <Association Name="LopQuanLy_SinhVien_LopQuanLy" Member="SinhVien_LopQuanLies" ThisKey="MaLop" OtherKey="MaLop" Type="SinhVien_LopQuanLy" />
       <Association Name="LoaiHeDaoTao_LopQuanLy" Member="LoaiHeDaoTao" ThisKey="MaHeDaoTao" OtherKey="MaHeDaoTao" Type="LoaiHeDaoTao" IsForeignKey="true" />
@@ -97,14 +95,11 @@
       <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="NgaySinh" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="MaLop" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="KhoaHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DanToc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TonGiao" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MaTinhTrangHocTap" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
       <Column Name="SoDienThoai" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="NamVaoHoc" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Column Name="NamRaTruongTheoKH" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="NgayVaoDoan" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="SinhVien_LopDuBiCamTinhDang" Member="LopDuBiCamTinhDangs" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="LopDuBiCamTinhDang" />
       <Association Name="SinhVien_SinhVien_LopQuanLy" Member="SinhVien_LopQuanLies" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="SinhVien_LopQuanLy" />

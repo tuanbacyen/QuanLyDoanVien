@@ -49,11 +49,101 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationSetting.cs" />
+    <Compile Include="FormCanBoVanPhongDoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCanBoVanPhongDoan.Designer.cs">
+      <DependentUpon>FormCanBoVanPhongDoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChucVu.Designer.cs">
+      <DependentUpon>FormChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChuyenSinhHoatDoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChuyenSinhHoatDoan.Designer.cs">
+      <DependentUpon>FormChuyenSinhHoatDoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConnect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormConnect.Designer.cs">
       <DependentUpon>FormConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHoatDongDoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHoatDongDoan.Designer.cs">
+      <DependentUpon>FormHoatDongDoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhoa.Designer.cs">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoaiHeDaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoaiHeDaoTao.Designer.cs">
+      <DependentUpon>FormLoaiHeDaoTao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLopDuBiDang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLopDuBiDang.Designer.cs">
+      <DependentUpon>FormLopDuBiDang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLopQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLopQuanLy.Designer.cs">
+      <DependentUpon>FormLopQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNganhHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNganhHoc.Designer.cs">
+      <DependentUpon>FormNganhHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVien.Designer.cs">
+      <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSinhVienLopQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinhVienLopQuanLy.Designer.cs">
+      <DependentUpon>FormSinhVienLopQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSoDoanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoDoanVien.Designer.cs">
+      <DependentUpon>FormSoDoanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThongTinNopDoanPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongTinNopDoanPhi.Designer.cs">
+      <DependentUpon>FormThongTinNopDoanPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTinhTrangHocTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTinhTrangHocTap.Designer.cs">
+      <DependentUpon>FormTinhTrangHocTap.cs</DependentUpon>
     </Compile>
     <Compile Include="ManHinhChinh.cs">
       <SubType>Form</SubType>
@@ -69,8 +159,53 @@
       <DependentUpon>QuanLyDoanVien.dbml</DependentUpon>
     </Compile>
     <Compile Include="SqlHelper.cs" />
+    <EmbeddedResource Include="FormCanBoVanPhongDoan.resx">
+      <DependentUpon>FormCanBoVanPhongDoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChucVu.resx">
+      <DependentUpon>FormChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChuyenSinhHoatDoan.resx">
+      <DependentUpon>FormChuyenSinhHoatDoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConnect.resx">
       <DependentUpon>FormConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHoatDongDoan.resx">
+      <DependentUpon>FormHoatDongDoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKhoa.resx">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoaiHeDaoTao.resx">
+      <DependentUpon>FormLoaiHeDaoTao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLopDuBiDang.resx">
+      <DependentUpon>FormLopDuBiDang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLopQuanLy.resx">
+      <DependentUpon>FormLopQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNganhHoc.resx">
+      <DependentUpon>FormNganhHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVien.resx">
+      <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinhVienLopQuanLy.resx">
+      <DependentUpon>FormSinhVienLopQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSoDoanVien.resx">
+      <DependentUpon>FormSoDoanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThongTinNopDoanPhi.resx">
+      <DependentUpon>FormThongTinNopDoanPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTinhTrangHocTap.resx">
+      <DependentUpon>FormTinhTrangHocTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>

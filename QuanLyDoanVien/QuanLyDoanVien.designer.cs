@@ -226,10 +226,6 @@ namespace QuanLyDoanVien
 		
 		private string _HoVaTenKhaiSinh;
 		
-		private string _HoDem;
-		
-		private string _Ten;
-		
 		private string _MaChucVu;
 		
 		private bool _GioiTinh;
@@ -258,10 +254,6 @@ namespace QuanLyDoanVien
     partial void OnMaCanBoDoanChanged();
     partial void OnHoVaTenKhaiSinhChanging(string value);
     partial void OnHoVaTenKhaiSinhChanged();
-    partial void OnHoDemChanging(string value);
-    partial void OnHoDemChanged();
-    partial void OnTenChanging(string value);
-    partial void OnTenChanged();
     partial void OnMaChucVuChanging(string value);
     partial void OnMaChucVuChanged();
     partial void OnGioiTinhChanging(bool value);
@@ -338,46 +330,6 @@ namespace QuanLyDoanVien
 					this._HoVaTenKhaiSinh = value;
 					this.SendPropertyChanged("HoVaTenKhaiSinh");
 					this.OnHoVaTenKhaiSinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoDem", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string HoDem
-		{
-			get
-			{
-				return this._HoDem;
-			}
-			set
-			{
-				if ((this._HoDem != value))
-				{
-					this.OnHoDemChanging(value);
-					this.SendPropertyChanging();
-					this._HoDem = value;
-					this.SendPropertyChanged("HoDem");
-					this.OnHoDemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Ten
-		{
-			get
-			{
-				return this._Ten;
-			}
-			set
-			{
-				if ((this._Ten != value))
-				{
-					this.OnTenChanging(value);
-					this.SendPropertyChanging();
-					this._Ten = value;
-					this.SendPropertyChanged("Ten");
-					this.OnTenChanged();
 				}
 			}
 		}
@@ -1318,7 +1270,7 @@ namespace QuanLyDoanVien
 		
 		private string _MaNganh;
 		
-		private string _KhoaHoc;
+		private byte _KhoaHoc;
 		
 		private EntitySet<SinhVien> _SinhViens;
 		
@@ -1344,7 +1296,7 @@ namespace QuanLyDoanVien
     partial void OnMaHeDaoTaoChanged();
     partial void OnMaNganhChanging(string value);
     partial void OnMaNganhChanged();
-    partial void OnKhoaHocChanging(string value);
+    partial void OnKhoaHocChanging(byte value);
     partial void OnKhoaHocChanged();
     #endregion
 		
@@ -1485,8 +1437,8 @@ namespace QuanLyDoanVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KhoaHoc", DbType="NVarChar(5) NOT NULL", CanBeNull=false)]
-		public string KhoaHoc
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KhoaHoc", DbType="TinyInt NOT NULL")]
+		public byte KhoaHoc
 		{
 			get
 			{
@@ -1871,8 +1823,6 @@ namespace QuanLyDoanVien
 		
 		private string _MaLop;
 		
-		private string _KhoaHoc;
-		
 		private string _DanToc;
 		
 		private string _TonGiao;
@@ -1882,10 +1832,6 @@ namespace QuanLyDoanVien
 		private string _DiaChi;
 		
 		private string _SoDienThoai;
-		
-		private byte _NamVaoHoc;
-		
-		private byte _NamRaTruongTheoKH;
 		
 		private System.DateTime _NgayVaoDoan;
 		
@@ -1927,8 +1873,6 @@ namespace QuanLyDoanVien
     partial void OnNgaySinhChanged();
     partial void OnMaLopChanging(string value);
     partial void OnMaLopChanged();
-    partial void OnKhoaHocChanging(string value);
-    partial void OnKhoaHocChanged();
     partial void OnDanTocChanging(string value);
     partial void OnDanTocChanged();
     partial void OnTonGiaoChanging(string value);
@@ -1939,10 +1883,6 @@ namespace QuanLyDoanVien
     partial void OnDiaChiChanged();
     partial void OnSoDienThoaiChanging(string value);
     partial void OnSoDienThoaiChanged();
-    partial void OnNamVaoHocChanging(byte value);
-    partial void OnNamVaoHocChanged();
-    partial void OnNamRaTruongTheoKHChanging(byte value);
-    partial void OnNamRaTruongTheoKHChanged();
     partial void OnNgayVaoDoanChanging(System.DateTime value);
     partial void OnNgayVaoDoanChanged();
     #endregion
@@ -2144,26 +2084,6 @@ namespace QuanLyDoanVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KhoaHoc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string KhoaHoc
-		{
-			get
-			{
-				return this._KhoaHoc;
-			}
-			set
-			{
-				if ((this._KhoaHoc != value))
-				{
-					this.OnKhoaHocChanging(value);
-					this.SendPropertyChanging();
-					this._KhoaHoc = value;
-					this.SendPropertyChanged("KhoaHoc");
-					this.OnKhoaHocChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DanToc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string DanToc
 		{
@@ -2264,46 +2184,6 @@ namespace QuanLyDoanVien
 					this._SoDienThoai = value;
 					this.SendPropertyChanged("SoDienThoai");
 					this.OnSoDienThoaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NamVaoHoc", DbType="TinyInt NOT NULL")]
-		public byte NamVaoHoc
-		{
-			get
-			{
-				return this._NamVaoHoc;
-			}
-			set
-			{
-				if ((this._NamVaoHoc != value))
-				{
-					this.OnNamVaoHocChanging(value);
-					this.SendPropertyChanging();
-					this._NamVaoHoc = value;
-					this.SendPropertyChanged("NamVaoHoc");
-					this.OnNamVaoHocChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NamRaTruongTheoKH", DbType="TinyInt NOT NULL")]
-		public byte NamRaTruongTheoKH
-		{
-			get
-			{
-				return this._NamRaTruongTheoKH;
-			}
-			set
-			{
-				if ((this._NamRaTruongTheoKH != value))
-				{
-					this.OnNamRaTruongTheoKHChanging(value);
-					this.SendPropertyChanging();
-					this._NamRaTruongTheoKH = value;
-					this.SendPropertyChanged("NamRaTruongTheoKH");
-					this.OnNamRaTruongTheoKHChanged();
 				}
 			}
 		}
