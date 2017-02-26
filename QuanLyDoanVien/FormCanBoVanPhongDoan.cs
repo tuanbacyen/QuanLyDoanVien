@@ -18,6 +18,7 @@ namespace QuanLyDoanVien
             InitializeComponent();
             HienThiCBCV();
             HienThiDuLieuCB();
+            KhongNhap();
         }
         QuanLyDoanVienDataContext db = new QuanLyDoanVienDataContext();
         Table<CanBoVPDoan> canbovpdoans;
@@ -198,6 +199,17 @@ namespace QuanLyDoanVien
             txtSDT.Clear();
             cbChucVu.SelectedIndex = 0;
             cbGioiTinh.SelectedIndex = 0;
+        }
+
+        private void KhongNhap()
+        {
+            cbGioiTinh.KeyPress += DontInput;
+            cbChucVu.KeyPress += DontInput;
+        }
+
+        private void DontInput(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

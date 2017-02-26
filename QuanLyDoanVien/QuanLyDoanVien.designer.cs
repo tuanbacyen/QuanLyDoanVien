@@ -45,6 +45,9 @@ namespace QuanLyDoanVien
     partial void InsertLoaiHeDaoTao(LoaiHeDaoTao instance);
     partial void UpdateLoaiHeDaoTao(LoaiHeDaoTao instance);
     partial void DeleteLoaiHeDaoTao(LoaiHeDaoTao instance);
+    partial void InsertLopDuBiCamTinhDang(LopDuBiCamTinhDang instance);
+    partial void UpdateLopDuBiCamTinhDang(LopDuBiCamTinhDang instance);
+    partial void DeleteLopDuBiCamTinhDang(LopDuBiCamTinhDang instance);
     partial void InsertLopQuanLy(LopQuanLy instance);
     partial void UpdateLopQuanLy(LopQuanLy instance);
     partial void DeleteLopQuanLy(LopQuanLy instance);
@@ -1154,8 +1157,10 @@ namespace QuanLyDoanVien
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LopDuBiCamTinhDang")]
-	public partial class LopDuBiCamTinhDang
+	public partial class LopDuBiCamTinhDang : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
@@ -1167,8 +1172,28 @@ namespace QuanLyDoanVien
 		
 		private bool _KetQua;
 		
+		private EntityRef<SinhVien> _SinhVien;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnMaSinhVienChanging(string value);
+    partial void OnMaSinhVienChanged();
+    partial void OnNgayHocChanging(System.DateTime value);
+    partial void OnNgayHocChanged();
+    partial void OnDiaDiemChanging(string value);
+    partial void OnDiaDiemChanged();
+    partial void OnKetQuaChanging(bool value);
+    partial void OnKetQuaChanged();
+    #endregion
+		
 		public LopDuBiCamTinhDang()
 		{
+			this._SinhVien = default(EntityRef<SinhVien>);
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
@@ -1182,12 +1207,16 @@ namespace QuanLyDoanVien
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSinhVien", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSinhVien", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaSinhVien
 		{
 			get
@@ -1198,7 +1227,15 @@ namespace QuanLyDoanVien
 			{
 				if ((this._MaSinhVien != value))
 				{
+					if (this._SinhVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaSinhVienChanging(value);
+					this.SendPropertyChanging();
 					this._MaSinhVien = value;
+					this.SendPropertyChanged("MaSinhVien");
+					this.OnMaSinhVienChanged();
 				}
 			}
 		}
@@ -1214,7 +1251,11 @@ namespace QuanLyDoanVien
 			{
 				if ((this._NgayHoc != value))
 				{
+					this.OnNgayHocChanging(value);
+					this.SendPropertyChanging();
 					this._NgayHoc = value;
+					this.SendPropertyChanged("NgayHoc");
+					this.OnNgayHocChanged();
 				}
 			}
 		}
@@ -1230,7 +1271,11 @@ namespace QuanLyDoanVien
 			{
 				if ((this._DiaDiem != value))
 				{
+					this.OnDiaDiemChanging(value);
+					this.SendPropertyChanging();
 					this._DiaDiem = value;
+					this.SendPropertyChanged("DiaDiem");
+					this.OnDiaDiemChanged();
 				}
 			}
 		}
@@ -1246,8 +1291,66 @@ namespace QuanLyDoanVien
 			{
 				if ((this._KetQua != value))
 				{
+					this.OnKetQuaChanging(value);
+					this.SendPropertyChanging();
 					this._KetQua = value;
+					this.SendPropertyChanged("KetQua");
+					this.OnKetQuaChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_LopDuBiCamTinhDang", Storage="_SinhVien", ThisKey="MaSinhVien", OtherKey="MaSinhVien", IsForeignKey=true)]
+		public SinhVien SinhVien
+		{
+			get
+			{
+				return this._SinhVien.Entity;
+			}
+			set
+			{
+				SinhVien previousValue = this._SinhVien.Entity;
+				if (((previousValue != value) 
+							|| (this._SinhVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SinhVien.Entity = null;
+						previousValue.LopDuBiCamTinhDang = null;
+					}
+					this._SinhVien.Entity = value;
+					if ((value != null))
+					{
+						value.LopDuBiCamTinhDang = this;
+						this._MaSinhVien = value.MaSinhVien;
+					}
+					else
+					{
+						this._MaSinhVien = default(string);
+					}
+					this.SendPropertyChanged("SinhVien");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1835,6 +1938,8 @@ namespace QuanLyDoanVien
 		
 		private System.DateTime _NgayVaoDoan;
 		
+		private EntityRef<LopDuBiCamTinhDang> _LopDuBiCamTinhDang;
+		
 		private EntitySet<SinhVien_LopQuanLy> _SinhVien_LopQuanLies;
 		
 		private EntitySet<SoDoanVien> _SoDoanViens;
@@ -1889,6 +1994,7 @@ namespace QuanLyDoanVien
 		
 		public SinhVien()
 		{
+			this._LopDuBiCamTinhDang = default(EntityRef<LopDuBiCamTinhDang>);
 			this._SinhVien_LopQuanLies = new EntitySet<SinhVien_LopQuanLy>(new Action<SinhVien_LopQuanLy>(this.attach_SinhVien_LopQuanLies), new Action<SinhVien_LopQuanLy>(this.detach_SinhVien_LopQuanLies));
 			this._SoDoanViens = new EntitySet<SoDoanVien>(new Action<SoDoanVien>(this.attach_SoDoanViens), new Action<SoDoanVien>(this.detach_SoDoanViens));
 			this._ThongTinChuyenSinhHoatDoans = new EntitySet<ThongTinChuyenSinhHoatDoan>(new Action<ThongTinChuyenSinhHoatDoan>(this.attach_ThongTinChuyenSinhHoatDoans), new Action<ThongTinChuyenSinhHoatDoan>(this.detach_ThongTinChuyenSinhHoatDoans));
@@ -2204,6 +2310,35 @@ namespace QuanLyDoanVien
 					this._NgayVaoDoan = value;
 					this.SendPropertyChanged("NgayVaoDoan");
 					this.OnNgayVaoDoanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_LopDuBiCamTinhDang", Storage="_LopDuBiCamTinhDang", ThisKey="MaSinhVien", OtherKey="MaSinhVien", IsUnique=true, IsForeignKey=false)]
+		public LopDuBiCamTinhDang LopDuBiCamTinhDang
+		{
+			get
+			{
+				return this._LopDuBiCamTinhDang.Entity;
+			}
+			set
+			{
+				LopDuBiCamTinhDang previousValue = this._LopDuBiCamTinhDang.Entity;
+				if (((previousValue != value) 
+							|| (this._LopDuBiCamTinhDang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._LopDuBiCamTinhDang.Entity = null;
+						previousValue.SinhVien = null;
+					}
+					this._LopDuBiCamTinhDang.Entity = value;
+					if ((value != null))
+					{
+						value.SinhVien = this;
+					}
+					this.SendPropertyChanged("LopDuBiCamTinhDang");
 				}
 			}
 		}
