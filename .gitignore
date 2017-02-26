@@ -301,6 +301,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
 *.config
-Program.cs
 QuanLyDoanVien/Program.cs
