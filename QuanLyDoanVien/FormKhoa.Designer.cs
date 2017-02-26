@@ -30,6 +30,7 @@
         {
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dtgKhoa = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.btnIn = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgKhoa)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             this.btnThem.TabIndex = 76;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupBox1
             // 
@@ -73,6 +74,14 @@
             this.groupBox1.Size = new System.Drawing.Size(577, 297);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtTimKiem.Location = new System.Drawing.Point(6, 56);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(450, 29);
+            this.txtTimKiem.TabIndex = 94;
             // 
             // dtgKhoa
             // 
@@ -108,6 +117,7 @@
             this.btnSua.TabIndex = 87;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnTimKiem
             // 
@@ -126,6 +136,7 @@
             this.btnClear.TabIndex = 81;
             this.btnClear.Text = "Xóa trắng";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnXoa
             // 
@@ -135,6 +146,7 @@
             this.btnXoa.TabIndex = 78;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // label3
             // 
@@ -190,14 +202,6 @@
             this.label1.TabIndex = 90;
             this.label1.Text = "CẬP NHẬT THÔNG TIN KHOA";
             // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimKiem.Location = new System.Drawing.Point(6, 56);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(450, 29);
-            this.txtTimKiem.TabIndex = 94;
-            // 
             // FormKhoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +216,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormKhoa";
             this.Text = "FormKhoa";
+            this.Load += new System.EventHandler(this.FormKhoa_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgKhoa)).EndInit();
