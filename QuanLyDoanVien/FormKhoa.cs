@@ -16,7 +16,7 @@ namespace QuanLyDoanVien
         /*nguyen quang thu*/
         QuanLyDoanVienDataContext database = new QuanLyDoanVienDataContext();
         Table<Khoa> Table;
-
+        /*dương tiến hiệu*/
         public FormKhoa()
         {
             InitializeComponent();
