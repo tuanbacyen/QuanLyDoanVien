@@ -16,8 +16,7 @@ namespace QuanLyDoanVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormKhoa());
-            //Application.Run(new FormNganhHoc());
+            Application.Run(new FormCanBoVanPhongDoan());
         }
     }
 }
