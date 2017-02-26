@@ -147,5 +147,6 @@ namespace QuanLyDoanVien
             cbKhoa.DataBindings.Clear();
             cbKhoa.DataBindings.Add("text", dtgNganhHoc.DataSource, "TenKhoa");
         }
+
     }
 }
