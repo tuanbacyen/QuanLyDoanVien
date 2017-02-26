@@ -13,7 +13,7 @@ namespace QuanLyDoanVien
 {
     public partial class FormKhoa : Form
     {
-
+        /*nguyen quang thu*/
         QuanLyDoanVienDataContext database = new QuanLyDoanVienDataContext();
         Table<Khoa> Table;
 
