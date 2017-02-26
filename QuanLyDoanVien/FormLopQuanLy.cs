@@ -25,7 +25,6 @@ namespace QuanLyDoanVien
             LoadCombobox();
             ClearTextbox();
             DoBindding();
-
         }
 
 
