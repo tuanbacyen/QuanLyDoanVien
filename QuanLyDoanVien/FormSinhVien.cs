@@ -18,8 +18,10 @@ namespace QuanLyDoanVien
             InitializeComponent();
             cbDanToc.SelectedIndex = 0;
             cbTonGiao.SelectedIndex = 0;
+            cbGioiTinh.SelectedIndex = 0;
             HienThiCBTinhTrang();
             load_Data();
+            KhongNhap();
         }
         QuanLyDoanVienDataContext db = new QuanLyDoanVienDataContext();
         Table<Khoa> khoas;
@@ -143,8 +145,8 @@ namespace QuanLyDoanVien
                 txtTen.DataBindings.Add("text", dtgSinhVien.DataSource, "Ten");
                 txtTenKhac.DataBindings.Clear();
                 txtTenKhac.DataBindings.Add("text", dtgSinhVien.DataSource, "HoTenKhac");
-                lblGT.DataBindings.Clear();
-                lblGT.DataBindings.Add("text", dtgSinhVien.DataSource, "GioiTinh");
+                cbGioiTinh.DataBindings.Clear();
+                cbGioiTinh.DataBindings.Add("text", dtgSinhVien.DataSource, "GioiTinh");
                 dtNgaySinh.DataBindings.Clear();
                 dtNgaySinh.DataBindings.Add("text", dtgSinhVien.DataSource, "NgaySinh");
                 cbLopHoc.DataBindings.Clear();
@@ -161,13 +163,6 @@ namespace QuanLyDoanVien
                 txtSDT.DataBindings.Add("text", dtgSinhVien.DataSource, "SoDienThoai");
                 dtNgayVaoDoan.DataBindings.Clear();
                 dtNgayVaoDoan.DataBindings.Add("text", dtgSinhVien.DataSource, "NgayVaoDoan");
-                if(lblGT.Text == "Nam")
-                {
-                    rdNam.Checked = true;
-                }else
-                {
-                    rdNu.Checked = true;
-                }
             }
         }
 
@@ -200,7 +195,7 @@ namespace QuanLyDoanVien
                     sinhvien.HoTenKhac = txtTenKhac.Text;
                 }
                 sinhvien.GioiTinh = true;
-                if (rdNu.Checked)
+                if (cbGioiTinh.SelectedIndex == 0)
                 {
                     sinhvien.GioiTinh = false;
                 }
@@ -238,7 +233,7 @@ namespace QuanLyDoanVien
             cbLopHoc.SelectedIndex = 0;
             cbTinhTrang.SelectedIndex = 0;
             cbTonGiao.SelectedIndex = 0;
-            rdNam.Checked = true;
+            cbGioiTinh.SelectedIndex = 0;
             dtNgaySinh.Value = DateTime.Now;
             dtNgayVaoDoan.Value = DateTime.Now;
         }
@@ -262,7 +257,7 @@ namespace QuanLyDoanVien
                     sinhvien.HoTenKhac = txtTenKhac.Text;
                 }
                 sinhvien.GioiTinh = true;
-                if (rdNu.Checked)
+                if (cbGioiTinh.SelectedIndex == 0)
                 {
                     sinhvien.GioiTinh = false;
                 }
@@ -336,6 +331,22 @@ namespace QuanLyDoanVien
                                   sv.NgayVaoDoan
                               };
             dtgSinhVien.DataSource = GetSinhVien;
+        }
+
+        private void KhongNhap()
+        {
+            cbKhoa.KeyPress += DontInput;
+            cbLop.KeyPress += DontInput;
+            cbLopHoc.KeyPress += DontInput;
+            cbNganh.KeyPress += DontInput;
+            cbDanToc.KeyPress += DontInput;
+            cbTinhTrang.KeyPress += DontInput;
+            cbGioiTinh.KeyPress += DontInput;
+        }
+
+        private void DontInput(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
