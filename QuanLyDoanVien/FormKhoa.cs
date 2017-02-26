@@ -98,8 +98,6 @@ namespace QuanLyDoanVien
                         Table.InsertOnSubmit(obj);
                         database.SubmitChanges();
 
-                        Table = database.GetTable<Khoa>();
-
                         MessageBox.Show("Thêm thành công", "Thông Báo");
                         DisplayOnDataGridView();
                     }
@@ -130,7 +128,7 @@ namespace QuanLyDoanVien
                     try
                     {
                         string MaKhoa = txtMaKhoa.Text.Trim();
-
+                                                     //khai bao
                         Khoa editedKhoa = Table.Single(kh => kh.MaKhoa == MaKhoa); //lấy ra khoa có mã như cái textbox Mã khoa kia
                         editedKhoa.TenKhoa = txtTenKhoa.Text.Trim();
                         database.SubmitChanges();
