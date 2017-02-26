@@ -15,7 +15,7 @@ namespace QuanLyDoanVien
     {
 
         QuanLyDoanVienDataContext database = new QuanLyDoanVienDataContext();
-        Table<Khoa> khoas;
+        Table<Khoa> Table;
 
         public FormKhoa()
         {
@@ -45,10 +45,10 @@ namespace QuanLyDoanVien
         }
         private void DisplayOnDataGridView()
         {
-            khoas = database.GetTable<Khoa>();
+            Table = database.GetTable<Khoa>();
 
             //SELECT * FROM KHOA;
-            var query = from kh in khoas
+            var query = from kh in Table
                         orderby kh.KhoaID
                         select new {
                             STT = kh.KhoaID,
@@ -72,28 +72,41 @@ namespace QuanLyDoanVien
         #region Button
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (TextboxEmpty()) MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+            bool MaKhoaTonTai = Table.Any(row => row.MaKhoa == txtMaKhoa.Text.Trim());
+
+            if (TextboxEmpty())
+            {
+                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+            }
             else
             {
-                try
+                if (MaKhoaTonTai)
                 {
-                    //Create an object
-                    Khoa khoaMoi = new Khoa();
-                    khoaMoi.MaKhoa = txtMaKhoa.Text.Trim();
-                    khoaMoi.TenKhoa = txtTenKhoa.Text.Trim();
-
-                    //Add this object to database
-                    khoas = database.GetTable<Khoa>();
-                    khoas.InsertOnSubmit(khoaMoi);
-                    database.SubmitChanges();
-
-                    //Done
-                    MessageBox.Show("Thêm thành công", "Thông Báo");
-                    DisplayOnDataGridView();
+                    MessageBox.Show("Đã tồn tại mã khoa này", "Thông Báo");
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Không thể thêm\nLý do: " + ex.Message, "Thông Báo");
+                    try
+                    {
+                        //Create an object
+                        Khoa obj = new Khoa();
+                        obj.MaKhoa = txtMaKhoa.Text.Trim();
+                        obj.TenKhoa = txtTenKhoa.Text.Trim();
+
+                        //Add this object to database
+                        Table = database.GetTable<Khoa>();
+                        Table.InsertOnSubmit(obj);
+                        database.SubmitChanges();
+
+                        Table = database.GetTable<Khoa>();
+
+                        MessageBox.Show("Thêm thành công", "Thông Báo");
+                        DisplayOnDataGridView();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Không thể thêm\nLý do: " + ex.Message, "Thông Báo");
+                    }
                 }
             }
         }
@@ -105,24 +118,35 @@ namespace QuanLyDoanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (TextboxEmpty()) MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+            if (TextboxEmpty())
+            {
+                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+            }
             else
             {
-                try
+                bool MaKhoaTonTai = Table.Any(row => row.MaKhoa == txtMaKhoa.Text.Trim());
+                if (MaKhoaTonTai)
                 {
-                    string MaKhoa = txtMaKhoa.Text.Trim();
+                    try
+                    {
+                        string MaKhoa = txtMaKhoa.Text.Trim();
 
-                    Khoa editedKhoa = khoas.Single(kh => kh.MaKhoa == MaKhoa); //lấy ra khoa có mã như cái textbox Mã khoa kia
-                    editedKhoa.TenKhoa = txtTenKhoa.Text.Trim();
-                    database.SubmitChanges();
+                        Khoa editedKhoa = Table.Single(kh => kh.MaKhoa == MaKhoa); //lấy ra khoa có mã như cái textbox Mã khoa kia
+                        editedKhoa.TenKhoa = txtTenKhoa.Text.Trim();
+                        database.SubmitChanges();
 
-                    MessageBox.Show("Sửa thành công", "Thông Báo");
-                    DisplayOnDataGridView();
+                        MessageBox.Show("Sửa thành công", "Thông Báo");
+                        DisplayOnDataGridView();
+                    }
+                    catch (Exception ex)
+                    {
+                        string MaKhoa = txtMaKhoa.Text.Trim();
+                        MessageBox.Show("Lỗi không xác định: " + ex.Message, "Thông Báo");
+                    }
                 }
-                catch
+                else
                 {
-                    string MaKhoa = txtMaKhoa.Text.Trim();
-                    MessageBox.Show("Không tìm thấy khoa nào có mã " + MaKhoa +" để sửa", "Thông Báo");
+                    MessageBox.Show("Không thể sửa mã", "Thông Báo");
                 }
             }
         }
@@ -137,30 +161,34 @@ namespace QuanLyDoanVien
                 if (TextboxEmpty()) MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
                 else
                 {
-                    try
-                    {
-                        Khoa deletedKhoa = khoas.Single(kh => kh.MaKhoa == MaKhoa); //lấy ra khoa có mã như cái textbox Mã khoa kia
-                        khoas.DeleteOnSubmit(deletedKhoa);
-                        database.SubmitChanges();
+                    bool MaKhoaTonTai = Table.Any(row => row.MaKhoa == txtMaKhoa.Text.Trim());
+                    if (MaKhoaTonTai)
+                        try
+                        {
+                            Khoa deletedKhoa = Table.Single(kh => kh.MaKhoa == MaKhoa);
+                            Table.DeleteOnSubmit(deletedKhoa);
+                            database.SubmitChanges();
 
-                        MessageBox.Show("Xóa thành công", "Thông Báo");
-                        DisplayOnDataGridView();
-                        ClearTextbox();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Không tìm thấy khoa nào có mã " + MaKhoa + " để xoá", "Thông Báo");
-                    }
+                            MessageBox.Show("Xóa thành công", "Thông Báo");
+                            DisplayOnDataGridView();
+                            ClearTextbox();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi không xác định: " + ex.Message, "Thông Báo");
+                        }
+                    else
+                        MessageBox.Show("Mã không tồn tại", "Thông Báo");
                 }
             }
         }
         
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            khoas = database.GetTable<Khoa>();
+            Table = database.GetTable<Khoa>();
             
             string timkiem = txtTimKiem.Text;
-            var query = from kh in khoas
+            var query = from kh in Table
                         where kh.MaKhoa.Contains(timkiem) || kh.TenKhoa.Contains(timkiem)
                         select new
                         {

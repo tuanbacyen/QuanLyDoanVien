@@ -15,6 +15,7 @@ namespace QuanLyDoanVien
         public FormLopQuanLy()
         {
             InitializeComponent();
+            
         }
         
     }
