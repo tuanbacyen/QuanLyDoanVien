@@ -41,7 +41,13 @@ namespace QuanLyDoanVien
 
             var GetCBVPD = from cb in canbovpdoans
                            join cv in chucvus on cb.MaChucVu equals cv.MaChucVu
-                           select new { cb.MaCanBoDoan, cb.HoVaTenKhaiSinh, cv.TenChucVu, GioiTinh = GioiTinh(cb.GioiTinh), cb.DiaChi, cb.SoDienThoai };
+                           select new {
+                               cb.MaCanBoDoan,
+                               cb.HoVaTenKhaiSinh,
+                               cv.TenChucVu,
+                               GioiTinh = GioiTinh(cb.GioiTinh),
+                               cb.DiaChi, cb.SoDienThoai
+                           };
 
             dtgCanBo.DataSource = GetCBVPD;
             Clear();

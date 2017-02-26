@@ -91,6 +91,7 @@
             this.dtgKhoa.Name = "dtgKhoa";
             this.dtgKhoa.Size = new System.Drawing.Size(564, 180);
             this.dtgKhoa.TabIndex = 89;
+            this.dtgKhoa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgKhoa_CellContentClick);
             // 
             // label8
             // 

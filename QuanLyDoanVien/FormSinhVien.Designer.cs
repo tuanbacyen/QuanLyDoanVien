@@ -91,6 +91,7 @@
             this.dtgSinhVien.Name = "dtgSinhVien";
             this.dtgSinhVien.Size = new System.Drawing.Size(794, 349);
             this.dtgSinhVien.TabIndex = 89;
+            this.dtgSinhVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgSinhVien_CellContentClick);
             // 
             // label8
             // 
@@ -576,6 +577,7 @@
             this.Controls.Add(this.cbLopHoc);
             this.Name = "FormSinhVien";
             this.Text = "Sinh Viện";
+            this.Load += new System.EventHandler(this.FormSinhVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgSinhVien)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
