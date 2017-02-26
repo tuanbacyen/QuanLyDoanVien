@@ -42,6 +42,12 @@
             this.mnUpdateNganh = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateCB = new System.Windows.Forms.ToolStripMenuItem();
             this.mnData = new System.Windows.Forms.ToolStripMenuItem();
+            this.cậpNhậtThôngTinKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnSVLop = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnChucVu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnLoaiHeDaoTao = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnTinhTrangHocTap = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnDuBiDang = new System.Windows.Forms.ToolStripMenuItem();
             this.mnOut = new System.Windows.Forms.ToolStripMenuItem();
             this.mnManagePeople = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogin = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,64 +91,120 @@
             this.mnUpdateCSHD.Name = "mnUpdateCSHD";
             this.mnUpdateCSHD.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateCSHD.Text = "Cập Nhật Thông Tin Chuyển Sinh Hoạt Đoàn";
+            this.mnUpdateCSHD.Click += new System.EventHandler(this.mnUpdateCSHD_Click);
             // 
             // mnUpdateHDD
             // 
             this.mnUpdateHDD.Name = "mnUpdateHDD";
             this.mnUpdateHDD.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateHDD.Text = "Cập Nhật Thông Tin Hoạt Động Đoàn";
+            this.mnUpdateHDD.Click += new System.EventHandler(this.mnUpdateHDD_Click);
             // 
             // mnUpdateDP
             // 
             this.mnUpdateDP.Name = "mnUpdateDP";
             this.mnUpdateDP.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateDP.Text = "Cập Nhật Thông Tin Đóng Đoàn Phí";
+            this.mnUpdateDP.Click += new System.EventHandler(this.mnUpdateDP_Click);
             // 
             // mnUpdateSD
             // 
             this.mnUpdateSD.Name = "mnUpdateSD";
             this.mnUpdateSD.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateSD.Text = "Cập Nhật Thông Tin Sổ Đoàn";
+            this.mnUpdateSD.Click += new System.EventHandler(this.mnUpdateSD_Click);
             // 
             // mnUpdateSV
             // 
             this.mnUpdateSV.Name = "mnUpdateSV";
             this.mnUpdateSV.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateSV.Text = "Cập Nhật Thông Tin Sinh Viên";
+            this.mnUpdateSV.Click += new System.EventHandler(this.mnUpdateSV_Click);
             // 
             // mnUpdateLop
             // 
             this.mnUpdateLop.Name = "mnUpdateLop";
             this.mnUpdateLop.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateLop.Text = "Cập Nhật Thông Tin Lớp";
+            this.mnUpdateLop.Click += new System.EventHandler(this.mnUpdateLop_Click);
             // 
             // mnUpdateNganh
             // 
             this.mnUpdateNganh.Name = "mnUpdateNganh";
             this.mnUpdateNganh.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateNganh.Text = "Cập Nhật Thông Tin Ngành ";
+            this.mnUpdateNganh.Click += new System.EventHandler(this.mnUpdateNganh_Click);
             // 
             // mnUpdateCB
             // 
             this.mnUpdateCB.Name = "mnUpdateCB";
             this.mnUpdateCB.Size = new System.Drawing.Size(312, 22);
             this.mnUpdateCB.Text = "Cập Nhật Thông Tin Cán Bộ ";
+            this.mnUpdateCB.Click += new System.EventHandler(this.mnUpdateCB_Click);
             // 
             // mnData
             // 
             this.mnData.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnUpdateCB,
+            this.cậpNhậtThôngTinKhoaToolStripMenuItem,
             this.mnUpdateNganh,
             this.mnUpdateLop,
+            this.mnSVLop,
+            this.mnChucVu,
+            this.mnLoaiHeDaoTao,
+            this.mnTinhTrangHocTap,
+            this.mnUpdateCB,
             this.mnUpdateSV,
             this.mnUpdateSD,
             this.mnUpdateDP,
             this.mnUpdateHDD,
-            this.mnUpdateCSHD});
+            this.mnUpdateCSHD,
+            this.mnDuBiDang});
             this.mnData.Image = ((System.Drawing.Image)(resources.GetObject("mnData.Image")));
             this.mnData.Name = "mnData";
             this.mnData.Size = new System.Drawing.Size(128, 20);
             this.mnData.Text = "Cập Nhật Dữ Liệu";
+            // 
+            // cậpNhậtThôngTinKhoaToolStripMenuItem
+            // 
+            this.cậpNhậtThôngTinKhoaToolStripMenuItem.Name = "cậpNhậtThôngTinKhoaToolStripMenuItem";
+            this.cậpNhậtThôngTinKhoaToolStripMenuItem.Size = new System.Drawing.Size(312, 22);
+            this.cậpNhậtThôngTinKhoaToolStripMenuItem.Text = "Cập Nhật Thông Tin Khoa";
+            this.cậpNhậtThôngTinKhoaToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtThôngTinKhoaToolStripMenuItem_Click);
+            // 
+            // mnSVLop
+            // 
+            this.mnSVLop.Name = "mnSVLop";
+            this.mnSVLop.Size = new System.Drawing.Size(312, 22);
+            this.mnSVLop.Text = "Cập Nhật Thông Tin Sinh Viên Lớp";
+            this.mnSVLop.Click += new System.EventHandler(this.mnSVLop_Click);
+            // 
+            // mnChucVu
+            // 
+            this.mnChucVu.Name = "mnChucVu";
+            this.mnChucVu.Size = new System.Drawing.Size(312, 22);
+            this.mnChucVu.Text = "Cập Nhật Thông Tin Chức Vụ";
+            this.mnChucVu.Click += new System.EventHandler(this.mnChucVu_Click);
+            // 
+            // mnLoaiHeDaoTao
+            // 
+            this.mnLoaiHeDaoTao.Name = "mnLoaiHeDaoTao";
+            this.mnLoaiHeDaoTao.Size = new System.Drawing.Size(312, 22);
+            this.mnLoaiHeDaoTao.Text = "Cập Nhật Thông Tin Loại Hệ Đào Tạo";
+            this.mnLoaiHeDaoTao.Click += new System.EventHandler(this.mnLoaiHeDaoTao_Click);
+            // 
+            // mnTinhTrangHocTap
+            // 
+            this.mnTinhTrangHocTap.Name = "mnTinhTrangHocTap";
+            this.mnTinhTrangHocTap.Size = new System.Drawing.Size(312, 22);
+            this.mnTinhTrangHocTap.Text = "Cập Nhật Thông Tin Tình Trạng Học Tập";
+            this.mnTinhTrangHocTap.Click += new System.EventHandler(this.mnTinhTrangHocTap_Click);
+            // 
+            // mnDuBiDang
+            // 
+            this.mnDuBiDang.Name = "mnDuBiDang";
+            this.mnDuBiDang.Size = new System.Drawing.Size(312, 22);
+            this.mnDuBiDang.Text = "Cập Nhật Thông Tin Lớp Dự Bị Đảng";
+            this.mnDuBiDang.Click += new System.EventHandler(this.mnDuBiDang_Click);
             // 
             // mnOut
             // 
@@ -161,9 +223,11 @@
             this.mnLogin.Name = "mnLogin";
             this.mnLogin.Size = new System.Drawing.Size(187, 22);
             this.mnLogin.Text = "Đăng Nhập";
+            this.mnLogin.Click += new System.EventHandler(this.mnLogin_Click);
             // 
             // mnConnect
             // 
+            this.mnConnect.Image = ((System.Drawing.Image)(resources.GetObject("mnConnect.Image")));
             this.mnConnect.Name = "mnConnect";
             this.mnConnect.Size = new System.Drawing.Size(187, 22);
             this.mnConnect.Text = "Kết Nối";
@@ -228,5 +292,11 @@
         private System.Windows.Forms.ToolStripMenuItem mnConnect;
         private System.Windows.Forms.ToolStripMenuItem mnQLHT;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cậpNhậtThôngTinKhoaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnSVLop;
+        private System.Windows.Forms.ToolStripMenuItem mnChucVu;
+        private System.Windows.Forms.ToolStripMenuItem mnLoaiHeDaoTao;
+        private System.Windows.Forms.ToolStripMenuItem mnTinhTrangHocTap;
+        private System.Windows.Forms.ToolStripMenuItem mnDuBiDang;
     }
 }
