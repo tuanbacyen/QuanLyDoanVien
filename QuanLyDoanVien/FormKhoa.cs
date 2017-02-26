@@ -26,11 +26,11 @@ namespace QuanLyDoanVien
         {
             DisplayOnDataGridView();
             ClearTextbox();
-            DoBinding();
+            DoBindding();
         }
 
         #region Nonamed
-        private void DoBinding()
+        private void DoBindding()
         {
             txtMaKhoa.DataBindings.Clear();
             txtTenKhoa.DataBindings.Clear();
@@ -58,6 +58,7 @@ namespace QuanLyDoanVien
 
             //Load to Datagridview
             dtgKhoa.DataSource = query;
+            DoBindding();
         }
         private bool TextboxEmpty()
         {
@@ -74,19 +75,26 @@ namespace QuanLyDoanVien
             if (TextboxEmpty()) MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
             else
             {
-                //Create an object
-                Khoa khoaMoi = new Khoa();
-                khoaMoi.MaKhoa = txtMaKhoa.Text.Trim();
-                khoaMoi.TenKhoa = txtTenKhoa.Text.Trim();
+                try
+                {
+                    //Create an object
+                    Khoa khoaMoi = new Khoa();
+                    khoaMoi.MaKhoa = txtMaKhoa.Text.Trim();
+                    khoaMoi.TenKhoa = txtTenKhoa.Text.Trim();
 
-                //Add this object to database
-                khoas = database.GetTable<Khoa>();
-                khoas.InsertOnSubmit(khoaMoi);
-                database.SubmitChanges();
+                    //Add this object to database
+                    khoas = database.GetTable<Khoa>();
+                    khoas.InsertOnSubmit(khoaMoi);
+                    database.SubmitChanges();
 
-                //Done
-                MessageBox.Show("Thêm thành công", "Thông Báo");
-                DisplayOnDataGridView();
+                    //Done
+                    MessageBox.Show("Thêm thành công", "Thông Báo");
+                    DisplayOnDataGridView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không thể thêm\nLý do: " + ex.Message, "Thông Báo");
+                }
             }
         }
 
@@ -145,6 +153,23 @@ namespace QuanLyDoanVien
                     }
                 }
             }
+        }
+        
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            khoas = database.GetTable<Khoa>();
+            
+            string timkiem = txtTimKiem.Text;
+            var query = from kh in khoas
+                        where kh.MaKhoa.Contains(timkiem) || kh.TenKhoa.Contains(timkiem)
+                        select new
+                        {
+                            STT = kh.KhoaID,
+                            kh.MaKhoa,
+                            kh.TenKhoa
+                        };
+            dtgKhoa.DataSource = query;
+            DoBindding();
         }
         #endregion
     }
