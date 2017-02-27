@@ -380,5 +380,10 @@ namespace QuanLyDoanVien
         {
 
         }
+
+        private void cbLopHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

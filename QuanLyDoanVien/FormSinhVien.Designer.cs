@@ -380,6 +380,7 @@
             this.cbLopHoc.Name = "cbLopHoc";
             this.cbLopHoc.Size = new System.Drawing.Size(206, 21);
             this.cbLopHoc.TabIndex = 138;
+            this.cbLopHoc.SelectedIndexChanged += new System.EventHandler(this.cbLopHoc_SelectedIndexChanged);
             // 
             // txtTen
             // 
