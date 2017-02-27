@@ -370,20 +370,6 @@ namespace QuanLyDoanVien
         {
             e.Handled = true;
         }
-
-        private void dtgSinhVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void FormSinhVien_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbLopHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
