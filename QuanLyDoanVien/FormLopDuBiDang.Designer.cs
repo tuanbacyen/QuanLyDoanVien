@@ -45,8 +45,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtNgayHoc = new System.Windows.Forms.DateTimePicker();
-            this.txtKetQua = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbbKetQua = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLopDuBiDang)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +102,7 @@
             this.dtgLopDuBiDang.Name = "dtgLopDuBiDang";
             this.dtgLopDuBiDang.Size = new System.Drawing.Size(536, 246);
             this.dtgLopDuBiDang.TabIndex = 89;
+            this.dtgLopDuBiDang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgLopDuBiDang_CellContentClick);
             // 
             // label8
             // 
@@ -129,6 +130,7 @@
             this.btnSua.TabIndex = 87;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnTimKiem
             // 
@@ -138,6 +140,7 @@
             this.btnTimKiem.TabIndex = 86;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnClear
             // 
@@ -147,6 +150,7 @@
             this.btnClear.TabIndex = 81;
             this.btnClear.Text = "Xóa trắng";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnXoa
             // 
@@ -156,6 +160,7 @@
             this.btnXoa.TabIndex = 78;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -165,6 +170,7 @@
             this.btnThem.TabIndex = 76;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtDiaDiem
             // 
@@ -208,13 +214,6 @@
             this.dtNgayHoc.Size = new System.Drawing.Size(129, 20);
             this.dtNgayHoc.TabIndex = 203;
             // 
-            // txtKetQua
-            // 
-            this.txtKetQua.Location = new System.Drawing.Point(94, 89);
-            this.txtKetQua.Name = "txtKetQua";
-            this.txtKetQua.Size = new System.Drawing.Size(129, 20);
-            this.txtKetQua.TabIndex = 205;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -224,12 +223,23 @@
             this.label1.TabIndex = 204;
             this.label1.Text = "Kết Quả";
             // 
+            // cbbKetQua
+            // 
+            this.cbbKetQua.FormattingEnabled = true;
+            this.cbbKetQua.Items.AddRange(new object[] {
+            "Trượt",
+            "Đỗ"});
+            this.cbbKetQua.Location = new System.Drawing.Point(94, 89);
+            this.cbbKetQua.Name = "cbbKetQua";
+            this.cbbKetQua.Size = new System.Drawing.Size(129, 21);
+            this.cbbKetQua.TabIndex = 206;
+            // 
             // FormLopDuBiDang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 496);
-            this.Controls.Add(this.txtKetQua);
+            this.Controls.Add(this.cbbKetQua);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtNgayHoc);
             this.Controls.Add(this.label3);
@@ -241,6 +251,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormLopDuBiDang";
             this.Text = "FormLopDuBiDang";
+            this.Load += new System.EventHandler(this.FormLopDuBiDang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgLopDuBiDang)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -267,7 +278,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtNgayHoc;
-        private System.Windows.Forms.TextBox txtKetQua;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbKetQua;
     }
 }
