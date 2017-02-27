@@ -161,7 +161,7 @@ namespace QuanLyDoanVien
             string maLop = cbLop.SelectedValue.ToString();
             sinhviens = db.GetTable<SinhVien>();
             var GetSinhVien = from sv in sinhviens
-                              where sv.MaLop == maLop
+                              where sv.MaLop == maLop && sv.Xoa == false
                               select new { sv.MaSinhVien, TenSinhVien = sv.HoVaTenKhaiSinh };
 
             dtgSinhVien.DataSource = GetSinhVien;
@@ -176,9 +176,10 @@ namespace QuanLyDoanVien
             {
                 if (Convert.ToBoolean(dtgSinhVien.Rows[i].Cells[0].Value) == true)
                 {
-                    ComboboxItem item = new ComboboxItem();
-                    item.Text = dtgSinhVien.Rows[i].Cells[2].Value + "";
-                    item.Value = dtgSinhVien.Rows[i].Cells[1].Value;
+                    string item = dtgSinhVien.Rows[i].Cells[1].Value + "-" + dtgSinhVien.Rows[i].Cells[2].Value;
+                    //ComboboxItem item = new ComboboxItem();
+                    //item.Text = dtgSinhVien.Rows[i].Cells[2].Value + "";
+                    //item.Value = dtgSinhVien.Rows[i].Cells[1].Value;
                     cbDSSV.Items.Add(item);
                 }
             }
@@ -198,11 +199,6 @@ namespace QuanLyDoanVien
             HienThiCBLopLC(cbNganhLC.SelectedValue.ToString());
         }
 
-        private void cbLopLC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtDiaChi.Text = cbLopLC.Text + " - " + cbLopLC.SelectedValue.ToString();
-        }
-
         private void HienThiDanhSachDaChuyen()
         {
             canbovpdoans = db.GetTable<CanBoVPDoan>();
@@ -212,7 +208,7 @@ namespace QuanLyDoanVien
             var GetTTCSH = from csh in thongtinchuyensinhhoats
                            join cb in canbovpdoans on csh.MaCanBoDoan equals cb.MaCanBoDoan
                            join sv in sinhviens on csh.MaSinhVien equals sv.MaSinhVien
-                           select new { TenDoanVien = sv.HoVaTenKhaiSinh, sv.MaSinhVien, CanBoRaQuyetDinh = cb.HoVaTenKhaiSinh, csh.NoiChuyen, csh.NgayChuyen };
+                           select new {ID=csh.id, TenDoanVien = sv.HoVaTenKhaiSinh, sv.MaSinhVien, CanBoRaQuyetDinh = cb.HoVaTenKhaiSinh, csh.NoiChuyen, csh.NgayChuyen };
 
             dtgSVDaChuyen.DataSource = GetTTCSH;
             Clear();
@@ -237,6 +233,9 @@ namespace QuanLyDoanVien
             cbCanBo.DataBindings.Add("text", dtgSVDaChuyen.DataSource, "CanBoRaQuyetDinh");
             dtNgayChuyen.DataBindings.Clear();
             dtNgayChuyen.DataBindings.Add("text", dtgSVDaChuyen.DataSource, "NgayChuyen");
+            lblid.DataBindings.Clear();
+            lblid.DataBindings.Add("text", dtgSVDaChuyen.DataSource, "ID");
+            rdCT.Checked = true;
         }
 
         private void btnXoaTrang_Click(object sender, EventArgs e)
@@ -246,28 +245,118 @@ namespace QuanLyDoanVien
 
         private void btnChuyen_Click(object sender, EventArgs e)
         {
+            ThemCHuyenSV();
+        }
+
+        private void rdCT_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDiaChi.Enabled = true;
+            cbLopLC.Enabled = false;
+            cbKhoaLC.Enabled = false;
+            cbNganhLC.Enabled = false;
+        }
+
+        private void rdCL_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDiaChi.Enabled = false;
+            cbLopLC.Enabled = true;
+            cbKhoaLC.Enabled = true;
+            cbNganhLC.Enabled = true;
+        }
+
+        private void ThemCHuyenSV()
+        {
+            if (rdCL.Checked)
+            {
+                if (cbLopLC.Text != null || cbDSSV.Items.Count == 0)
+                {
+                    for (int i = 0; i < cbDSSV.Items.Count; i++)
+                    {
+                        string masinhvien = CarChuoi(cbDSSV.Items[i].ToString()).Trim();
+                        ThongTinChuyenSinhHoatDoan ttcshd = new ThongTinChuyenSinhHoatDoan();
+                        ttcshd.MaSinhVien = masinhvien;
+                        ttcshd.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
+                        ttcshd.NgayChuyen = dtNgayChuyen.Value;
+                        ttcshd.NoiChuyen = cbLopLC.Text;
+
+                        thongtinchuyensinhhoats = db.GetTable<ThongTinChuyenSinhHoatDoan>();
+                        thongtinchuyensinhhoats.InsertOnSubmit(ttcshd);
+                        //db.SubmitChanges();
+
+                        SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
+                        sinhvien.MaLop = cbLopLC.SelectedValue.ToString();
+                        db.SubmitChanges();
+                    }
+                    MessageBox.Show("Chuyển lớp thành công " + cbDSSV.Items.Count +" sinh viên", "Thông Báo");
+                    HienThiDanhSachDaChuyen();
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                }
+            }else if(rdCT.Checked)
+            {
+                if (txtDiaChi.Text != null || cbDSSV.Items.Count == 0)
+                {
+                    for (int i = 0; i < cbDSSV.Items.Count; i++)
+                    {
+                        string masinhvien = CarChuoi(cbDSSV.Items[i].ToString()).Trim();
+                        ThongTinChuyenSinhHoatDoan ttcshd = new ThongTinChuyenSinhHoatDoan();
+                        ttcshd.MaSinhVien = masinhvien;
+                        ttcshd.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
+                        ttcshd.NgayChuyen = dtNgayChuyen.Value;
+                        ttcshd.NoiChuyen = txtDiaChi.Text;
+
+                        thongtinchuyensinhhoats = db.GetTable<ThongTinChuyenSinhHoatDoan>();
+                        thongtinchuyensinhhoats.InsertOnSubmit(ttcshd);
+                        //db.SubmitChanges();
+
+                        SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
+                        sinhvien.Xoa = true;
+                        db.SubmitChanges();
+                    }
+                    MessageBox.Show("Chuyển trường thành công " + cbDSSV.Items.Count + " sinh viên", "Thông Báo");
+                    HienThiDanhSachDaChuyen();
+                    Load_DataSinhVienLoc();
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                }
+            }
+        }
+
+        private string CarChuoi(string a)
+        {
+            string temp = a.Substring(0, a.IndexOf("-"));
+            return temp;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
             if (txtDiaChi.Text != null || cbDSSV.Items.Count == 0)
             {
-                for(int i = 0; i < cbDSSV.Items.Count; i++)
-                {
-                    ThongTinChuyenSinhHoatDoan ttcshd = new ThongTinChuyenSinhHoatDoan();
-                    ttcshd.MaSinhVien = cbDSSV.SelectedValue.ToString();
-                    ttcshd.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
-                    ttcshd.NgayChuyen = dtNgayChuyen.Value;
-                    ttcshd.NoiChuyen = txtDiaChi.Text;
-                    // đang làm giở
-                    //sodoanviens = db.GetTable<SoDoanVien>();
-                    //sodoanviens.InsertOnSubmit(sodoanvien);
-                    //db.SubmitChanges();
-                    //MessageBox.Show("Thêm thành công", "Thông Báo");
-                    //Load_DataSoDoan();
-                }
-                
+                ThongTinChuyenSinhHoatDoan ttcshd = thongtinchuyensinhhoats.Single(chs=>chs.id == Convert.ToInt32(lblid.Text.Trim()));
+                ttcshd.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
+                ttcshd.NgayChuyen = dtNgayChuyen.Value;
+                ttcshd.NoiChuyen = txtDiaChi.Text;
+                db.SubmitChanges();
+                MessageBox.Show("Sửa thành công", "Thông Báo");
+                HienThiDanhSachDaChuyen();
             }
             else
             {
                 MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
             }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            ThongTinChuyenSinhHoatDoan ttcshd = thongtinchuyensinhhoats.Single(chs => chs.id == Convert.ToInt32(lblid.Text.Trim()));
+            thongtinchuyensinhhoats.DeleteOnSubmit(ttcshd);
+            db.SubmitChanges();
+            MessageBox.Show("Xóa thành công", "Thông Báo");
+            HienThiDanhSachDaChuyen();
         }
     }
 

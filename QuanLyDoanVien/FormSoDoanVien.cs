@@ -90,7 +90,7 @@ namespace QuanLyDoanVien
             var GetSoDoanVien = from sd in sodoanviens
                                 join cb in canbovpdoans on sd.MaCanBoDoan equals cb.MaCanBoDoan
                                 join sv in sinhviens on sd.MaSinhVien equals sv.MaSinhVien
-                                where sv.MaLop == maLop
+                                where sv.MaLop == maLop && sv.Xoa == false
                                 select new { sd.MaSoDoan, sv.MaSinhVien, TenSinhVien = sv.HoVaTenKhaiSinh, CanBoThuSoDoan = cb.HoVaTenKhaiSinh, sd.NgayNop, sd.ThongTinSoDoan, sd.NhanXet, sd.GhiChu };
 
             dtgSoDoan.DataSource = GetSoDoanVien;
@@ -262,7 +262,7 @@ namespace QuanLyDoanVien
             var GetSoDoanVien = from sd in sodoanviens
                                 join cb in canbovpdoans on sd.MaCanBoDoan equals cb.MaCanBoDoan
                                 join sv in sinhviens on sd.MaSinhVien equals sv.MaSinhVien
-                                where sv.HoVaTenKhaiSinh.Contains(timkiem) || sv.MaSinhVien.Contains(timkiem) || sd.MaSoDoan.Contains(timkiem) || cb.HoVaTenKhaiSinh.Contains(timkiem)
+                                where sv.HoVaTenKhaiSinh.Contains(timkiem) || sv.MaSinhVien.Contains(timkiem) || sd.MaSoDoan.Contains(timkiem) || cb.HoVaTenKhaiSinh.Contains(timkiem) && sv.Xoa == false
                                 select new { sd.MaSoDoan, sv.MaSinhVien, TenSinhVien = sv.HoVaTenKhaiSinh, CanBoThuSoDoan = cb.HoVaTenKhaiSinh, sd.NgayNop, sd.ThongTinSoDoan, sd.NhanXet, sd.GhiChu };
 
             dtgSoDoan.DataSource = GetSoDoanVien;

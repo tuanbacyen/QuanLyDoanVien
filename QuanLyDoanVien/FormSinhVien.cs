@@ -112,7 +112,7 @@ namespace QuanLyDoanVien
             var GetSinhVien = from sv in sinhviens
                               join lql in lopquanlys on sv.MaLop equals lql.MaLop
                               join tc in tinhtranghoctaps on sv.MaTinhTrangHocTap equals tc.MaTinhTrangHocTap
-                              where sv.MaLop == maLop
+                              where sv.MaLop == maLop && sv.Xoa == false
                               select new { sv.MaSinhVien, sv.HoDem, sv.Ten, sv.HoVaTenKhaiSinh, sv.HoTenKhac, GioiTinh = GioiTinh(sv.GioiTinh), sv.NgaySinh, lql.TenLop, sv.DanToc, sv.TonGiao, tc.TenTinhTrangHocTap, sv.DiaChi, sv.SoDienThoai, sv.NgayVaoDoan };
             if (GetSinhVien.Count() == 0)
             {
@@ -308,7 +308,8 @@ namespace QuanLyDoanVien
                 {
                     string masinhvien = txtMaSinhVien.Text;
                     SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
-                    sinhviens.DeleteOnSubmit(sinhvien);
+                    sinhvien.Xoa = true;
+                    //sinhviens.DeleteOnSubmit(sinhvien);
                     db.SubmitChanges();
                     MessageBox.Show("Xóa thành công", "Thông Báo");
                     load_HienThiSV();
@@ -333,7 +334,7 @@ namespace QuanLyDoanVien
             var GetSinhVien = from sv in sinhviens
                               join lql in lopquanlys on sv.MaLop equals lql.MaLop
                               join tc in tinhtranghoctaps on sv.MaTinhTrangHocTap equals tc.MaTinhTrangHocTap
-                              where sv.HoVaTenKhaiSinh.Contains(search) || sv.MaSinhVien.Contains(search)
+                              where sv.HoVaTenKhaiSinh.Contains(search) || sv.MaSinhVien.Contains(search) && sv.Xoa == false
                               select new
                               {
                                   sv.MaSinhVien,

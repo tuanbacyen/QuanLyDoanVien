@@ -51,8 +51,9 @@
             this.cbCanBo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdCL = new System.Windows.Forms.RadioButton();
+            this.rdCT = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.cbLopLC = new System.Windows.Forms.ComboBox();
             this.lblLop = new System.Windows.Forms.Label();
             this.cbNganhLC = new System.Windows.Forms.ComboBox();
@@ -61,10 +62,12 @@
             this.lblKhoa = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtNgayChuyen = new System.Windows.Forms.DateTimePicker();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.btnChuyen = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnXoaTrang = new System.Windows.Forms.Button();
+            this.lblid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSinhVien)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSVDaChuyen)).BeginInit();
@@ -100,7 +103,7 @@
             this.V});
             this.dtgSinhVien.Location = new System.Drawing.Point(0, 84);
             this.dtgSinhVien.Name = "dtgSinhVien";
-            this.dtgSinhVien.Size = new System.Drawing.Size(303, 280);
+            this.dtgSinhVien.Size = new System.Drawing.Size(303, 306);
             this.dtgSinhVien.TabIndex = 89;
             // 
             // V
@@ -135,13 +138,13 @@
             this.groupBox1.Controls.Add(this.btnTimKiem);
             this.groupBox1.Location = new System.Drawing.Point(12, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 364);
+            this.groupBox1.Size = new System.Drawing.Size(782, 396);
             this.groupBox1.TabIndex = 210;
             this.groupBox1.TabStop = false;
             // 
             // btnGetDS
             // 
-            this.btnGetDS.Location = new System.Drawing.Point(231, 48);
+            this.btnGetDS.Location = new System.Drawing.Point(268, 50);
             this.btnGetDS.Name = "btnGetDS";
             this.btnGetDS.Size = new System.Drawing.Size(74, 33);
             this.btnGetDS.TabIndex = 221;
@@ -168,7 +171,7 @@
             // 
             // btnLoc
             // 
-            this.btnLoc.Location = new System.Drawing.Point(231, 11);
+            this.btnLoc.Location = new System.Drawing.Point(268, 13);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(74, 31);
             this.btnLoc.TabIndex = 218;
@@ -184,7 +187,7 @@
             this.dtgSVDaChuyen.Location = new System.Drawing.Point(309, 84);
             this.dtgSVDaChuyen.Name = "dtgSVDaChuyen";
             this.dtgSVDaChuyen.ReadOnly = true;
-            this.dtgSVDaChuyen.Size = new System.Drawing.Size(467, 280);
+            this.dtgSVDaChuyen.Size = new System.Drawing.Size(467, 306);
             this.dtgSVDaChuyen.TabIndex = 217;
             // 
             // cbLop
@@ -192,7 +195,7 @@
             this.cbLop.FormattingEnabled = true;
             this.cbLop.Location = new System.Drawing.Point(42, 57);
             this.cbLop.Name = "cbLop";
-            this.cbLop.Size = new System.Drawing.Size(182, 21);
+            this.cbLop.Size = new System.Drawing.Size(220, 21);
             this.cbLop.TabIndex = 165;
             // 
             // label17
@@ -209,7 +212,7 @@
             this.cbNganh.FormattingEnabled = true;
             this.cbNganh.Location = new System.Drawing.Point(42, 35);
             this.cbNganh.Name = "cbNganh";
-            this.cbNganh.Size = new System.Drawing.Size(182, 21);
+            this.cbNganh.Size = new System.Drawing.Size(220, 21);
             this.cbNganh.TabIndex = 163;
             this.cbNganh.SelectedIndexChanged += new System.EventHandler(this.cbNganh_SelectedIndexChanged);
             // 
@@ -227,7 +230,7 @@
             this.cbKhoa.FormattingEnabled = true;
             this.cbKhoa.Location = new System.Drawing.Point(42, 11);
             this.cbKhoa.Name = "cbKhoa";
-            this.cbKhoa.Size = new System.Drawing.Size(182, 21);
+            this.cbKhoa.Size = new System.Drawing.Size(220, 21);
             this.cbKhoa.TabIndex = 161;
             this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
             // 
@@ -292,8 +295,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.rdCL);
+            this.groupBox3.Controls.Add(this.rdCT);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.txtDiaChi);
             this.groupBox3.Controls.Add(this.cbLopLC);
             this.groupBox3.Controls.Add(this.lblLop);
             this.groupBox3.Controls.Add(this.cbNganhLC);
@@ -302,42 +306,56 @@
             this.groupBox3.Controls.Add(this.lblKhoa);
             this.groupBox3.Location = new System.Drawing.Point(0, 103);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(271, 251);
+            this.groupBox3.Size = new System.Drawing.Size(271, 283);
             this.groupBox3.TabIndex = 221;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Địa Chỉ";
             // 
+            // rdCL
+            // 
+            this.rdCL.AutoSize = true;
+            this.rdCL.Checked = true;
+            this.rdCL.Location = new System.Drawing.Point(181, 16);
+            this.rdCL.Name = "rdCL";
+            this.rdCL.Size = new System.Drawing.Size(82, 17);
+            this.rdCL.TabIndex = 222;
+            this.rdCL.TabStop = true;
+            this.rdCL.Text = "Chuyển Lớp";
+            this.rdCL.UseVisualStyleBackColor = true;
+            this.rdCL.CheckedChanged += new System.EventHandler(this.rdCL_CheckedChanged);
+            // 
+            // rdCT
+            // 
+            this.rdCT.AutoSize = true;
+            this.rdCT.Location = new System.Drawing.Point(71, 16);
+            this.rdCT.Name = "rdCT";
+            this.rdCT.Size = new System.Drawing.Size(98, 17);
+            this.rdCT.TabIndex = 222;
+            this.rdCT.Text = "Chuyển Trường";
+            this.rdCT.UseVisualStyleBackColor = true;
+            this.rdCT.CheckedChanged += new System.EventHandler(this.rdCT_CheckedChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(119, 94);
+            this.label5.Location = new System.Drawing.Point(119, 120);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 221;
             this.label5.Text = "Địa chỉ";
             // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDiaChi.Location = new System.Drawing.Point(6, 110);
-            this.txtDiaChi.Multiline = true;
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(259, 107);
-            this.txtDiaChi.TabIndex = 220;
-            // 
             // cbLopLC
             // 
             this.cbLopLC.FormattingEnabled = true;
-            this.cbLopLC.Location = new System.Drawing.Point(44, 67);
+            this.cbLopLC.Location = new System.Drawing.Point(44, 93);
             this.cbLopLC.Name = "cbLopLC";
             this.cbLopLC.Size = new System.Drawing.Size(221, 21);
             this.cbLopLC.TabIndex = 165;
-            this.cbLopLC.SelectedIndexChanged += new System.EventHandler(this.cbLopLC_SelectedIndexChanged);
             // 
             // lblLop
             // 
             this.lblLop.AutoSize = true;
-            this.lblLop.Location = new System.Drawing.Point(6, 70);
+            this.lblLop.Location = new System.Drawing.Point(6, 96);
             this.lblLop.Name = "lblLop";
             this.lblLop.Size = new System.Drawing.Size(25, 13);
             this.lblLop.TabIndex = 164;
@@ -346,7 +364,7 @@
             // cbNganhLC
             // 
             this.cbNganhLC.FormattingEnabled = true;
-            this.cbNganhLC.Location = new System.Drawing.Point(44, 40);
+            this.cbNganhLC.Location = new System.Drawing.Point(44, 66);
             this.cbNganhLC.Name = "cbNganhLC";
             this.cbNganhLC.Size = new System.Drawing.Size(221, 21);
             this.cbNganhLC.TabIndex = 163;
@@ -355,7 +373,7 @@
             // lblNganh
             // 
             this.lblNganh.AutoSize = true;
-            this.lblNganh.Location = new System.Drawing.Point(6, 43);
+            this.lblNganh.Location = new System.Drawing.Point(6, 69);
             this.lblNganh.Name = "lblNganh";
             this.lblNganh.Size = new System.Drawing.Size(39, 13);
             this.lblNganh.TabIndex = 162;
@@ -364,7 +382,7 @@
             // cbKhoaLC
             // 
             this.cbKhoaLC.FormattingEnabled = true;
-            this.cbKhoaLC.Location = new System.Drawing.Point(44, 13);
+            this.cbKhoaLC.Location = new System.Drawing.Point(44, 39);
             this.cbKhoaLC.Name = "cbKhoaLC";
             this.cbKhoaLC.Size = new System.Drawing.Size(221, 21);
             this.cbKhoaLC.TabIndex = 161;
@@ -373,7 +391,7 @@
             // lblKhoa
             // 
             this.lblKhoa.AutoSize = true;
-            this.lblKhoa.Location = new System.Drawing.Point(6, 16);
+            this.lblKhoa.Location = new System.Drawing.Point(6, 42);
             this.lblKhoa.Name = "lblKhoa";
             this.lblKhoa.Size = new System.Drawing.Size(32, 13);
             this.lblKhoa.TabIndex = 160;
@@ -396,9 +414,19 @@
             this.dtNgayChuyen.Size = new System.Drawing.Size(177, 20);
             this.dtNgayChuyen.TabIndex = 219;
             // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Enabled = false;
+            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtDiaChi.Location = new System.Drawing.Point(803, 289);
+            this.txtDiaChi.Multiline = true;
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(265, 107);
+            this.txtDiaChi.TabIndex = 220;
+            // 
             // btnChuyen
             // 
-            this.btnChuyen.Location = new System.Drawing.Point(805, 374);
+            this.btnChuyen.Location = new System.Drawing.Point(803, 400);
             this.btnChuyen.Name = "btnChuyen";
             this.btnChuyen.Size = new System.Drawing.Size(59, 28);
             this.btnChuyen.TabIndex = 221;
@@ -408,25 +436,27 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(873, 374);
+            this.btnSua.Location = new System.Drawing.Point(871, 400);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(60, 28);
             this.btnSua.TabIndex = 222;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(939, 374);
+            this.btnXoa.Location = new System.Drawing.Point(937, 400);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(60, 28);
             this.btnXoa.TabIndex = 223;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnXoaTrang
             // 
-            this.btnXoaTrang.Location = new System.Drawing.Point(1005, 374);
+            this.btnXoaTrang.Location = new System.Drawing.Point(1003, 400);
             this.btnXoaTrang.Name = "btnXoaTrang";
             this.btnXoaTrang.Size = new System.Drawing.Size(60, 28);
             this.btnXoaTrang.TabIndex = 224;
@@ -434,12 +464,23 @@
             this.btnXoaTrang.UseVisualStyleBackColor = true;
             this.btnXoaTrang.Click += new System.EventHandler(this.btnXoaTrang_Click);
             // 
+            // lblid
+            // 
+            this.lblid.AutoSize = true;
+            this.lblid.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblid.Location = new System.Drawing.Point(1001, 32);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(0, 13);
+            this.lblid.TabIndex = 225;
+            // 
             // FormChuyenSinhHoatDoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 409);
+            this.ClientSize = new System.Drawing.Size(1075, 433);
+            this.Controls.Add(this.lblid);
             this.Controls.Add(this.btnXoaTrang);
+            this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnChuyen);
@@ -499,5 +540,8 @@
         private System.Windows.Forms.Button btnGetDS;
         private System.Windows.Forms.DataGridViewCheckBoxColumn V;
         private System.Windows.Forms.Button btnXoaTrang;
+        private System.Windows.Forms.RadioButton rdCL;
+        private System.Windows.Forms.RadioButton rdCT;
+        private System.Windows.Forms.Label lblid;
     }
 }

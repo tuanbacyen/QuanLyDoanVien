@@ -1938,6 +1938,8 @@ namespace QuanLyDoanVien
 		
 		private System.DateTime _NgayVaoDoan;
 		
+		private bool _Xoa;
+		
 		private EntityRef<LopDuBiCamTinhDang> _LopDuBiCamTinhDang;
 		
 		private EntitySet<SinhVien_LopQuanLy> _SinhVien_LopQuanLies;
@@ -1990,6 +1992,8 @@ namespace QuanLyDoanVien
     partial void OnSoDienThoaiChanged();
     partial void OnNgayVaoDoanChanging(System.DateTime value);
     partial void OnNgayVaoDoanChanged();
+    partial void OnXoaChanging(bool value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public SinhVien()
@@ -2310,6 +2314,26 @@ namespace QuanLyDoanVien
 					this._NgayVaoDoan = value;
 					this.SendPropertyChanged("NgayVaoDoan");
 					this.OnNgayVaoDoanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit NOT NULL")]
+		public bool Xoa
+		{
+			get
+			{
+				return this._Xoa;
+			}
+			set
+			{
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
 				}
 			}
 		}
