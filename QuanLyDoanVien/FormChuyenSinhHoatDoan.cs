@@ -20,6 +20,7 @@ namespace QuanLyDoanVien
             load_Data();
             load_DataLC();
             HienThiDanhSachDaChuyen();
+            KhongNhap();
         }
 
         QuanLyDoanVienDataContext db = new QuanLyDoanVienDataContext();
@@ -357,6 +358,38 @@ namespace QuanLyDoanVien
             db.SubmitChanges();
             MessageBox.Show("Xóa thành công", "Thông Báo");
             HienThiDanhSachDaChuyen();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            canbovpdoans = db.GetTable<CanBoVPDoan>();
+            sinhviens = db.GetTable<SinhVien>();
+            thongtinchuyensinhhoats = db.GetTable<ThongTinChuyenSinhHoatDoan>();
+            string search = txtTimKiem.Text;
+            var GetTTCSH = from csh in thongtinchuyensinhhoats
+                           join cb in canbovpdoans on csh.MaCanBoDoan equals cb.MaCanBoDoan
+                           join sv in sinhviens on csh.MaSinhVien equals sv.MaSinhVien
+                           where sv.HoVaTenKhaiSinh.Contains(search) || sv.MaSinhVien.Contains(search) && sv.Xoa == false
+                           select new { ID = csh.id, TenDoanVien = sv.HoVaTenKhaiSinh, sv.MaSinhVien, CanBoRaQuyetDinh = cb.HoVaTenKhaiSinh, csh.NoiChuyen, csh.NgayChuyen };
+
+            dtgSVDaChuyen.DataSource = GetTTCSH;
+        }
+
+        private void KhongNhap()
+        {
+            cbKhoa.KeyPress += DontInput;
+            cbLop.KeyPress += DontInput;
+            cbLopLC.KeyPress += DontInput;
+            cbNganh.KeyPress += DontInput;
+            cbNganhLC.KeyPress += DontInput;
+            cbKhoaLC.KeyPress += DontInput;
+            cbCanBo.KeyPress += DontInput;
+            cbDSSV.KeyPress += DontInput;
+        }
+
+        private void DontInput(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 
