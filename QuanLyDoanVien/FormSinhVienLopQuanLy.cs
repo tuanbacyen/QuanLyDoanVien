@@ -19,70 +19,94 @@ namespace QuanLyDoanVien
         Table<LopQuanLy> LOPQUANLY;
         Table<ChucVu> CHUCVU;
         Table<SinhVien_LopQuanLy> SV_LOPQUANLY;
+        Table<SinhVien> SINHVIEN;
 
         public FormSinhVienLopQuanLy()
         {
             InitializeComponent();
+            SetDefaultProperties();
+            
             DisplayOnDataGridView();
             LoadCombobox();
             ClearTextbox();
             DoBindding();
         }
 
-        
+
+
         #region Nonamed
 
+        private void SetDefaultProperties()
+        {
+            cbKhoa.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbNganh.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbLopHoc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSinhVien.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtMaSinhVien.Visible = false;
+            dtgSinhVienLop.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
         private void LoadCombobox()
         {
+            #region Last code
             //get data for each table
-            KHOA = database.GetTable<Khoa>();
-            NGANHHOC = database.GetTable<NganhHoc>();
-            LOPQUANLY = database.GetTable<LopQuanLy>();
-            CHUCVU = database.GetTable<ChucVu>();
+            //KHOA = database.GetTable<Khoa>();
+            //NGANHHOC = database.GetTable<NganhHoc>();
+            //LOPQUANLY = database.GetTable<LopQuanLy>();
+            //CHUCVU = database.GetTable<ChucVu>();
 
             //query to load to combobox
-            var QueryNganhHoc = from nganh in NGANHHOC
-                                select new
-                                {
-                                    nganh.MaNganh,
-                                    nganh.TenNganh
-                                };
-            var QueryKhoa = from khoa in KHOA
-                                select new
-                                {
-                                    khoa.MaKhoa,
-                                    khoa.TenKhoa
-                                };
-            var QueryLopQL = from lop in LOPQUANLY
-                             select new
-                             {
-                                 lop.MaLop,
-                                 lop.TenLop
-                             };
-            var QueryChucVu = from chucvu in CHUCVU
-                              select new
-                              {
-                                  chucvu.MaChucVu,
-                                  chucvu.TenChucVu
-                              };
+            //var QueryNganhHoc = from nganh in NGANHHOC
+            //                    select new
+            //                    {
+            //                        nganh.MaNganh,
+            //                        nganh.TenNganh
+            //                    };
+            //var QueryKhoa = from khoa in KHOA
+            //                    select new
+            //                    {
+            //                        khoa.MaKhoa,
+            //                        khoa.TenKhoa
+            //                    };
+            //var QueryLopQL = from lop in LOPQUANLY
+            //                 select new
+            //                 {
+            //                     lop.MaLop,
+            //                     lop.TenLop
+            //                 };
+            //var QueryChucVu = from chucvu in CHUCVU
+            //                  select new
+            //                  {
+            //                      chucvu.MaChucVu,
+            //                      chucvu.TenChucVu
+            //                  };
 
             //load to combobox
-            cbChucVu.DataSource = QueryChucVu;
-            cbChucVu.DisplayMember = "TenChucVu";
-            cbChucVu.ValueMember = "MaChucVu";
+            //cbChucVu.DataSource = QueryChucVu;
+            //cbChucVu.DisplayMember = "TenChucVu";
+            //cbChucVu.ValueMember = "MaChucVu";
 
-            cbNganh.DataSource = QueryNganhHoc;
-            cbNganh.DisplayMember = "TenNganh";
-            cbNganh.ValueMember = "MaNganh";
+            //cbNganh.DataSource = QueryNganhHoc;
+            //cbNganh.DisplayMember = "TenNganh";
+            //cbNganh.ValueMember = "MaNganh";
 
-            cbKhoa.DataSource = QueryKhoa;
-            cbKhoa.DisplayMember = "TenKhoa";
-            cbKhoa.ValueMember = "MaKhoa";
+            //cbKhoa.DataSource = QueryKhoa;
+            //cbKhoa.DisplayMember = "TenKhoa";
+            //cbKhoa.ValueMember = "MaKhoa";
 
-            cbLopHoc.DataSource = QueryLopQL;
-            cbLopHoc.ValueMember = "MaLop";
-            cbLopHoc.DisplayMember = "TenLop";
+            //cbLopHoc.DataSource = QueryLopQL;
+            //cbLopHoc.ValueMember = "MaLop";
+            //cbLopHoc.DisplayMember = "TenLop";
+            #endregion
+            LoadData_cbKhoa();
+            LoadData_cbChucVu();
+            //LoadData_cbNganh(cbKhoa.SelectedValue.ToString());
+            //LoadData_cbLop(cbNganh.SelectedValue.ToString());
+            //LoadData_cbSinhVien(cbLopHoc.SelectedValue.ToString());
+
         }
+
+        
         private void DoBindding()
         {
             txtMaSinhVien.DataBindings.Clear();
@@ -93,6 +117,9 @@ namespace QuanLyDoanVien
 
             cbLopHoc.DataBindings.Clear();
             cbNganh.DataBindings.Clear();
+            cbSinhVien.DataBindings.Clear();
+
+            cbSinhVien.DataBindings.Add("text", dtgSinhVienLop.DataSource, "MaSinhVien");
 
             txtMaSinhVien.DataBindings.Add("text", dtgSinhVienLop.DataSource, "MaSinhVien");
             txtNhiemKy.DataBindings.Add("text", dtgSinhVienLop.DataSource, "NhiemKy");
@@ -109,10 +136,10 @@ namespace QuanLyDoanVien
             txtNhiemKy.Clear();
             txtTimKiem.Clear();
 
-            cbChucVu.SelectedIndex = 0;
-            cbNganh.SelectedIndex = 0;
+            //cbChucVu.SelectedIndex = 0;
+            //cbNganh.SelectedIndex = 0;
             cbKhoa.SelectedIndex = 0;
-            cbLopHoc.SelectedIndex = 0;
+            //cbLopHoc.SelectedIndex = 0;
 
         }
         private void DisplayOnDataGridView()
@@ -122,17 +149,20 @@ namespace QuanLyDoanVien
             LOPQUANLY = database.GetTable<LopQuanLy>();
             CHUCVU = database.GetTable<ChucVu>();
             SV_LOPQUANLY = database.GetTable<SinhVien_LopQuanLy>();
+            SINHVIEN = database.GetTable<SinhVien>();
 
             var query = from svlop in SV_LOPQUANLY
                         join lop in LOPQUANLY on svlop.MaLop equals lop.MaLop
                         join chucvu in CHUCVU on svlop.MaChucVu equals chucvu.MaChucVu
                         join nganh in NGANHHOC on lop.MaNganh equals nganh.MaNganh
                         join khoa in KHOA on nganh.MaKhoa equals khoa.MaKhoa
+                        join sinhvien in SINHVIEN on svlop.MaSinhVien equals sinhvien.MaSinhVien
                         orderby svlop.SV_LQLID
                         select new
                         {
                             STT = svlop.SV_LQLID,
                             svlop.MaSinhVien,
+                            Ten = sinhvien.HoDem +" "+sinhvien.Ten,
                             TenLop = lop.TenLop,
                             TenChucVu = chucvu.TenChucVu,
                             NhiemKy= svlop.NhiemKi,
@@ -151,6 +181,81 @@ namespace QuanLyDoanVien
                 return true;
             else
                 return false;
+        }
+
+        private void LoadData_cbKhoa()
+        {
+            KHOA = database.GetTable<Khoa>();
+            var QueryKhoa = from khoa in KHOA
+                            select new
+                            {
+                                khoa.MaKhoa,
+                                khoa.TenKhoa
+                            };
+            cbKhoa.DataSource = QueryKhoa;
+            cbKhoa.DisplayMember = "TenKhoa";
+            cbKhoa.ValueMember = "MaKhoa";
+        }
+        private void LoadData_cbNganh(string MaKhoa)
+        {
+            NGANHHOC = database.GetTable<NganhHoc>();
+
+            var QueryNganhHoc = from nganh in NGANHHOC
+                                where nganh.MaKhoa == MaKhoa
+                                select new
+                                {
+                                    nganh.MaNganh,
+                                    nganh.TenNganh
+                                };
+
+            cbNganh.DataSource = QueryNganhHoc;
+            cbNganh.DisplayMember = "TenNganh";
+            cbNganh.ValueMember = "MaNganh";
+        }
+        private void LoadData_cbLop(string MaNganh)
+        {
+            LOPQUANLY = database.GetTable<LopQuanLy>();
+
+            var QueryLopQL = from lop in LOPQUANLY
+                             where lop.MaNganh == MaNganh
+                             select new
+                             {
+                                 lop.MaLop,
+                                 lop.TenLop
+                             };
+
+            cbLopHoc.DataSource = QueryLopQL;
+            cbLopHoc.ValueMember = "MaLop";
+            cbLopHoc.DisplayMember = "TenLop";
+        }
+        private void LoadData_cbSinhVien(string MaLop)
+        {
+            SINHVIEN = database.GetTable<SinhVien>();
+
+            var QuerySinhVien = from sinhvien in SINHVIEN
+                             where sinhvien.MaLop == MaLop
+                             select new
+                             {
+                                 Ten = sinhvien.HoDem +" "+ sinhvien.Ten,
+                                 sinhvien.MaSinhVien
+                             };
+
+            cbSinhVien.DataSource = QuerySinhVien;
+            cbSinhVien.ValueMember = "MaSinhVien";
+            cbSinhVien.DisplayMember = "Ten";
+        }
+        private void LoadData_cbChucVu()
+        {
+            CHUCVU = database.GetTable<ChucVu>();
+            var QueryChucVu = from chucvu in CHUCVU
+                              select new
+                              {
+                                  chucvu.MaChucVu,
+                                  chucvu.TenChucVu
+                              };
+            cbChucVu.DataSource = QueryChucVu;
+            cbChucVu.DisplayMember = "TenChucVu";
+            cbChucVu.ValueMember = "MaChucVu";
         }
 
         #endregion
@@ -303,6 +408,53 @@ namespace QuanLyDoanVien
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearTextbox();
+        }
+
+        private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            #region
+            ////query to load to combobox
+            //var QueryNganhHoc = from nganh in NGANHHOC
+            //                    where nganh.MaKhoa == cbKhoa.SelectedValue.ToString()
+            //                    select new
+            //                    {
+            //                        nganh.MaNganh,
+            //                        nganh.TenNganh
+            //                    };
+
+            //cbNganh.DataSource = QueryNganhHoc;
+            //cbNganh.DisplayMember = "TenNganh";
+            //cbNganh.ValueMember = "MaNganh";
+            #endregion
+            LoadData_cbNganh(cbKhoa.SelectedValue.ToString());
+        }
+
+        private void cbNganh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            #region
+            //var QueryLopQL = from lop in LOPQUANLY
+            //                 where lop.MaNganh == cbNganh.SelectedValue.ToString()
+            //                 select new
+            //                 {
+            //                     lop.MaLop,
+            //                     lop.TenLop
+            //                 };
+
+            //cbLopHoc.DataSource = QueryLopQL;
+            //cbLopHoc.ValueMember = "MaLop";
+            //cbLopHoc.DisplayMember = "TenLop";
+            #endregion
+            LoadData_cbLop(cbNganh.SelectedValue.ToString());
+        }
+
+        private void cbLopHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData_cbSinhVien(cbLopHoc.SelectedValue.ToString());
+        }
+
+        private void cbSinhVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaSinhVien.Text = cbSinhVien.SelectedValue.ToString();
         }
     }
 }
