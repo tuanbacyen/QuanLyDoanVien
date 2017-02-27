@@ -101,7 +101,8 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
       <Column Name="SoDienThoai" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="NgayVaoDoan" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="SinhVien_LopDuBiCamTinhDang" Member="LopDuBiCamTinhDangs" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="LopDuBiCamTinhDang" />
+      <Column Name="Xoa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SinhVien_LopDuBiCamTinhDang" Member="LopDuBiCamTinhDang" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="LopDuBiCamTinhDang" Cardinality="One" />
       <Association Name="SinhVien_SinhVien_LopQuanLy" Member="SinhVien_LopQuanLies" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="SinhVien_LopQuanLy" />
       <Association Name="SinhVien_SoDoanVien" Member="SoDoanViens" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="SoDoanVien" />
       <Association Name="SinhVien_ThongTinChuyenSinhHoatDoan" Member="ThongTinChuyenSinhHoatDoans" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="ThongTinChuyenSinhHoatDoan" />

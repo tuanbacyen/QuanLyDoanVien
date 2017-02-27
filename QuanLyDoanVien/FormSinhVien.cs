@@ -44,7 +44,7 @@ namespace QuanLyDoanVien
             Clear();
             BiddingSinhVien();
         }
-       
+
         private void HienThiCBTinhTrang()
         {
             tinhtranghoctaps = db.GetTable<TinhTrangHocTap>();
@@ -112,7 +112,7 @@ namespace QuanLyDoanVien
             var GetSinhVien = from sv in sinhviens
                               join lql in lopquanlys on sv.MaLop equals lql.MaLop
                               join tc in tinhtranghoctaps on sv.MaTinhTrangHocTap equals tc.MaTinhTrangHocTap
-                              where sv.MaLop == maLop
+                              where sv.MaLop == maLop && sv.Xoa == false
                               select new { sv.MaSinhVien, sv.HoDem, sv.Ten, sv.HoVaTenKhaiSinh, sv.HoTenKhac, GioiTinh = GioiTinh(sv.GioiTinh), sv.NgaySinh, lql.TenLop, sv.DanToc, sv.TonGiao, tc.TenTinhTrangHocTap, sv.DiaChi, sv.SoDienThoai, sv.NgayVaoDoan };
             if (GetSinhVien.Count() == 0)
             {
@@ -189,8 +189,8 @@ namespace QuanLyDoanVien
                 sinhvien.MaSinhVien = txtMaSinhVien.Text;
                 sinhvien.Ten = txtTen.Text;
                 sinhvien.HoDem = txtHoDem.Text;
-                sinhvien.HoVaTenKhaiSinh = txtHoDem.Text +" "+ txtTen.Text;
-                if(txtTenKhac.Text != null)
+                sinhvien.HoVaTenKhaiSinh = txtHoDem.Text + " " + txtTen.Text;
+                if (txtTenKhac.Text != null)
                 {
                     sinhvien.HoTenKhac = txtTenKhac.Text;
                 }
@@ -207,12 +207,19 @@ namespace QuanLyDoanVien
                 sinhvien.DiaChi = txtDiaChi.Text;
                 sinhvien.SoDienThoai = txtSDT.Text;
                 sinhvien.NgayVaoDoan = dtNgayVaoDoan.Value;
-                sinhviens = db.GetTable<SinhVien>();
-                sinhviens.InsertOnSubmit(sinhvien);
-                db.SubmitChanges();
-                MessageBox.Show("Thêm thành công", "Thông Báo");
-                load_HienThiSV();
-
+                Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
+                if (has)
+                {
+                    MessageBox.Show("Đã Tồn tại Sinh viên");
+                }
+                else
+                {
+                    sinhviens = db.GetTable<SinhVien>();
+                    sinhviens.InsertOnSubmit(sinhvien);
+                    db.SubmitChanges();
+                    MessageBox.Show("Thêm thành công", "Thông Báo");
+                    load_HienThiSV();
+                }
             }
             else
             {
@@ -269,10 +276,17 @@ namespace QuanLyDoanVien
                 sinhvien.DiaChi = txtDiaChi.Text;
                 sinhvien.SoDienThoai = txtSDT.Text;
                 sinhvien.NgayVaoDoan = dtNgayVaoDoan.Value;
-                db.SubmitChanges();
-                MessageBox.Show("Sửa thành công", "Thông Báo");
-                load_HienThiSV();
-
+                Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
+                if (has)
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Sửa thành công", "Thông Báo");
+                    load_HienThiSV();
+                }
+                else
+                {
+                    MessageBox.Show("Không có Sinh viên");
+                }
             }
             else
             {
@@ -287,19 +301,27 @@ namespace QuanLyDoanVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaSinhVien.Text != null && txtTen.Text != null && txtHoDem.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+            if (txtMaSinhVien.Text != null)
             {
-                string masinhvien = txtMaSinhVien.Text;
-                SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
-                sinhviens.DeleteOnSubmit(sinhvien);
-                db.SubmitChanges();
-                MessageBox.Show("Xóa thành công", "Thông Báo");
-                load_HienThiSV();
-
+                Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
+                if (has)
+                {
+                    string masinhvien = txtMaSinhVien.Text;
+                    SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
+                    sinhvien.Xoa = true;
+                    //sinhviens.DeleteOnSubmit(sinhvien);
+                    db.SubmitChanges();
+                    MessageBox.Show("Xóa thành công", "Thông Báo");
+                    load_HienThiSV();
+                }
+                else
+                {
+                    MessageBox.Show("Không có Sinh viên");
+                }
             }
             else
             {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                MessageBox.Show("Chưa nhập thông tin", "Thông Báo");
             }
         }
 
@@ -312,7 +334,7 @@ namespace QuanLyDoanVien
             var GetSinhVien = from sv in sinhviens
                               join lql in lopquanlys on sv.MaLop equals lql.MaLop
                               join tc in tinhtranghoctaps on sv.MaTinhTrangHocTap equals tc.MaTinhTrangHocTap
-                              where sv.HoVaTenKhaiSinh.Contains(search) || sv.MaSinhVien.Contains(search)
+                              where sv.HoVaTenKhaiSinh.Contains(search) || sv.MaSinhVien.Contains(search) && sv.Xoa == false
                               select new
                               {
                                   sv.MaSinhVien,

@@ -1317,12 +1317,12 @@ namespace QuanLyDoanVien
 					if ((previousValue != null))
 					{
 						this._SinhVien.Entity = null;
-						previousValue.LopDuBiCamTinhDangs.Remove(this);
+						previousValue.LopDuBiCamTinhDang = null;
 					}
 					this._SinhVien.Entity = value;
 					if ((value != null))
 					{
-						value.LopDuBiCamTinhDangs.Add(this);
+						value.LopDuBiCamTinhDang = this;
 						this._MaSinhVien = value.MaSinhVien;
 					}
 					else
@@ -1938,7 +1938,9 @@ namespace QuanLyDoanVien
 		
 		private System.DateTime _NgayVaoDoan;
 		
-		private EntitySet<LopDuBiCamTinhDang> _LopDuBiCamTinhDangs;
+		private bool _Xoa;
+		
+		private EntityRef<LopDuBiCamTinhDang> _LopDuBiCamTinhDang;
 		
 		private EntitySet<SinhVien_LopQuanLy> _SinhVien_LopQuanLies;
 		
@@ -1990,11 +1992,13 @@ namespace QuanLyDoanVien
     partial void OnSoDienThoaiChanged();
     partial void OnNgayVaoDoanChanging(System.DateTime value);
     partial void OnNgayVaoDoanChanged();
+    partial void OnXoaChanging(bool value);
+    partial void OnXoaChanged();
     #endregion
 		
 		public SinhVien()
 		{
-			this._LopDuBiCamTinhDangs = new EntitySet<LopDuBiCamTinhDang>(new Action<LopDuBiCamTinhDang>(this.attach_LopDuBiCamTinhDangs), new Action<LopDuBiCamTinhDang>(this.detach_LopDuBiCamTinhDangs));
+			this._LopDuBiCamTinhDang = default(EntityRef<LopDuBiCamTinhDang>);
 			this._SinhVien_LopQuanLies = new EntitySet<SinhVien_LopQuanLy>(new Action<SinhVien_LopQuanLy>(this.attach_SinhVien_LopQuanLies), new Action<SinhVien_LopQuanLy>(this.detach_SinhVien_LopQuanLies));
 			this._SoDoanViens = new EntitySet<SoDoanVien>(new Action<SoDoanVien>(this.attach_SoDoanViens), new Action<SoDoanVien>(this.detach_SoDoanViens));
 			this._ThongTinChuyenSinhHoatDoans = new EntitySet<ThongTinChuyenSinhHoatDoan>(new Action<ThongTinChuyenSinhHoatDoan>(this.attach_ThongTinChuyenSinhHoatDoans), new Action<ThongTinChuyenSinhHoatDoan>(this.detach_ThongTinChuyenSinhHoatDoans));
@@ -2314,16 +2318,52 @@ namespace QuanLyDoanVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_LopDuBiCamTinhDang", Storage="_LopDuBiCamTinhDangs", ThisKey="MaSinhVien", OtherKey="MaSinhVien")]
-		public EntitySet<LopDuBiCamTinhDang> LopDuBiCamTinhDangs
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Xoa", DbType="Bit NOT NULL")]
+		public bool Xoa
 		{
 			get
 			{
-				return this._LopDuBiCamTinhDangs;
+				return this._Xoa;
 			}
 			set
 			{
-				this._LopDuBiCamTinhDangs.Assign(value);
+				if ((this._Xoa != value))
+				{
+					this.OnXoaChanging(value);
+					this.SendPropertyChanging();
+					this._Xoa = value;
+					this.SendPropertyChanged("Xoa");
+					this.OnXoaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_LopDuBiCamTinhDang", Storage="_LopDuBiCamTinhDang", ThisKey="MaSinhVien", OtherKey="MaSinhVien", IsUnique=true, IsForeignKey=false)]
+		public LopDuBiCamTinhDang LopDuBiCamTinhDang
+		{
+			get
+			{
+				return this._LopDuBiCamTinhDang.Entity;
+			}
+			set
+			{
+				LopDuBiCamTinhDang previousValue = this._LopDuBiCamTinhDang.Entity;
+				if (((previousValue != value) 
+							|| (this._LopDuBiCamTinhDang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._LopDuBiCamTinhDang.Entity = null;
+						previousValue.SinhVien = null;
+					}
+					this._LopDuBiCamTinhDang.Entity = value;
+					if ((value != null))
+					{
+						value.SinhVien = this;
+					}
+					this.SendPropertyChanged("LopDuBiCamTinhDang");
+				}
 			}
 		}
 		
@@ -2491,18 +2531,6 @@ namespace QuanLyDoanVien
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_LopDuBiCamTinhDangs(LopDuBiCamTinhDang entity)
-		{
-			this.SendPropertyChanging();
-			entity.SinhVien = this;
-		}
-		
-		private void detach_LopDuBiCamTinhDangs(LopDuBiCamTinhDang entity)
-		{
-			this.SendPropertyChanging();
-			entity.SinhVien = null;
 		}
 		
 		private void attach_SinhVien_LopQuanLies(SinhVien_LopQuanLy entity)
