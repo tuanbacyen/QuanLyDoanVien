@@ -128,7 +128,7 @@ namespace QuanLyDoanVien
         {
             if (TextboxEmpty())
             {
-                MessageBox.Show("Chưa nhập đủ thông tin" + cbNganh.ValueMember.ToString(), "Thông Báo");
+                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
             }
             else
             {
