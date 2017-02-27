@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyDoanVien" Class="QuanLyDoanVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-0C81TR7;Initial Catalog=QuanLyDoanVien;Integrated Security=True" SettingsObjectName="QuanLyDoanVien.Properties.Settings" SettingsPropertyName="QuanLyDoanVienConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-IEOTL5P\SQLEXPRESS;Initial Catalog=QuanLyDoanVien;Integrated Security=True" SettingsObjectName="QuanLyDoanVien.Properties.Settings" SettingsPropertyName="QuanLyDoanVienConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CanBoVPDoan" Member="CanBoVPDoans">
     <Type Name="CanBoVPDoan">
       <Column Name="CanBoDoanID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
