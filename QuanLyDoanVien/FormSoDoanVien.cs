@@ -149,6 +149,7 @@ namespace QuanLyDoanVien
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
+            groupBox2.Enabled = true;
             Load_DataSoDoan();
         }
 
@@ -255,6 +256,7 @@ namespace QuanLyDoanVien
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            groupBox2.Enabled = true;
             canbovpdoans = db.GetTable<CanBoVPDoan>();
             sinhviens = db.GetTable<SinhVien>();
             sodoanviens = db.GetTable<SoDoanVien>();
@@ -282,6 +284,11 @@ namespace QuanLyDoanVien
         private void DontInput(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
