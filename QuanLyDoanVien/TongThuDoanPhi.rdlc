@@ -20,8 +20,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.66146in</Top>
-        <Left>0.875in</Left>
+        <Top>0.07208in</Top>
+        <Left>0.73958in</Left>
         <Height>0.27083in</Height>
         <Width>3.21875in</Width>
         <Style>
@@ -53,8 +53,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.96007in</Top>
-        <Left>1.5625in</Left>
+        <Top>0.37069in</Top>
+        <Left>1.17708in</Left>
         <Height>0.25in</Height>
         <Width>1.92708in</Width>
         <ZIndex>1</ZIndex>
@@ -67,8 +67,8 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>1.23438in</Top>
-        <Left>1.6875in</Left>
+        <Top>0.645in</Top>
+        <Left>1.30208in</Left>
         <Height>0in</Height>
         <Width>1.70833in</Width>
         <ZIndex>2</ZIndex>
@@ -97,8 +97,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.66146in</Top>
-        <Left>6.35542in</Left>
+        <Top>0.07208in</Top>
+        <Left>5.97in</Left>
         <Height>0.29861in</Height>
         <Width>4.25in</Width>
         <ZIndex>3</ZIndex>
@@ -131,8 +131,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.96007in</Top>
-        <Left>7.34499in</Left>
+        <Top>0.37069in</Top>
+        <Left>6.95957in</Left>
         <Height>0.35417in</Height>
         <Width>2.54167in</Width>
         <ZIndex>4</ZIndex>
@@ -147,8 +147,8 @@
         </Style>
       </Textbox>
       <Line Name="Line2">
-        <Top>1.23438in</Top>
-        <Left>7.51834in</Left>
+        <Top>0.645in</Top>
+        <Left>7.13292in</Left>
         <Height>0in</Height>
         <Width>2.10791in</Width>
         <ZIndex>5</ZIndex>
@@ -178,8 +178,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.35591in</Top>
-        <Left>8.13292in</Left>
+        <Top>0.76654in</Top>
+        <Left>7.7475in</Left>
         <Height>0.29167in</Height>
         <Width>2.4725in</Width>
         <ZIndex>6</ZIndex>
@@ -200,22 +200,45 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>DANH SÁCH SINH VIÊN CHUYỂN SINH HOẠT ĐOÀN TRONG NĂM HỌC</Value>
+                <Value>BÁO CÁO</Value>
                 <Style>
+                  <FontStyle>Normal</FontStyle>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>CÔNG TÁC THU CHI ĐOÀN PHÍ ĐOÀN THANH NIÊN TRƯỜNG ĐẠI HỌC MỎ ĐỊA CHẤT NĂM HỌC 2017</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>2.00687in</Top>
-        <Left>2.35417in</Left>
-        <Height>0.30209in</Height>
-        <Width>6.80333in</Width>
+        <Top>1.4175in</Top>
+        <Left>1.17708in</Left>
+        <Height>0.51042in</Height>
+        <Width>8.32416in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -227,44 +250,11 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox8">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Người ký quyết định</Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>14pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>4.57813in</Top>
-        <Left>8.50124in</Left>
-        <Height>0.27083in</Height>
-        <Width>1.66667in</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>5.59375in</Height>
+    <Height>6.90625in</Height>
     <Style />
   </Body>
-  <Width>11.73042in</Width>
+  <Width>11.25792in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -274,5 +264,5 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>d4da48b0-894a-4b6b-b77b-b73fa35fa900</rd:ReportID>
+  <rd:ReportID>0c2983a3-db0c-4d75-ab5c-3ba1d170c552</rd:ReportID>
 </Report>

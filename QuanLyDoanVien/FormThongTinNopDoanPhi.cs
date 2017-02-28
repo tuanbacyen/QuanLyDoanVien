@@ -172,6 +172,7 @@ namespace QuanLyDoanVien
                         obj.NoiDung = txtNoiDung.Text.Trim();
                         obj.MaCanBoDoan = cbCanBo.SelectedValue.ToString().Trim();
                         obj.MaSinhVien = cbSinhVien.SelectedValue.ToString().Trim();
+                        obj.GhiNo = cbNo.Checked;
 
                         //Add this object to database
                         THONGTINNOPDOANPHI = database.GetTable<ThongTinNopDoanPhi>();
@@ -213,6 +214,7 @@ namespace QuanLyDoanVien
                         obj.NoiDung = txtNoiDung.Text.Trim();
                         obj.MaCanBoDoan = cbCanBo.SelectedValue.ToString().Trim();
                         obj.MaSinhVien = cbSinhVien.SelectedValue.ToString().Trim();
+                        obj.GhiNo = cbNo.Checked;
 
                         database.SubmitChanges();
                         MessageBox.Show("Sửa thành công", "Thông Báo");

@@ -58,11 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationSetting.cs" />
-    <Compile Include="FormBaoCao.cs">
+    <Compile Include="FormBaoCaoChuyenTruong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBaoCao.Designer.cs">
-      <DependentUpon>FormBaoCao.cs</DependentUpon>
+    <Compile Include="FormBaoCaoChuyenTruong.Designer.cs">
+      <DependentUpon>FormBaoCaoChuyenTruong.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCanBoVanPhongDoan.cs">
       <SubType>Form</SubType>
@@ -168,10 +168,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLDVChuyenTruong.Designer.cs">
+    <Compile Include="QLDV.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLDVChuyenTruong.xsd</DependentUpon>
+      <DependentUpon>QLDV.xsd</DependentUpon>
     </Compile>
     <Compile Include="QuanLyDoanVien.designer.cs">
       <AutoGen>True</AutoGen>
@@ -179,8 +179,8 @@
       <DependentUpon>QuanLyDoanVien.dbml</DependentUpon>
     </Compile>
     <Compile Include="SqlHelper.cs" />
-    <EmbeddedResource Include="FormBaoCao.resx">
-      <DependentUpon>FormBaoCao.cs</DependentUpon>
+    <EmbeddedResource Include="FormBaoCaoChuyenTruong.resx">
+      <DependentUpon>FormBaoCaoChuyenTruong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCanBoVanPhongDoan.resx">
       <DependentUpon>FormCanBoVanPhongDoan.cs</DependentUpon>
@@ -244,16 +244,18 @@
     </Compile>
     <EmbeddedResource Include="SinhVienChuyenLop.rdlc" />
     <EmbeddedResource Include="SinhVienChuyenTruong.rdlc" />
-    <None Include="QLDVChuyenTruong.xsc">
-      <DependentUpon>QLDVChuyenTruong.xsd</DependentUpon>
+    <EmbeddedResource Include="SinhVienNoDoanPhi.rdlc" />
+    <EmbeddedResource Include="TongThuDoanPhi.rdlc" />
+    <None Include="QLDV.xsc">
+      <DependentUpon>QLDV.xsd</DependentUpon>
     </None>
-    <None Include="QLDVChuyenTruong.xsd">
+    <None Include="QLDV.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLDVChuyenTruong.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLDV.Designer.cs</LastGenOutput>
     </None>
-    <None Include="QLDVChuyenTruong.xss">
-      <DependentUpon>QLDVChuyenTruong.xsd</DependentUpon>
+    <None Include="QLDV.xss">
+      <DependentUpon>QLDV.xsd</DependentUpon>
     </None>
     <None Include="QuanLyDoanVien.dbml.layout">
       <DependentUpon>QuanLyDoanVien.dbml</DependentUpon>
