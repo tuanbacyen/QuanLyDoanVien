@@ -307,7 +307,7 @@ namespace QuanLyDoanVien
                         ttcshd.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
                         ttcshd.NgayChuyen = dtNgayChuyen.Value;
                         ttcshd.NoiChuyen = txtDiaChi.Text;
-
+                        ttcshd.ChuyenTruong = true;
                         thongtinchuyensinhhoats = db.GetTable<ThongTinChuyenSinhHoatDoan>();
                         thongtinchuyensinhhoats.InsertOnSubmit(ttcshd);
                         //db.SubmitChanges();

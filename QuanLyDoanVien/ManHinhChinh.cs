@@ -114,5 +114,11 @@ namespace QuanLyDoanVien
             FormLopDuBiDang frm = new FormLopDuBiDang();
             frm.Show();
         }
+
+        private void reportDP_Click(object sender, EventArgs e)
+        {
+            FormBaoCao frm = new FormBaoCao();
+            frm.Show();
+        }
     }
 }
