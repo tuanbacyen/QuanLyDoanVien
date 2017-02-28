@@ -25,14 +25,11 @@ namespace QuanLyDoanVien
         {
             InitializeComponent();
             SetDefaultProperties();
-            
             DisplayOnDataGridView();
             LoadCombobox();
             ClearTextbox();
             DoBindding();
         }
-
-
 
         #region Nonamed
 
@@ -45,6 +42,7 @@ namespace QuanLyDoanVien
             cbChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
             txtMaSinhVien.Visible = false;
             dtgSinhVienLop.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgSinhVienLop.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         private void LoadCombobox()
         {
@@ -105,8 +103,6 @@ namespace QuanLyDoanVien
             //LoadData_cbSinhVien(cbLopHoc.SelectedValue.ToString());
 
         }
-
-        
         private void DoBindding()
         {
             txtMaSinhVien.DataBindings.Clear();
@@ -163,9 +159,9 @@ namespace QuanLyDoanVien
                             STT = svlop.SV_LQLID,
                             svlop.MaSinhVien,
                             Ten = sinhvien.HoDem +" "+sinhvien.Ten,
-                            TenLop = lop.TenLop,
                             TenChucVu = chucvu.TenChucVu,
-                            NhiemKy= svlop.NhiemKi,
+                            NhiemKy = svlop.NhiemKi,
+                            TenLop = lop.TenLop,
                             TenNganh=nganh.TenNganh,
                             TenKhoa=khoa.TenKhoa,
                         };
@@ -309,13 +305,16 @@ namespace QuanLyDoanVien
             LOPQUANLY = database.GetTable<LopQuanLy>();
             CHUCVU = database.GetTable<ChucVu>();
             SV_LOPQUANLY = database.GetTable<SinhVien_LopQuanLy>();
+            SINHVIEN = database.GetTable<SinhVien>();
 
             var query = from svlop in SV_LOPQUANLY
                         join lop in LOPQUANLY on svlop.MaLop equals lop.MaLop
                         join chucvu in CHUCVU on svlop.MaChucVu equals chucvu.MaChucVu
                         join nganh in NGANHHOC on lop.MaNganh equals nganh.MaNganh
                         join khoa in KHOA on nganh.MaKhoa equals khoa.MaKhoa
+                        join sinhvien in SINHVIEN on svlop.MaSinhVien equals sinhvien.MaSinhVien
                         where svlop.MaSinhVien.Contains(timkiem) ||
+                              (sinhvien.HoDem + " " + sinhvien.Ten).Contains(timkiem) ||
                               lop.TenLop.Contains(timkiem) ||
                               chucvu.TenChucVu.Contains(timkiem) ||
                               khoa.TenKhoa.Contains(timkiem) ||
@@ -326,15 +325,51 @@ namespace QuanLyDoanVien
                         {
                             STT = svlop.SV_LQLID,
                             svlop.MaSinhVien,
-                            TenLop = lop.TenLop,
+                            Ten = sinhvien.HoDem + " " + sinhvien.Ten,
                             TenChucVu = chucvu.TenChucVu,
                             NhiemKy = svlop.NhiemKi,
+                            TenLop = lop.TenLop,
                             TenNganh = nganh.TenNganh,
                             TenKhoa = khoa.TenKhoa,
                         };
 
+            //Load to Datagridview
             dtgSinhVienLop.DataSource = query;
             DoBindding();
+
+            #region
+            //KHOA = database.GetTable<Khoa>();
+            //NGANHHOC = database.GetTable<NganhHoc>();
+            //LOPQUANLY = database.GetTable<LopQuanLy>();
+            //CHUCVU = database.GetTable<ChucVu>();
+            //SV_LOPQUANLY = database.GetTable<SinhVien_LopQuanLy>();
+
+            //var query = from svlop in SV_LOPQUANLY
+            //            join lop in LOPQUANLY on svlop.MaLop equals lop.MaLop
+            //            join chucvu in CHUCVU on svlop.MaChucVu equals chucvu.MaChucVu
+            //            join nganh in NGANHHOC on lop.MaNganh equals nganh.MaNganh
+            //            join khoa in KHOA on nganh.MaKhoa equals khoa.MaKhoa
+            //            where svlop.MaSinhVien.Contains(timkiem) ||
+            //                  lop.TenLop.Contains(timkiem) ||
+            //                  chucvu.TenChucVu.Contains(timkiem) ||
+            //                  khoa.TenKhoa.Contains(timkiem) ||
+            //                  nganh.TenNganh.Contains(timkiem) ||
+            //                  svlop.NhiemKi.Contains(timkiem)
+            //            orderby svlop.SV_LQLID
+            //            select new
+            //            {
+            //                STT = svlop.SV_LQLID,
+            //                svlop.MaSinhVien,
+            //                TenLop = lop.TenLop,
+            //                TenChucVu = chucvu.TenChucVu,
+            //                NhiemKy = svlop.NhiemKi,
+            //                TenNganh = nganh.TenNganh,
+            //                TenKhoa = khoa.TenKhoa,
+            //            };
+
+            //dtgSinhVienLop.DataSource = query;
+            //DoBindding();
+            #endregion
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -427,6 +462,7 @@ namespace QuanLyDoanVien
             //cbNganh.ValueMember = "MaNganh";
             #endregion
             LoadData_cbNganh(cbKhoa.SelectedValue.ToString());
+            cbSinhVien.Text = "";
         }
 
         private void cbNganh_SelectedIndexChanged(object sender, EventArgs e)
@@ -445,11 +481,13 @@ namespace QuanLyDoanVien
             //cbLopHoc.DisplayMember = "TenLop";
             #endregion
             LoadData_cbLop(cbNganh.SelectedValue.ToString());
+            cbSinhVien.Text = "";
         }
 
         private void cbLopHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadData_cbSinhVien(cbLopHoc.SelectedValue.ToString());
+
         }
 
         private void cbSinhVien_SelectedIndexChanged(object sender, EventArgs e)

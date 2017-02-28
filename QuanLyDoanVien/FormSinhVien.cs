@@ -40,9 +40,13 @@ namespace QuanLyDoanVien
 
         private void load_HienThiSV()
         {
-            HienThiSinhVien(cbLop.SelectedValue.ToString());
-            Clear();
-            BiddingSinhVien();
+            try
+            {
+                HienThiSinhVien(cbLop.SelectedValue.ToString());
+                Clear();
+                BiddingSinhVien();
+            }
+            catch { }
         }
 
         private void HienThiCBTinhTrang()
@@ -168,6 +172,7 @@ namespace QuanLyDoanVien
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
+            this.groupBox2.Enabled = true;
             load_HienThiSV();
         }
 
@@ -327,6 +332,8 @@ namespace QuanLyDoanVien
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            groupBox2.Enabled = true;
+
             sinhviens = db.GetTable<SinhVien>();
             lopquanlys = db.GetTable<LopQuanLy>();
             tinhtranghoctaps = db.GetTable<TinhTrangHocTap>();
@@ -353,6 +360,7 @@ namespace QuanLyDoanVien
                                   sv.NgayVaoDoan
                               };
             dtgSinhVien.DataSource = GetSinhVien;
+            BiddingSinhVien();
         }
 
         private void KhongNhap()
@@ -370,6 +378,15 @@ namespace QuanLyDoanVien
         {
             e.Handled = true;
         }
-        
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
