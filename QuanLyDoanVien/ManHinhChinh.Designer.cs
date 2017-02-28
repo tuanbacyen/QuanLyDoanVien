@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.reportHDD = new System.Windows.Forms.ToolStripMenuItem();
             this.reportDP = new System.Windows.Forms.ToolStripMenuItem();
             this.reportBC = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportSHD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateCSHD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateHDD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateDP = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,34 +55,21 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // reportHDD
-            // 
-            this.reportHDD.Name = "reportHDD";
-            this.reportHDD.Size = new System.Drawing.Size(248, 22);
-            this.reportHDD.Text = "Báo Cáo Hoạt Động Đoàn";
-            // 
             // reportDP
             // 
             this.reportDP.Name = "reportDP";
-            this.reportDP.Size = new System.Drawing.Size(248, 22);
-            this.reportDP.Text = "Báo Cáo Đoàn Phí";
+            this.reportDP.Size = new System.Drawing.Size(155, 22);
+            this.reportDP.Text = "Báo Cáo chung";
+            this.reportDP.Click += new System.EventHandler(this.reportDP_Click);
             // 
             // reportBC
             // 
             this.reportBC.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportDP,
-            this.reportHDD,
-            this.reportSHD});
+            this.reportDP});
             this.reportBC.Image = ((System.Drawing.Image)(resources.GetObject("reportBC.Image")));
             this.reportBC.Name = "reportBC";
             this.reportBC.Size = new System.Drawing.Size(82, 20);
             this.reportBC.Text = "Báo Cáo ";
-            // 
-            // reportSHD
-            // 
-            this.reportSHD.Name = "reportSHD";
-            this.reportSHD.Size = new System.Drawing.Size(248, 22);
-            this.reportSHD.Text = "Báo Cáo Chuyển Sinh Hoạt Đoàn";
             // 
             // mnUpdateCSHD
             // 
@@ -273,10 +258,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem reportHDD;
         private System.Windows.Forms.ToolStripMenuItem reportDP;
         private System.Windows.Forms.ToolStripMenuItem reportBC;
-        private System.Windows.Forms.ToolStripMenuItem reportSHD;
         private System.Windows.Forms.ToolStripMenuItem mnUpdateCSHD;
         private System.Windows.Forms.ToolStripMenuItem mnUpdateHDD;
         private System.Windows.Forms.ToolStripMenuItem mnUpdateDP;
