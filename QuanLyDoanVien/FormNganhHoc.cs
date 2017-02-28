@@ -23,8 +23,8 @@ namespace QuanLyDoanVien
 
         private void load_data()
         {
-            HienThiNganhHoc();
             HienThiKhoaLenCombobox();
+            HienThiNganhHoc();
             Clear();
             bidding();
         }
@@ -64,6 +64,23 @@ namespace QuanLyDoanVien
                               join kh in khoas on nh.MaKhoa equals kh.MaKhoa
                               orderby nh.NganhHocID
                               select new { STT= nh.NganhHocID, nh.MaNganh, nh.TenNganh, kh.TenKhoa };
+
+            //get data
+            dtgNganhHoc.DataSource = GetNganhHoc;
+        }
+
+        private void HienThiNganhHoc(string maKhoa)
+        {
+
+            nganhHocs = db.GetTable<NganhHoc>();
+            khoas = db.GetTable<Khoa>();
+
+            // viết linQ
+            var GetNganhHoc = from nh in nganhHocs
+                              join kh in khoas on nh.MaKhoa equals kh.MaKhoa
+                              where nh.MaKhoa == maKhoa
+                              orderby nh.NganhHocID
+                              select new { STT = nh.NganhHocID, nh.MaNganh, nh.TenNganh, kh.TenKhoa };
 
             //get data
             dtgNganhHoc.DataSource = GetNganhHoc;
@@ -148,5 +165,10 @@ namespace QuanLyDoanVien
             cbKhoa.DataBindings.Add("text", dtgNganhHoc.DataSource, "TenKhoa");
         }
 
+        private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HienThiNganhHoc(cbKhoa.SelectedValue.ToString());
+            bidding();
+        }
     }
 }

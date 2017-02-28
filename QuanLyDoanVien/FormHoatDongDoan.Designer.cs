@@ -50,21 +50,23 @@
             this.dtNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.dtNgayKetThuc = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHoatDongDoan)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTieuDe
             // 
-            this.txtTieuDe.Location = new System.Drawing.Point(318, 41);
+            this.txtTieuDe.Location = new System.Drawing.Point(113, 51);
             this.txtTieuDe.Name = "txtTieuDe";
-            this.txtTieuDe.Size = new System.Drawing.Size(172, 20);
+            this.txtTieuDe.Size = new System.Drawing.Size(304, 20);
             this.txtTieuDe.TabIndex = 195;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 48);
+            this.label4.Location = new System.Drawing.Point(26, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 194;
@@ -72,7 +74,7 @@
             // 
             // txtMaSinhVien
             // 
-            this.txtMaSinhVien.Location = new System.Drawing.Point(89, 45);
+            this.txtMaSinhVien.Location = new System.Drawing.Point(113, 25);
             this.txtMaSinhVien.Name = "txtMaSinhVien";
             this.txtMaSinhVien.Size = new System.Drawing.Size(125, 20);
             this.txtMaSinhVien.TabIndex = 191;
@@ -80,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 48);
+            this.label2.Location = new System.Drawing.Point(28, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 190;
@@ -88,9 +90,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(344, 19);
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoa.Location = new System.Drawing.Point(584, 128);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(74, 31);
+            this.btnXoa.Size = new System.Drawing.Size(92, 31);
             this.btnXoa.TabIndex = 78;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -98,9 +101,10 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(184, 19);
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThem.Location = new System.Drawing.Point(584, 54);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(74, 31);
+            this.btnThem.Size = new System.Drawing.Size(92, 31);
             this.btnThem.TabIndex = 76;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -108,9 +112,10 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(504, 56);
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimKiem.Location = new System.Drawing.Point(484, 17);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(74, 31);
+            this.btnTimKiem.Size = new System.Drawing.Size(94, 31);
             this.btnTimKiem.TabIndex = 86;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -118,9 +123,10 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(264, 19);
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Location = new System.Drawing.Point(584, 91);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(74, 31);
+            this.btnSua.Size = new System.Drawing.Size(92, 31);
             this.btnSua.TabIndex = 87;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -128,9 +134,10 @@
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(504, 19);
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.Location = new System.Drawing.Point(584, 294);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(74, 30);
+            this.btnIn.Size = new System.Drawing.Size(92, 30);
             this.btnIn.TabIndex = 90;
             this.btnIn.Text = "In";
             this.btnIn.UseVisualStyleBackColor = true;
@@ -138,7 +145,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 76);
+            this.label5.Location = new System.Drawing.Point(244, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 184;
@@ -147,32 +154,38 @@
             // cbCanBo
             // 
             this.cbCanBo.FormattingEnabled = true;
-            this.cbCanBo.Location = new System.Drawing.Point(90, 76);
+            this.cbCanBo.Location = new System.Drawing.Point(292, 25);
             this.cbCanBo.Name = "cbCanBo";
             this.cbCanBo.Size = new System.Drawing.Size(125, 21);
             this.cbCanBo.TabIndex = 185;
             // 
             // txtTimKiem
             // 
+            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimKiem.Location = new System.Drawing.Point(184, 54);
+            this.txtTimKiem.Location = new System.Drawing.Point(6, 19);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(314, 29);
+            this.txtTimKiem.Size = new System.Drawing.Size(472, 29);
             this.txtTimKiem.TabIndex = 94;
             // 
             // dtgHoatDongDoan
             // 
+            this.dtgHoatDongDoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgHoatDongDoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgHoatDongDoan.Location = new System.Drawing.Point(0, 89);
+            this.dtgHoatDongDoan.Location = new System.Drawing.Point(6, 54);
             this.dtgHoatDongDoan.Name = "dtgHoatDongDoan";
-            this.dtgHoatDongDoan.Size = new System.Drawing.Size(734, 263);
+            this.dtgHoatDongDoan.Size = new System.Drawing.Size(572, 270);
             this.dtgHoatDongDoan.TabIndex = 89;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(424, 19);
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Location = new System.Drawing.Point(584, 165);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(74, 31);
+            this.btnClear.Size = new System.Drawing.Size(92, 31);
             this.btnClear.TabIndex = 81;
             this.btnClear.Text = "Xóa trắng";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -180,6 +193,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtTimKiem);
             this.groupBox1.Controls.Add(this.dtgHoatDongDoan);
             this.groupBox1.Controls.Add(this.btnIn);
@@ -188,35 +204,36 @@
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnThem);
-            this.groupBox1.Location = new System.Drawing.Point(12, 103);
+            this.groupBox1.Location = new System.Drawing.Point(12, 221);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(740, 356);
+            this.groupBox1.Size = new System.Drawing.Size(682, 330);
             this.groupBox1.TabIndex = 183;
             this.groupBox1.TabStop = false;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 18F);
             this.label3.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label3.Location = new System.Drawing.Point(230, 10);
+            this.label3.Location = new System.Drawing.Point(183, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(269, 20);
+            this.label3.Size = new System.Drawing.Size(350, 32);
             this.label3.TabIndex = 182;
             this.label3.Text = "THÔNG TIN HOẠT ĐỘNG ĐOÀN";
             // 
             // txtDiaDiem
             // 
-            this.txtDiaDiem.Location = new System.Drawing.Point(563, 40);
+            this.txtDiaDiem.Location = new System.Drawing.Point(113, 103);
             this.txtDiaDiem.Multiline = true;
             this.txtDiaDiem.Name = "txtDiaDiem";
-            this.txtDiaDiem.Size = new System.Drawing.Size(189, 56);
+            this.txtDiaDiem.Size = new System.Drawing.Size(304, 42);
             this.txtDiaDiem.TabIndex = 197;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(507, 44);
+            this.label1.Location = new System.Drawing.Point(26, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 196;
@@ -225,7 +242,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(231, 79);
+            this.label6.Location = new System.Drawing.Point(26, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 198;
@@ -235,47 +252,57 @@
             // 
             this.dtNgayBatDau.Enabled = false;
             this.dtNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNgayBatDau.Location = new System.Drawing.Point(309, 77);
+            this.dtNgayBatDau.Location = new System.Drawing.Point(113, 77);
             this.dtNgayBatDau.Name = "dtNgayBatDau";
-            this.dtNgayBatDau.Size = new System.Drawing.Size(81, 20);
+            this.dtNgayBatDau.Size = new System.Drawing.Size(125, 20);
             this.dtNgayBatDau.TabIndex = 220;
             // 
             // dtNgayKetThuc
             // 
             this.dtNgayKetThuc.Enabled = false;
             this.dtNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNgayKetThuc.Location = new System.Drawing.Point(476, 76);
+            this.dtNgayKetThuc.Location = new System.Drawing.Point(324, 77);
             this.dtNgayKetThuc.Name = "dtNgayKetThuc";
-            this.dtNgayKetThuc.Size = new System.Drawing.Size(81, 20);
+            this.dtNgayKetThuc.Size = new System.Drawing.Size(93, 20);
             this.dtNgayKetThuc.TabIndex = 222;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(398, 79);
+            this.label7.Location = new System.Drawing.Point(244, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 221;
             this.label7.Text = "Ngày kêt thúc";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.dtNgayKetThuc);
+            this.groupBox2.Controls.Add(this.cbCanBo);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.dtNgayBatDau);
+            this.groupBox2.Controls.Add(this.txtMaSinhVien);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtDiaDiem);
+            this.groupBox2.Controls.Add(this.txtTieuDe);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(135, 56);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(444, 159);
+            this.groupBox2.TabIndex = 223;
+            this.groupBox2.TabStop = false;
+            // 
             // FormHoatDongDoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 460);
-            this.Controls.Add(this.dtNgayKetThuc);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.dtNgayBatDau);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDiaDiem);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTieuDe);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtMaSinhVien);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(706, 563);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cbCanBo);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormHoatDongDoan";
             this.Text = "FormHoatDongDoan";
@@ -283,6 +310,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgHoatDongDoan)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +341,6 @@
         private System.Windows.Forms.DateTimePicker dtNgayBatDau;
         private System.Windows.Forms.DateTimePicker dtNgayKetThuc;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

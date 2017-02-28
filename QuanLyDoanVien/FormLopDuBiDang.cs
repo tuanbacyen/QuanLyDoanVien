@@ -16,7 +16,7 @@ namespace QuanLyDoanVien
     {
         QuanLyDoanVienDataContext data = new QuanLyDoanVienDataContext();
         Table<LopDuBiCamTinhDang> lopdubi;
-        Table<SinhVien> sinhvien;
+        //Table<SinhVien> sinhvien;
         public FormLopDuBiDang()
         {
             InitializeComponent();
