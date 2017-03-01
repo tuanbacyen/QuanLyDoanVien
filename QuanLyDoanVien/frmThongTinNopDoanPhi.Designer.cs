@@ -72,6 +72,9 @@
             // 
             // gbxThongTinNopDoanPhi
             // 
+            this.gbxThongTinNopDoanPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxThongTinNopDoanPhi.Controls.Add(this.lblTimKiem);
             this.gbxThongTinNopDoanPhi.Controls.Add(this.dgvThongTinNopDoanPhi);
             this.gbxThongTinNopDoanPhi.Controls.Add(this.txtTimKiem);
@@ -85,6 +88,7 @@
             // 
             // lblTimKiem
             // 
+            this.lblTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTimKiem.AutoSize = true;
             this.lblTimKiem.Location = new System.Drawing.Point(9, 441);
             this.lblTimKiem.Name = "lblTimKiem";
@@ -96,6 +100,9 @@
             // 
             this.dgvThongTinNopDoanPhi.AllowUserToAddRows = false;
             this.dgvThongTinNopDoanPhi.AllowUserToDeleteRows = false;
+            this.dgvThongTinNopDoanPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvThongTinNopDoanPhi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongTinNopDoanPhi.Location = new System.Drawing.Point(6, 19);
             this.dgvThongTinNopDoanPhi.Name = "dgvThongTinNopDoanPhi";
@@ -105,6 +112,8 @@
             // 
             // txtTimKiem
             // 
+            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiem.Location = new System.Drawing.Point(87, 436);
             this.txtTimKiem.Name = "txtTimKiem";
@@ -113,6 +122,7 @@
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTimKiem.Location = new System.Drawing.Point(405, 436);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
@@ -189,6 +199,7 @@
             // 
             // gbxCongCuLoc
             // 
+            this.gbxCongCuLoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxCongCuLoc.Controls.Add(this.lblKhoa);
             this.gbxCongCuLoc.Controls.Add(this.btnLoc);
             this.gbxCongCuLoc.Controls.Add(this.cbxLop);
@@ -205,6 +216,7 @@
             // 
             // gbxQuanLyThongTin
             // 
+            this.gbxQuanLyThongTin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxQuanLyThongTin.Controls.Add(this.btnHuy);
             this.gbxQuanLyThongTin.Controls.Add(this.chkGhiNo);
             this.gbxQuanLyThongTin.Controls.Add(this.linkLabel1);
@@ -402,6 +414,7 @@
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Location = new System.Drawing.Point(613, 510);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(123, 23);
@@ -412,6 +425,7 @@
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.Location = new System.Drawing.Point(504, 510);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(103, 23);
