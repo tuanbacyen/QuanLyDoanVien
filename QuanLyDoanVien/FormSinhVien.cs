@@ -117,7 +117,23 @@ namespace QuanLyDoanVien
                               join lql in lopquanlys on sv.MaLop equals lql.MaLop
                               join tc in tinhtranghoctaps on sv.MaTinhTrangHocTap equals tc.MaTinhTrangHocTap
                               where sv.MaLop == maLop && sv.Xoa == false
-                              select new { sv.MaSinhVien, sv.HoDem, sv.Ten, sv.HoVaTenKhaiSinh, sv.HoTenKhac, GioiTinh = GioiTinh(sv.GioiTinh), sv.NgaySinh, lql.TenLop, sv.DanToc, sv.TonGiao, tc.TenTinhTrangHocTap, sv.DiaChi, sv.SoDienThoai, sv.NgayVaoDoan };
+                              select new
+                              {
+                                  sv.MaSinhVien,
+                                  sv.HoDem,
+                                  sv.Ten,
+                                  sv.HoVaTenKhaiSinh,
+                                  sv.HoTenKhac,
+                                  GioiTinh = GioiTinh(sv.GioiTinh),
+                                  sv.NgaySinh,
+                                  lql.TenLop,
+                                  sv.DanToc,
+                                  sv.TonGiao,
+                                  tc.TenTinhTrangHocTap,
+                                  sv.DiaChi,
+                                  sv.SoDienThoai,
+                                  sv.NgayVaoDoan
+                              };
             if (GetSinhVien.Count() == 0)
             {
                 dtgSinhVien.DataSource = null;

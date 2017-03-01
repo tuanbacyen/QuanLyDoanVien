@@ -50,9 +50,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbCanBo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtNgayChuyen = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rdCL = new System.Windows.Forms.RadioButton();
             this.rdCT = new System.Windows.Forms.RadioButton();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbLopLC = new System.Windows.Forms.ComboBox();
             this.lblLop = new System.Windows.Forms.Label();
@@ -60,9 +63,6 @@
             this.lblNganh = new System.Windows.Forms.Label();
             this.cbKhoaLC = new System.Windows.Forms.ComboBox();
             this.lblKhoa = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtNgayChuyen = new System.Windows.Forms.DateTimePicker();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.btnChuyen = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -307,6 +307,23 @@
             this.label4.TabIndex = 222;
             this.label4.Text = "Cán Bộ Ký";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 220;
+            this.label1.Text = "Ngày chuyển";
+            // 
+            // dtNgayChuyen
+            // 
+            this.dtNgayChuyen.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayChuyen.Location = new System.Drawing.Point(91, 52);
+            this.dtNgayChuyen.Name = "dtNgayChuyen";
+            this.dtNgayChuyen.Size = new System.Drawing.Size(158, 20);
+            this.dtNgayChuyen.TabIndex = 219;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -351,6 +368,16 @@
             this.rdCT.Text = "Chuyển Trường";
             this.rdCT.UseVisualStyleBackColor = true;
             this.rdCT.CheckedChanged += new System.EventHandler(this.rdCT_CheckedChanged);
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Enabled = false;
+            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtDiaChi.Location = new System.Drawing.Point(60, 123);
+            this.txtDiaChi.Multiline = true;
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(189, 98);
+            this.txtDiaChi.TabIndex = 220;
             // 
             // label5
             // 
@@ -413,33 +440,6 @@
             this.lblKhoa.Size = new System.Drawing.Size(32, 13);
             this.lblKhoa.TabIndex = 160;
             this.lblKhoa.Text = "Khoa";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 220;
-            this.label1.Text = "Ngày chuyển";
-            // 
-            // dtNgayChuyen
-            // 
-            this.dtNgayChuyen.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNgayChuyen.Location = new System.Drawing.Point(91, 52);
-            this.dtNgayChuyen.Name = "dtNgayChuyen";
-            this.dtNgayChuyen.Size = new System.Drawing.Size(158, 20);
-            this.dtNgayChuyen.TabIndex = 219;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Enabled = false;
-            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDiaChi.Location = new System.Drawing.Point(60, 123);
-            this.txtDiaChi.Multiline = true;
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(189, 98);
-            this.txtDiaChi.TabIndex = 220;
             // 
             // btnChuyen
             // 

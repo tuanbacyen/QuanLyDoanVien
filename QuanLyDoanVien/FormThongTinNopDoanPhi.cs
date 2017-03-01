@@ -46,13 +46,13 @@ namespace QuanLyDoanVien
                         select new
                         {
                             thongtin.SoPhieu,
+                            thongtin.GhiNo,
                             thongtin.SoTien,
                             thongtin.NgayNop,
-                            TenSinhVien = sv.HoDem+" "+sv.Ten,
+                            TenSinhVien = sv.HoDem + " " + sv.Ten,
                             sv.MaSinhVien,
                             CanBo = canbo.HoVaTenKhaiSinh,
                             canbo.MaCanBoDoan,
-                            thongtin.GhiNo,
                             thongtin.NoiDung
                         };
 
@@ -112,6 +112,7 @@ namespace QuanLyDoanVien
             dtNgayNop.DataBindings.Clear();
             txtSoTien.DataBindings.Clear();
             cbNo.DataBindings.Clear();
+            
 
             cbSinhVien.DataBindings.Add("text", dtgNopDoanPhi.DataSource, "MaSinhVien");
             cbCanBo.DataBindings.Add("text", dtgNopDoanPhi.DataSource, "CanBo");
@@ -172,6 +173,7 @@ namespace QuanLyDoanVien
                         obj.NoiDung = txtNoiDung.Text.Trim();
                         obj.MaCanBoDoan = cbCanBo.SelectedValue.ToString().Trim();
                         obj.MaSinhVien = cbSinhVien.SelectedValue.ToString().Trim();
+                        obj.GhiNo = cbNo.Checked ? true : false;
 
                         //Add this object to database
                         THONGTINNOPDOANPHI = database.GetTable<ThongTinNopDoanPhi>();
@@ -213,6 +215,7 @@ namespace QuanLyDoanVien
                         obj.NoiDung = txtNoiDung.Text.Trim();
                         obj.MaCanBoDoan = cbCanBo.SelectedValue.ToString().Trim();
                         obj.MaSinhVien = cbSinhVien.SelectedValue.ToString().Trim();
+                        obj.GhiNo = cbNo.Checked ? true : false;
 
                         database.SubmitChanges();
                         MessageBox.Show("Sửa thành công", "Thông Báo");
@@ -274,25 +277,25 @@ namespace QuanLyDoanVien
                         join canbo in CANBOVPDOAN on thongtin.MaCanBoDoan equals canbo.MaCanBoDoan
                         join sv in SINHVIEN on thongtin.MaSinhVien equals sv.MaSinhVien
                         where thongtin.SoPhieu.Contains(timkiem) ||
-                            thongtin.SoTien.ToString().Contains(timkiem) ||
-                            thongtin.NgayNop.ToString().Contains(timkiem) ||
-                            (sv.HoDem + " " + sv.Ten).Contains(timkiem) ||
-                            sv.MaSinhVien.Contains(timkiem) ||
-                            canbo.HoVaTenKhaiSinh.Contains(timkiem) ||
-                            canbo.MaCanBoDoan.Contains(timkiem) ||
-                            thongtin.GhiNo.ToString().Contains(timkiem) ||
-                            thongtin.NoiDung.Contains(timkiem)
+                            //thongtin.SoTien.ToString().Contains(timkiem) ||
+                            //thongtin.NgayNop.ToString().Contains(timkiem) ||
+                            sv.HoVaTenKhaiSinh.Contains(timkiem) ||
+                            sv.MaSinhVien.Contains(timkiem)
+                            //canbo.HoVaTenKhaiSinh.Contains(timkiem) ||
+                            //canbo.MaCanBoDoan.Contains(timkiem) ||
+                            //thongtin.GhiNo.ToString().Contains(timkiem) ||
+                            //thongtin.NoiDung.Contains(timkiem)
                         orderby thongtin.id
                         select new
                         {
                             thongtin.SoPhieu,
+                            thongtin.GhiNo,
                             thongtin.SoTien,
                             thongtin.NgayNop,
                             TenSinhVien = sv.HoDem + " " + sv.Ten,
                             sv.MaSinhVien,
                             CanBo = canbo.HoVaTenKhaiSinh,
                             canbo.MaCanBoDoan,
-                            thongtin.GhiNo,
                             thongtin.NoiDung
                         };
 
