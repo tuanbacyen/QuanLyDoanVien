@@ -39,6 +39,7 @@
             this.gbxDanhSach = new System.Windows.Forms.GroupBox();
             this.lblTimKiem = new System.Windows.Forms.Label();
             this.dgvDanhSachSinhVien = new System.Windows.Forms.DataGridView();
+            this.DaThuTien = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.gbxThongTin = new System.Windows.Forms.GroupBox();
@@ -53,7 +54,6 @@
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.chkXacNhan = new System.Windows.Forms.CheckBox();
-            this.DaThuTien = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.gbxCongCuLoc.SuspendLayout();
             this.gbxDanhSach.SuspendLayout();
@@ -185,6 +185,11 @@
             this.dgvDanhSachSinhVien.Name = "dgvDanhSachSinhVien";
             this.dgvDanhSachSinhVien.Size = new System.Drawing.Size(429, 411);
             this.dgvDanhSachSinhVien.TabIndex = 0;
+            // 
+            // DaThuTien
+            // 
+            this.DaThuTien.HeaderText = "Đã thu tiền";
+            this.DaThuTien.Name = "DaThuTien";
             // 
             // txtTimKiem
             // 
@@ -328,11 +333,6 @@
             this.chkXacNhan.UseVisualStyleBackColor = true;
             this.chkXacNhan.CheckedChanged += new System.EventHandler(this.chkXacNhan_CheckedChanged);
             // 
-            // DaThuTien
-            // 
-            this.DaThuTien.HeaderText = "Đã thu tiền";
-            this.DaThuTien.Name = "DaThuTien";
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -349,6 +349,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(723, 558);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkXacNhan);
@@ -357,6 +358,7 @@
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.gbxDanhSach);
             this.Controls.Add(this.gbxCongCuLoc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmThongTinNopDoanPhi_Them";
             this.Text = "frmThongTinNopDoanPhi_Them";
             this.gbxCongCuLoc.ResumeLayout(false);
