@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.reportHDD = new System.Windows.Forms.ToolStripMenuItem();
             this.reportDP = new System.Windows.Forms.ToolStripMenuItem();
             this.reportBC = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportSHD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateCSHD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateHDD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateDP = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,37 +52,30 @@
             this.mnConnect = new System.Windows.Forms.ToolStripMenuItem();
             this.mnQLHT = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.báoCáoChuyểnLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoNợĐoànPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // reportHDD
-            // 
-            this.reportHDD.Name = "reportHDD";
-            this.reportHDD.Size = new System.Drawing.Size(248, 22);
-            this.reportHDD.Text = "Báo Cáo Hoạt Động Đoàn";
             // 
             // reportDP
             // 
             this.reportDP.Name = "reportDP";
-            this.reportDP.Size = new System.Drawing.Size(248, 22);
-            this.reportDP.Text = "Báo Cáo Đoàn Phí";
+            this.reportDP.Size = new System.Drawing.Size(220, 22);
+            this.reportDP.Text = "Báo Cáo chuyển trường";
+            this.reportDP.Click += new System.EventHandler(this.reportDP_Click);
             // 
             // reportBC
             // 
             this.reportBC.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reportDP,
-            this.reportHDD,
-            this.reportSHD});
+            this.báoCáoChuyểnLớpToolStripMenuItem,
+            this.báoCáoNợĐoànPhíToolStripMenuItem,
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem});
             this.reportBC.Image = ((System.Drawing.Image)(resources.GetObject("reportBC.Image")));
             this.reportBC.Name = "reportBC";
             this.reportBC.Size = new System.Drawing.Size(82, 20);
             this.reportBC.Text = "Báo Cáo ";
-            // 
-            // reportSHD
-            // 
-            this.reportSHD.Name = "reportSHD";
-            this.reportSHD.Size = new System.Drawing.Size(248, 22);
-            this.reportSHD.Text = "Báo Cáo Chuyển Sinh Hoạt Đoàn";
             // 
             // mnUpdateCSHD
             // 
@@ -257,6 +248,27 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // báoCáoChuyểnLớpToolStripMenuItem
+            // 
+            this.báoCáoChuyểnLớpToolStripMenuItem.Name = "báoCáoChuyểnLớpToolStripMenuItem";
+            this.báoCáoChuyểnLớpToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.báoCáoChuyểnLớpToolStripMenuItem.Text = "Báo Cáo chuyển lớp";
+            this.báoCáoChuyểnLớpToolStripMenuItem.Click += new System.EventHandler(this.báoCáoChuyểnLớpToolStripMenuItem_Click);
+            // 
+            // báoCáoNợĐoànPhíToolStripMenuItem
+            // 
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Name = "báoCáoNợĐoànPhíToolStripMenuItem";
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Text = "Báo Cáo nợ đoàn phí";
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Click += new System.EventHandler(this.báoCáoNợĐoànPhíToolStripMenuItem_Click);
+            // 
+            // báoCáoTổngThuĐoànPhíToolStripMenuItem
+            // 
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Name = "báoCáoTổngThuĐoànPhíToolStripMenuItem";
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Text = "Báo Cáo Tổng thu đoàn phí";
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Click += new System.EventHandler(this.báoCáoTổngThuĐoànPhíToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,10 +285,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem reportHDD;
         private System.Windows.Forms.ToolStripMenuItem reportDP;
         private System.Windows.Forms.ToolStripMenuItem reportBC;
-        private System.Windows.Forms.ToolStripMenuItem reportSHD;
         private System.Windows.Forms.ToolStripMenuItem mnUpdateCSHD;
         private System.Windows.Forms.ToolStripMenuItem mnUpdateHDD;
         private System.Windows.Forms.ToolStripMenuItem mnUpdateDP;
@@ -298,5 +308,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnLoaiHeDaoTao;
         private System.Windows.Forms.ToolStripMenuItem mnTinhTrangHocTap;
         private System.Windows.Forms.ToolStripMenuItem mnDuBiDang;
+        private System.Windows.Forms.ToolStripMenuItem báoCáoChuyểnLớpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem báoCáoNợĐoànPhíToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem báoCáoTổngThuĐoànPhíToolStripMenuItem;
     }
 }

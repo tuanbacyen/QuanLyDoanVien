@@ -3215,6 +3215,8 @@ namespace QuanLyDoanVien
 		
 		private string _MaSinhVien;
 		
+		private bool _ChuyenTruong;
+		
 		private EntityRef<CanBoVPDoan> _CanBoVPDoan;
 		
 		private EntityRef<SinhVien> _SinhVien;
@@ -3233,6 +3235,8 @@ namespace QuanLyDoanVien
     partial void OnMaCanBoDoanChanged();
     partial void OnMaSinhVienChanging(string value);
     partial void OnMaSinhVienChanged();
+    partial void OnChuyenTruongChanging(bool value);
+    partial void OnChuyenTruongChanged();
     #endregion
 		
 		public ThongTinChuyenSinhHoatDoan()
@@ -3346,6 +3350,26 @@ namespace QuanLyDoanVien
 					this._MaSinhVien = value;
 					this.SendPropertyChanged("MaSinhVien");
 					this.OnMaSinhVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChuyenTruong", DbType="Bit NOT NULL")]
+		public bool ChuyenTruong
+		{
+			get
+			{
+				return this._ChuyenTruong;
+			}
+			set
+			{
+				if ((this._ChuyenTruong != value))
+				{
+					this.OnChuyenTruongChanging(value);
+					this.SendPropertyChanging();
+					this._ChuyenTruong = value;
+					this.SendPropertyChanged("ChuyenTruong");
+					this.OnChuyenTruongChanged();
 				}
 			}
 		}

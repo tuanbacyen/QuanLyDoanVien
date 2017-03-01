@@ -33,10 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationSetting.cs" />
+    <Compile Include="FormBaoCaoChuyenTruong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCaoChuyenTruong.Designer.cs">
+      <DependentUpon>FormBaoCaoChuyenTruong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCanBoVanPhongDoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,12 +180,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLDV.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDV.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyDoanVien.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyDoanVien.dbml</DependentUpon>
     </Compile>
     <Compile Include="SqlHelper.cs" />
+    <EmbeddedResource Include="FormBaoCaoChuyenTruong.resx">
+      <DependentUpon>FormBaoCaoChuyenTruong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCanBoVanPhongDoan.resx">
       <DependentUpon>FormCanBoVanPhongDoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +260,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SinhVienChuyenLop.rdlc" />
+    <EmbeddedResource Include="SinhVienChuyenTruong.rdlc" />
+    <EmbeddedResource Include="SinhVienNoDoanPhi.rdlc" />
+    <EmbeddedResource Include="TongThuDoanPhi.rdlc" />
+    <None Include="QLDV.xsc">
+      <DependentUpon>QLDV.xsd</DependentUpon>
+    </None>
+    <None Include="QLDV.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDV.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QLDV.xss">
+      <DependentUpon>QLDV.xsd</DependentUpon>
+    </None>
     <None Include="QuanLyDoanVien.dbml.layout">
       <DependentUpon>QuanLyDoanVien.dbml</DependentUpon>
     </None>
