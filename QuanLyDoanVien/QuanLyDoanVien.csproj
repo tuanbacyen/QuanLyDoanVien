@@ -145,6 +145,18 @@
     <Compile Include="FormTinhTrangHocTap.Designer.cs">
       <DependentUpon>FormTinhTrangHocTap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThongTinNopDoanPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi.Designer.cs">
+      <DependentUpon>frmThongTinNopDoanPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi_Them.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi_Them.Designer.cs">
+      <DependentUpon>frmThongTinNopDoanPhi_Them.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManHinhChinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTinhTrangHocTap.resx">
       <DependentUpon>FormTinhTrangHocTap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinNopDoanPhi.resx">
+      <DependentUpon>frmThongTinNopDoanPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinNopDoanPhi_Them.resx">
+      <DependentUpon>frmThongTinNopDoanPhi_Them.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
