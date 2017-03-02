@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinNopDoanPhi));
             this.gbxThongTinNopDoanPhi = new System.Windows.Forms.GroupBox();
             this.lblTimKiem = new System.Windows.Forms.Label();
             this.dgvThongTinNopDoanPhi = new System.Windows.Forms.DataGridView();
@@ -75,6 +76,7 @@
             this.gbxThongTinNopDoanPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxThongTinNopDoanPhi.BackColor = System.Drawing.Color.Transparent;
             this.gbxThongTinNopDoanPhi.Controls.Add(this.lblTimKiem);
             this.gbxThongTinNopDoanPhi.Controls.Add(this.dgvThongTinNopDoanPhi);
             this.gbxThongTinNopDoanPhi.Controls.Add(this.txtTimKiem);
@@ -277,9 +279,9 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(136, 242);
+            this.btnXoa.Location = new System.Drawing.Point(137, 242);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(42, 23);
+            this.btnXoa.Size = new System.Drawing.Size(41, 23);
             this.btnXoa.TabIndex = 15;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -289,7 +291,7 @@
             // 
             this.btnLuu.Location = new System.Drawing.Point(84, 242);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(46, 23);
+            this.btnLuu.Size = new System.Drawing.Size(47, 23);
             this.btnLuu.TabIndex = 10;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -450,6 +452,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(748, 551);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnSua);
@@ -457,8 +461,9 @@
             this.Controls.Add(this.gbxQuanLyThongTin);
             this.Controls.Add(this.gbxCongCuLoc);
             this.Controls.Add(this.gbxThongTinNopDoanPhi);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThongTinNopDoanPhi";
-            this.Text = "frmThongTinNopDoanPhi";
+            this.Text = "Thông tin nộp phí đoàn";
             this.gbxThongTinNopDoanPhi.ResumeLayout(false);
             this.gbxThongTinNopDoanPhi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinNopDoanPhi)).EndInit();

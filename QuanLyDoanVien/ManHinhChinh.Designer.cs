@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.reportDP = new System.Windows.Forms.ToolStripMenuItem();
             this.reportBC = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoChuyểnLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoNợĐoànPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateCSHD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateHDD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnUpdateDP = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,9 +55,6 @@
             this.mnConnect = new System.Windows.Forms.ToolStripMenuItem();
             this.mnQLHT = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.báoCáoChuyểnLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoNợĐoànPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoTổngThuĐoànPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,27 @@
             this.reportBC.Name = "reportBC";
             this.reportBC.Size = new System.Drawing.Size(82, 20);
             this.reportBC.Text = "Báo Cáo ";
+            // 
+            // báoCáoChuyểnLớpToolStripMenuItem
+            // 
+            this.báoCáoChuyểnLớpToolStripMenuItem.Name = "báoCáoChuyểnLớpToolStripMenuItem";
+            this.báoCáoChuyểnLớpToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.báoCáoChuyểnLớpToolStripMenuItem.Text = "Báo Cáo chuyển lớp";
+            this.báoCáoChuyểnLớpToolStripMenuItem.Click += new System.EventHandler(this.báoCáoChuyểnLớpToolStripMenuItem_Click);
+            // 
+            // báoCáoNợĐoànPhíToolStripMenuItem
+            // 
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Name = "báoCáoNợĐoànPhíToolStripMenuItem";
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Text = "Báo Cáo nợ đoàn phí";
+            this.báoCáoNợĐoànPhíToolStripMenuItem.Click += new System.EventHandler(this.báoCáoNợĐoànPhíToolStripMenuItem_Click);
+            // 
+            // báoCáoTổngThuĐoànPhíToolStripMenuItem
+            // 
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Name = "báoCáoTổngThuĐoànPhíToolStripMenuItem";
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Text = "Báo Cáo Tổng thu đoàn phí";
+            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Click += new System.EventHandler(this.báoCáoTổngThuĐoànPhíToolStripMenuItem_Click);
             // 
             // mnUpdateCSHD
             // 
@@ -244,37 +265,17 @@
             this.reportBC});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(513, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(655, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // báoCáoChuyểnLớpToolStripMenuItem
-            // 
-            this.báoCáoChuyểnLớpToolStripMenuItem.Name = "báoCáoChuyểnLớpToolStripMenuItem";
-            this.báoCáoChuyểnLớpToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.báoCáoChuyểnLớpToolStripMenuItem.Text = "Báo Cáo chuyển lớp";
-            this.báoCáoChuyểnLớpToolStripMenuItem.Click += new System.EventHandler(this.báoCáoChuyểnLớpToolStripMenuItem_Click);
-            // 
-            // báoCáoNợĐoànPhíToolStripMenuItem
-            // 
-            this.báoCáoNợĐoànPhíToolStripMenuItem.Name = "báoCáoNợĐoànPhíToolStripMenuItem";
-            this.báoCáoNợĐoànPhíToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.báoCáoNợĐoànPhíToolStripMenuItem.Text = "Báo Cáo nợ đoàn phí";
-            this.báoCáoNợĐoànPhíToolStripMenuItem.Click += new System.EventHandler(this.báoCáoNợĐoànPhíToolStripMenuItem_Click);
-            // 
-            // báoCáoTổngThuĐoànPhíToolStripMenuItem
-            // 
-            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Name = "báoCáoTổngThuĐoànPhíToolStripMenuItem";
-            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Text = "Báo Cáo Tổng thu đoàn phí";
-            this.báoCáoTổngThuĐoànPhíToolStripMenuItem.Click += new System.EventHandler(this.báoCáoTổngThuĐoànPhíToolStripMenuItem_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 261);
+            this.ClientSize = new System.Drawing.Size(655, 413);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Màn Hình Chính";
             this.menuStrip1.ResumeLayout(false);

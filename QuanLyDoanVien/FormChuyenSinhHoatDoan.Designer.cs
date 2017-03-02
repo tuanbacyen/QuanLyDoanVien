@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChuyenSinhHoatDoan));
             this.label3 = new System.Windows.Forms.Label();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dtgSinhVien = new System.Windows.Forms.DataGridView();
@@ -54,6 +55,7 @@
             this.dtNgayChuyen = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rdCL = new System.Windows.Forms.RadioButton();
+            this.btnXoaTrang = new System.Windows.Forms.Button();
             this.rdCT = new System.Windows.Forms.RadioButton();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,7 +68,6 @@
             this.btnChuyen = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnXoaTrang = new System.Windows.Forms.Button();
             this.lblid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSinhVien)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -90,11 +91,14 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTimKiem.Location = new System.Drawing.Point(670, 38);
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(627, 38);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(77, 29);
             this.btnTimKiem.TabIndex = 86;
             this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -121,7 +125,7 @@
             // 
             this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimKiem.Location = new System.Drawing.Point(400, 38);
+            this.txtTimKiem.Location = new System.Drawing.Point(357, 38);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(264, 29);
             this.txtTimKiem.TabIndex = 94;
@@ -147,17 +151,20 @@
             this.groupBox1.Controls.Add(this.btnTimKiem);
             this.groupBox1.Location = new System.Drawing.Point(12, 103);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 390);
+            this.groupBox1.Size = new System.Drawing.Size(742, 390);
             this.groupBox1.TabIndex = 210;
             this.groupBox1.TabStop = false;
             // 
             // btnGetDS
             // 
+            this.btnGetDS.Image = ((System.Drawing.Image)(resources.GetObject("btnGetDS.Image")));
             this.btnGetDS.Location = new System.Drawing.Point(249, 78);
             this.btnGetDS.Name = "btnGetDS";
             this.btnGetDS.Size = new System.Drawing.Size(74, 32);
             this.btnGetDS.TabIndex = 221;
             this.btnGetDS.Text = "Lấy DS";
+            this.btnGetDS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGetDS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGetDS.UseVisualStyleBackColor = true;
             this.btnGetDS.Click += new System.EventHandler(this.btnGetDS_Click);
             // 
@@ -165,7 +172,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(397, 76);
+            this.label6.Location = new System.Drawing.Point(354, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(175, 13);
             this.label6.TabIndex = 220;
@@ -175,18 +182,21 @@
             // 
             this.cbDSSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDSSV.FormattingEnabled = true;
-            this.cbDSSV.Location = new System.Drawing.Point(578, 73);
+            this.cbDSSV.Location = new System.Drawing.Point(535, 73);
             this.cbDSSV.Name = "cbDSSV";
             this.cbDSSV.Size = new System.Drawing.Size(169, 21);
             this.cbDSSV.TabIndex = 219;
             // 
             // btnLoc
             // 
+            this.btnLoc.Image = ((System.Drawing.Image)(resources.GetObject("btnLoc.Image")));
             this.btnLoc.Location = new System.Drawing.Point(249, 31);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(74, 41);
             this.btnLoc.TabIndex = 218;
             this.btnLoc.Text = "Lọc";
+            this.btnLoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoc.UseVisualStyleBackColor = true;
             this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
@@ -201,7 +211,7 @@
             this.dtgSVDaChuyen.Location = new System.Drawing.Point(330, 137);
             this.dtgSVDaChuyen.Name = "dtgSVDaChuyen";
             this.dtgSVDaChuyen.ReadOnly = true;
-            this.dtgSVDaChuyen.Size = new System.Drawing.Size(448, 247);
+            this.dtgSVDaChuyen.Size = new System.Drawing.Size(405, 247);
             this.dtgSVDaChuyen.TabIndex = 217;
             // 
             // cbLop
@@ -260,7 +270,7 @@
             // txtMaSinhVien
             // 
             this.txtMaSinhVien.Enabled = false;
-            this.txtMaSinhVien.Location = new System.Drawing.Point(91, 26);
+            this.txtMaSinhVien.Location = new System.Drawing.Point(110, 26);
             this.txtMaSinhVien.Name = "txtMaSinhVien";
             this.txtMaSinhVien.Size = new System.Drawing.Size(158, 20);
             this.txtMaSinhVien.TabIndex = 218;
@@ -268,7 +278,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 29);
+            this.label2.Location = new System.Drawing.Point(34, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 217;
@@ -283,9 +293,9 @@
             this.groupBox2.Controls.Add(this.dtNgayChuyen);
             this.groupBox2.Controls.Add(this.txtMaSinhVien);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(803, 103);
+            this.groupBox2.Location = new System.Drawing.Point(760, 103);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(260, 112);
+            this.groupBox2.Size = new System.Drawing.Size(303, 112);
             this.groupBox2.TabIndex = 219;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chuyển sinh viên";
@@ -293,7 +303,7 @@
             // cbCanBo
             // 
             this.cbCanBo.FormattingEnabled = true;
-            this.cbCanBo.Location = new System.Drawing.Point(91, 78);
+            this.cbCanBo.Location = new System.Drawing.Point(110, 78);
             this.cbCanBo.Name = "cbCanBo";
             this.cbCanBo.Size = new System.Drawing.Size(158, 21);
             this.cbCanBo.TabIndex = 223;
@@ -301,7 +311,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 81);
+            this.label4.Location = new System.Drawing.Point(33, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 222;
@@ -310,7 +320,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 55);
+            this.label1.Location = new System.Drawing.Point(33, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 220;
@@ -319,7 +329,7 @@
             // dtNgayChuyen
             // 
             this.dtNgayChuyen.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNgayChuyen.Location = new System.Drawing.Point(91, 52);
+            this.dtNgayChuyen.Location = new System.Drawing.Point(110, 52);
             this.dtNgayChuyen.Name = "dtNgayChuyen";
             this.dtNgayChuyen.Size = new System.Drawing.Size(158, 20);
             this.dtNgayChuyen.TabIndex = 219;
@@ -329,6 +339,7 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.rdCL);
+            this.groupBox3.Controls.Add(this.btnXoaTrang);
             this.groupBox3.Controls.Add(this.rdCT);
             this.groupBox3.Controls.Add(this.txtDiaChi);
             this.groupBox3.Controls.Add(this.label5);
@@ -338,9 +349,9 @@
             this.groupBox3.Controls.Add(this.lblNganh);
             this.groupBox3.Controls.Add(this.cbKhoaLC);
             this.groupBox3.Controls.Add(this.lblKhoa);
-            this.groupBox3.Location = new System.Drawing.Point(803, 221);
+            this.groupBox3.Location = new System.Drawing.Point(760, 221);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(260, 238);
+            this.groupBox3.Size = new System.Drawing.Size(303, 238);
             this.groupBox3.TabIndex = 221;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ĐỊA CHỈ";
@@ -349,7 +360,7 @@
             // 
             this.rdCL.AutoSize = true;
             this.rdCL.Checked = true;
-            this.rdCL.Location = new System.Drawing.Point(172, 19);
+            this.rdCL.Location = new System.Drawing.Point(188, 19);
             this.rdCL.Name = "rdCL";
             this.rdCL.Size = new System.Drawing.Size(82, 17);
             this.rdCL.TabIndex = 222;
@@ -358,10 +369,24 @@
             this.rdCL.UseVisualStyleBackColor = true;
             this.rdCL.CheckedChanged += new System.EventHandler(this.rdCL_CheckedChanged);
             // 
+            // btnXoaTrang
+            // 
+            this.btnXoaTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoaTrang.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaTrang.Image")));
+            this.btnXoaTrang.Location = new System.Drawing.Point(205, 194);
+            this.btnXoaTrang.Name = "btnXoaTrang";
+            this.btnXoaTrang.Size = new System.Drawing.Size(60, 28);
+            this.btnXoaTrang.TabIndex = 224;
+            this.btnXoaTrang.Text = "Clear";
+            this.btnXoaTrang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoaTrang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXoaTrang.UseVisualStyleBackColor = true;
+            this.btnXoaTrang.Click += new System.EventHandler(this.btnXoaTrang_Click);
+            // 
             // rdCT
             // 
             this.rdCT.AutoSize = true;
-            this.rdCT.Location = new System.Drawing.Point(60, 19);
+            this.rdCT.Location = new System.Drawing.Point(76, 19);
             this.rdCT.Name = "rdCT";
             this.rdCT.Size = new System.Drawing.Size(98, 17);
             this.rdCT.TabIndex = 222;
@@ -373,16 +398,16 @@
             // 
             this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDiaChi.Location = new System.Drawing.Point(60, 123);
+            this.txtDiaChi.Location = new System.Drawing.Point(76, 123);
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(189, 98);
+            this.txtDiaChi.Size = new System.Drawing.Size(189, 65);
             this.txtDiaChi.TabIndex = 220;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 134);
+            this.label5.Location = new System.Drawing.Point(27, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 221;
@@ -391,7 +416,7 @@
             // cbLopLC
             // 
             this.cbLopLC.FormattingEnabled = true;
-            this.cbLopLC.Location = new System.Drawing.Point(60, 96);
+            this.cbLopLC.Location = new System.Drawing.Point(76, 96);
             this.cbLopLC.Name = "cbLopLC";
             this.cbLopLC.Size = new System.Drawing.Size(189, 21);
             this.cbLopLC.TabIndex = 165;
@@ -399,7 +424,7 @@
             // lblLop
             // 
             this.lblLop.AutoSize = true;
-            this.lblLop.Location = new System.Drawing.Point(11, 99);
+            this.lblLop.Location = new System.Drawing.Point(27, 99);
             this.lblLop.Name = "lblLop";
             this.lblLop.Size = new System.Drawing.Size(25, 13);
             this.lblLop.TabIndex = 164;
@@ -408,7 +433,7 @@
             // cbNganhLC
             // 
             this.cbNganhLC.FormattingEnabled = true;
-            this.cbNganhLC.Location = new System.Drawing.Point(60, 69);
+            this.cbNganhLC.Location = new System.Drawing.Point(76, 69);
             this.cbNganhLC.Name = "cbNganhLC";
             this.cbNganhLC.Size = new System.Drawing.Size(189, 21);
             this.cbNganhLC.TabIndex = 163;
@@ -417,7 +442,7 @@
             // lblNganh
             // 
             this.lblNganh.AutoSize = true;
-            this.lblNganh.Location = new System.Drawing.Point(11, 72);
+            this.lblNganh.Location = new System.Drawing.Point(27, 72);
             this.lblNganh.Name = "lblNganh";
             this.lblNganh.Size = new System.Drawing.Size(39, 13);
             this.lblNganh.TabIndex = 162;
@@ -426,7 +451,7 @@
             // cbKhoaLC
             // 
             this.cbKhoaLC.FormattingEnabled = true;
-            this.cbKhoaLC.Location = new System.Drawing.Point(60, 42);
+            this.cbKhoaLC.Location = new System.Drawing.Point(76, 42);
             this.cbKhoaLC.Name = "cbKhoaLC";
             this.cbKhoaLC.Size = new System.Drawing.Size(189, 21);
             this.cbKhoaLC.TabIndex = 161;
@@ -435,7 +460,7 @@
             // lblKhoa
             // 
             this.lblKhoa.AutoSize = true;
-            this.lblKhoa.Location = new System.Drawing.Point(11, 45);
+            this.lblKhoa.Location = new System.Drawing.Point(27, 45);
             this.lblKhoa.Name = "lblKhoa";
             this.lblKhoa.Size = new System.Drawing.Size(32, 13);
             this.lblKhoa.TabIndex = 160;
@@ -444,46 +469,44 @@
             // btnChuyen
             // 
             this.btnChuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChuyen.Location = new System.Drawing.Point(803, 465);
+            this.btnChuyen.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyen.Image")));
+            this.btnChuyen.Location = new System.Drawing.Point(760, 465);
             this.btnChuyen.Name = "btnChuyen";
-            this.btnChuyen.Size = new System.Drawing.Size(59, 28);
+            this.btnChuyen.Size = new System.Drawing.Size(123, 28);
             this.btnChuyen.TabIndex = 221;
             this.btnChuyen.Text = "Chuyển";
+            this.btnChuyen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChuyen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnChuyen.UseVisualStyleBackColor = true;
             this.btnChuyen.Click += new System.EventHandler(this.btnChuyen_Click);
             // 
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(871, 465);
+            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.Location = new System.Drawing.Point(889, 465);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(60, 28);
+            this.btnSua.Size = new System.Drawing.Size(88, 28);
             this.btnSua.TabIndex = 222;
             this.btnSua.Text = "Sửa";
+            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(937, 465);
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.Location = new System.Drawing.Point(983, 465);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(60, 28);
+            this.btnXoa.Size = new System.Drawing.Size(80, 28);
             this.btnXoa.TabIndex = 223;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnXoaTrang
-            // 
-            this.btnXoaTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoaTrang.Location = new System.Drawing.Point(1003, 465);
-            this.btnXoaTrang.Name = "btnXoaTrang";
-            this.btnXoaTrang.Size = new System.Drawing.Size(60, 28);
-            this.btnXoaTrang.TabIndex = 224;
-            this.btnXoaTrang.Text = "Clear";
-            this.btnXoaTrang.UseVisualStyleBackColor = true;
-            this.btnXoaTrang.Click += new System.EventHandler(this.btnXoaTrang_Click);
             // 
             // lblid
             // 
@@ -498,9 +521,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1075, 505);
             this.Controls.Add(this.lblid);
-            this.Controls.Add(this.btnXoaTrang);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
@@ -508,8 +532,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChuyenSinhHoatDoan";
-            this.Text = "FormChuyenSinhHoatDoan";
+            this.Text = "Chuyển sinh hoạt đoàn";
             ((System.ComponentModel.ISupportInitialize)(this.dtgSinhVien)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

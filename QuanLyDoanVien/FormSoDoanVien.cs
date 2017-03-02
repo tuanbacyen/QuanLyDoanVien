@@ -82,7 +82,9 @@ namespace QuanLyDoanVien
 
         private void Load_DataSoDoan()
         {
-            string maLop = cbLop.SelectedValue.ToString();
+            string maLop = "";
+            try { maLop = cbLop.SelectedValue.ToString(); }
+            catch { }
             canbovpdoans = db.GetTable<CanBoVPDoan>();
             sinhviens = db.GetTable<SinhVien>();
             sodoanviens = db.GetTable<SoDoanVien>();
@@ -197,61 +199,68 @@ namespace QuanLyDoanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtMaSinhVien.Text != null && txtMaSoDoan.Text != null && txtThongTin.Text != null && txtNhanXet.Text != null)
+            try
             {
-                string masinhvien = txtMaSinhVien.Text;
-                string masodoan = txtMaSoDoan.Text;
-
-                SoDoanVien sodoanvien = sodoanviens.Single(sd => sd.MaSoDoan == masodoan && sd.MaSinhVien == masinhvien);
-                sodoanvien.MaSinhVien = txtMaSinhVien.Text;
-                sodoanvien.MaSoDoan = txtMaSoDoan.Text;
-                sodoanvien.NhanXet = txtNhanXet.Text;
-                sodoanvien.NgayNop = dtNgayNop.Value;
-                sodoanvien.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
-                sodoanvien.GhiChu = txtGhiChu.Text;
-                Boolean has = sodoanviens.Any(sd => sd.MaSinhVien == txtMaSinhVien.Text && sd.MaSoDoan == txtMaSoDoan.Text);
-                if (has)
+                if (txtMaSinhVien.Text != null && txtMaSoDoan.Text != null && txtThongTin.Text != null && txtNhanXet.Text != null)
                 {
-                    db.SubmitChanges();
-                    MessageBox.Show("Sửa thành công", "Thông Báo");
-                    Load_DataSoDoan();
+                    string masinhvien = txtMaSinhVien.Text;
+                    string masodoan = txtMaSoDoan.Text;
+
+                    SoDoanVien sodoanvien = sodoanviens.Single(sd => sd.MaSoDoan == masodoan && sd.MaSinhVien == masinhvien);
+                    sodoanvien.MaSinhVien = txtMaSinhVien.Text;
+                    sodoanvien.MaSoDoan = txtMaSoDoan.Text;
+                    sodoanvien.NhanXet = txtNhanXet.Text;
+                    sodoanvien.NgayNop = dtNgayNop.Value;
+                    sodoanvien.MaCanBoDoan = cbCanBo.SelectedValue.ToString();
+                    sodoanvien.GhiChu = txtGhiChu.Text;
+                    Boolean has = sodoanviens.Any(sd => sd.MaSinhVien == txtMaSinhVien.Text && sd.MaSoDoan == txtMaSoDoan.Text);
+                    if (has)
+                    {
+                        db.SubmitChanges();
+                        MessageBox.Show("Sửa thành công", "Thông Báo");
+                        Load_DataSoDoan();
+                    }
+                    else
+                    {
+                        MessageBox.Show("không có ố đoàn này");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("không có ố đoàn này");
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
-            }
+            }catch (Exception ex) { MessageBox.Show("Error: "+ex.Message, "Thông Báo"); }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaSinhVien.Text != null && txtMaSoDoan.Text != null)
+            try
             {
-
-                Boolean has = sodoanviens.Any(sd => sd.MaSinhVien == txtMaSinhVien.Text && sd.MaSoDoan == txtMaSoDoan.Text);
-                if (has)
+                if (txtMaSinhVien.Text != null && txtMaSoDoan.Text != null)
                 {
-                    string masinhvien = txtMaSinhVien.Text;
-                    string masodoan = txtMaSoDoan.Text;
-                    SoDoanVien sodoanvien = sodoanviens.Single(sd => sd.MaSoDoan == masodoan && sd.MaSinhVien == masinhvien);
-                    sodoanviens.DeleteOnSubmit(sodoanvien);
-                    db.SubmitChanges();
-                    MessageBox.Show("Xóa thành công", "Thông Báo");
-                    Load_DataSoDoan();
+
+                    Boolean has = sodoanviens.Any(sd => sd.MaSinhVien == txtMaSinhVien.Text && sd.MaSoDoan == txtMaSoDoan.Text);
+                    if (has)
+                    {
+                        string masinhvien = txtMaSinhVien.Text;
+                        string masodoan = txtMaSoDoan.Text;
+                        SoDoanVien sodoanvien = sodoanviens.Single(sd => sd.MaSoDoan == masodoan && sd.MaSinhVien == masinhvien);
+                        sodoanviens.DeleteOnSubmit(sodoanvien);
+                        db.SubmitChanges();
+                        MessageBox.Show("Xóa thành công", "Thông Báo");
+                        Load_DataSoDoan();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có Sinh viên");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Không có Sinh viên");
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
                 }
             }
-            else
-            {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
-            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Thông Báo"); }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
