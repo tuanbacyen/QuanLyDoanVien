@@ -150,7 +150,6 @@ namespace QuanLyDoanVien
                         obj.SiSo = Convert.ToByte(nbrSiSo.Value);
                         obj.KhoaHoc = Convert.ToByte(nbrKhoaHoc.Value);
 
-
                         //Add this object to database
                         LOPQUANLY = database.GetTable<LopQuanLy>();
                         LOPQUANLY.InsertOnSubmit(obj);

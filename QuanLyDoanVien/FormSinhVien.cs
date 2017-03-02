@@ -188,7 +188,6 @@ namespace QuanLyDoanVien
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            this.groupBox2.Enabled = true;
             load_HienThiSV();
         }
 
@@ -204,14 +203,14 @@ namespace QuanLyDoanVien
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaSinhVien.Text != null && txtTen.Text != null && txtHoDem.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+            if (txtMaSinhVien.Text.Trim().Trim() != "" && txtTen.Text.Trim() != "" && txtHoDem.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "" && cbLopHoc.Text.Trim() != "")
             {
                 SinhVien sinhvien = new SinhVien();
                 sinhvien.MaSinhVien = txtMaSinhVien.Text;
                 sinhvien.Ten = txtTen.Text;
                 sinhvien.HoDem = txtHoDem.Text;
                 sinhvien.HoVaTenKhaiSinh = txtHoDem.Text + " " + txtTen.Text;
-                if (txtTenKhac.Text != null)
+                if (txtTenKhac.Text.Trim() != "")
                 {
                     sinhvien.HoTenKhac = txtTenKhac.Text;
                 }
@@ -275,14 +274,14 @@ namespace QuanLyDoanVien
         {
             try
             {
-                if (txtMaSinhVien.Text != null && txtTen.Text != null && txtHoDem.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+                if (txtMaSinhVien.Text.Trim() != "" && txtTen.Text.Trim() != "" && txtHoDem.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
                 {
                     string masinhvien = txtMaSinhVien.Text;
                     SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
                     sinhvien.Ten = txtTen.Text;
                     sinhvien.HoDem = txtHoDem.Text;
                     sinhvien.HoVaTenKhaiSinh = txtHoDem.Text + " " + txtTen.Text;
-                    if (txtTenKhac.Text != null)
+                    if (txtTenKhac.Text.Trim() != "")
                     {
                         sinhvien.HoTenKhac = txtTenKhac.Text;
                     }
@@ -328,7 +327,7 @@ namespace QuanLyDoanVien
         {
             try
             {
-                if (txtMaSinhVien.Text != null)
+                if (txtMaSinhVien.Text.Trim() != "")
                 {
                     Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
                     if (has)
@@ -356,8 +355,6 @@ namespace QuanLyDoanVien
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            groupBox2.Enabled = true;
-
             sinhviens = db.GetTable<SinhVien>();
             lopquanlys = db.GetTable<LopQuanLy>();
             tinhtranghoctaps = db.GetTable<TinhTrangHocTap>();

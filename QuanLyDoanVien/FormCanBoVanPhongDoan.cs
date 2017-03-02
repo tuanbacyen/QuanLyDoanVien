@@ -85,7 +85,7 @@ namespace QuanLyDoanVien
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaCanBo.Text != null && txtHoVaTen.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+            if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
             {
                 CanBoVPDoan canbovpdoan = new CanBoVPDoan();
                 canbovpdoan.MaCanBoDoan = txtMaCanBo.Text;
@@ -120,7 +120,7 @@ namespace QuanLyDoanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtMaCanBo.Text != null && txtHoVaTen.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+            if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
             {
                 Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
                 if (has)
@@ -153,7 +153,7 @@ namespace QuanLyDoanVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaCanBo.Text != null && txtHoVaTen.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+            if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
             {
                 Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
                 if (has)

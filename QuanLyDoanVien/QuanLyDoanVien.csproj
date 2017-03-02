@@ -12,9 +12,24 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -31,6 +46,26 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -112,11 +147,23 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormErorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormErorList.Designer.cs">
+      <DependentUpon>FormErorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHoatDongDoan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormHoatDongDoan.Designer.cs">
       <DependentUpon>FormHoatDongDoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormImportFileSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportFileSinhVien.Designer.cs">
+      <DependentUpon>FormImportFileSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FormKhoa.cs">
       <SubType>Form</SubType>
@@ -166,6 +213,11 @@
     <Compile Include="FormSoDoanVien.Designer.cs">
       <DependentUpon>FormSoDoanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLDV.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDV.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Trash\FormThongTinNopDoanPhi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,11 +250,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLDV.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLDV.xsd</DependentUpon>
-    </Compile>
     <Compile Include="QuanLyDoanVien.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -236,8 +283,14 @@
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormErorList.resx">
+      <DependentUpon>FormErorList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHoatDongDoan.resx">
       <DependentUpon>FormHoatDongDoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportFileSinhVien.resx">
+      <DependentUpon>FormImportFileSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKhoa.resx">
       <DependentUpon>FormKhoa.cs</DependentUpon>
@@ -367,6 +420,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
