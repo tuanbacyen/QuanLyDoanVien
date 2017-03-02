@@ -159,6 +159,7 @@ namespace QuanLyDoanVien
 
         private void Load_DataSinhVienLoc()
         {
+            try { 
             string maLop = cbLop.SelectedValue.ToString();
             sinhviens = db.GetTable<SinhVien>();
             var GetSinhVien = from sv in sinhviens
@@ -166,6 +167,8 @@ namespace QuanLyDoanVien
                               select new { sv.MaSinhVien, TenSinhVien = sv.HoVaTenKhaiSinh };
 
             dtgSinhVien.DataSource = GetSinhVien;
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Thông Báo"); }
         }
 
         private void btnGetDS_Click(object sender, EventArgs e)
@@ -335,6 +338,7 @@ namespace QuanLyDoanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            try { 
             if (txtDiaChi.Text != null || cbDSSV.Items.Count == 0)
             {
                 ThongTinChuyenSinhHoatDoan ttcshd = thongtinchuyensinhhoats.Single(chs=>chs.id == Convert.ToInt32(lblid.Text.Trim()));
@@ -349,16 +353,22 @@ namespace QuanLyDoanVien
             {
                 MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
             }
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Thông Báo"); }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            ThongTinChuyenSinhHoatDoan ttcshd = thongtinchuyensinhhoats.Single(chs => chs.id == Convert.ToInt32(lblid.Text.Trim()));
-            thongtinchuyensinhhoats.DeleteOnSubmit(ttcshd);
-            db.SubmitChanges();
-            MessageBox.Show("Xóa thành công", "Thông Báo");
-            HienThiDanhSachDaChuyen();
-        }
+            try
+            {
+                ThongTinChuyenSinhHoatDoan ttcshd = thongtinchuyensinhhoats.Single(chs => chs.id == Convert.ToInt32(lblid.Text.Trim()));
+                thongtinchuyensinhhoats.DeleteOnSubmit(ttcshd);
+                db.SubmitChanges();
+                MessageBox.Show("Xóa thành công", "Thông Báo");
+                HienThiDanhSachDaChuyen();
+            
+            }catch (Exception ex) { MessageBox.Show("Error: "+ex.Message, "Thông Báo"); }
+}
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConnect));
             this.btnOut = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this.cbAuthentication = new System.Windows.Forms.ComboBox();
@@ -164,8 +165,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDatabase);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormConnect";
-            this.Text = "FormConnect";
+            this.Text = "Kết nối CSDL";
             this.Load += new System.EventHandler(this.FormConnect_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

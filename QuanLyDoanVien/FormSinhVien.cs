@@ -117,7 +117,23 @@ namespace QuanLyDoanVien
                               join lql in lopquanlys on sv.MaLop equals lql.MaLop
                               join tc in tinhtranghoctaps on sv.MaTinhTrangHocTap equals tc.MaTinhTrangHocTap
                               where sv.MaLop == maLop && sv.Xoa == false
-                              select new { sv.MaSinhVien, sv.HoDem, sv.Ten, sv.HoVaTenKhaiSinh, sv.HoTenKhac, GioiTinh = GioiTinh(sv.GioiTinh), sv.NgaySinh, lql.TenLop, sv.DanToc, sv.TonGiao, tc.TenTinhTrangHocTap, sv.DiaChi, sv.SoDienThoai, sv.NgayVaoDoan };
+                              select new
+                              {
+                                  sv.MaSinhVien,
+                                  sv.HoDem,
+                                  sv.Ten,
+                                  sv.HoVaTenKhaiSinh,
+                                  sv.HoTenKhac,
+                                  GioiTinh = GioiTinh(sv.GioiTinh),
+                                  sv.NgaySinh,
+                                  lql.TenLop,
+                                  sv.DanToc,
+                                  sv.TonGiao,
+                                  tc.TenTinhTrangHocTap,
+                                  sv.DiaChi,
+                                  sv.SoDienThoai,
+                                  sv.NgayVaoDoan
+                              };
             if (GetSinhVien.Count() == 0)
             {
                 dtgSinhVien.DataSource = null;
@@ -257,46 +273,50 @@ namespace QuanLyDoanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtMaSinhVien.Text != null && txtTen.Text != null && txtHoDem.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
+            try
             {
-                string masinhvien = txtMaSinhVien.Text;
-                SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
-                sinhvien.Ten = txtTen.Text;
-                sinhvien.HoDem = txtHoDem.Text;
-                sinhvien.HoVaTenKhaiSinh = txtHoDem.Text + " " + txtTen.Text;
-                if (txtTenKhac.Text != null)
+                if (txtMaSinhVien.Text != null && txtTen.Text != null && txtHoDem.Text != null && txtDiaChi.Text != null && txtSDT.Text != null)
                 {
-                    sinhvien.HoTenKhac = txtTenKhac.Text;
-                }
-                sinhvien.GioiTinh = true;
-                if (cbGioiTinh.SelectedIndex == 0)
-                {
-                    sinhvien.GioiTinh = false;
-                }
-                sinhvien.NgaySinh = dtNgaySinh.Value;
-                sinhvien.MaLop = cbLopHoc.SelectedValue.ToString();
-                sinhvien.DanToc = cbDanToc.Text;
-                sinhvien.TonGiao = cbTonGiao.Text;
-                sinhvien.MaTinhTrangHocTap = cbTinhTrang.SelectedValue.ToString();
-                sinhvien.DiaChi = txtDiaChi.Text;
-                sinhvien.SoDienThoai = txtSDT.Text;
-                sinhvien.NgayVaoDoan = dtNgayVaoDoan.Value;
-                Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
-                if (has)
-                {
-                    db.SubmitChanges();
-                    MessageBox.Show("Sửa thành công", "Thông Báo");
-                    load_HienThiSV();
+                    string masinhvien = txtMaSinhVien.Text;
+                    SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
+                    sinhvien.Ten = txtTen.Text;
+                    sinhvien.HoDem = txtHoDem.Text;
+                    sinhvien.HoVaTenKhaiSinh = txtHoDem.Text + " " + txtTen.Text;
+                    if (txtTenKhac.Text != null)
+                    {
+                        sinhvien.HoTenKhac = txtTenKhac.Text;
+                    }
+                    sinhvien.GioiTinh = true;
+                    if (cbGioiTinh.SelectedIndex == 0)
+                    {
+                        sinhvien.GioiTinh = false;
+                    }
+                    sinhvien.NgaySinh = dtNgaySinh.Value;
+                    sinhvien.MaLop = cbLopHoc.SelectedValue.ToString();
+                    sinhvien.DanToc = cbDanToc.Text;
+                    sinhvien.TonGiao = cbTonGiao.Text;
+                    sinhvien.MaTinhTrangHocTap = cbTinhTrang.SelectedValue.ToString();
+                    sinhvien.DiaChi = txtDiaChi.Text;
+                    sinhvien.SoDienThoai = txtSDT.Text;
+                    sinhvien.NgayVaoDoan = dtNgayVaoDoan.Value;
+                    Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
+                    if (has)
+                    {
+                        db.SubmitChanges();
+                        MessageBox.Show("Sửa thành công", "Thông Báo");
+                        load_HienThiSV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có Sinh viên");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Không có Sinh viên");
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
                 }
             }
-            else
-            {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
-            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Thông Báo"); }
         }
 
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -306,28 +326,32 @@ namespace QuanLyDoanVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaSinhVien.Text != null)
+            try
             {
-                Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
-                if (has)
+                if (txtMaSinhVien.Text != null)
                 {
-                    string masinhvien = txtMaSinhVien.Text;
-                    SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
-                    sinhvien.Xoa = true;
-                    //sinhviens.DeleteOnSubmit(sinhvien);
-                    db.SubmitChanges();
-                    MessageBox.Show("Xóa thành công", "Thông Báo");
-                    load_HienThiSV();
+                    Boolean has = sinhviens.Any(sv => sv.MaSinhVien == txtMaSinhVien.Text);
+                    if (has)
+                    {
+                        string masinhvien = txtMaSinhVien.Text;
+                        SinhVien sinhvien = sinhviens.Single(sv => sv.MaSinhVien == masinhvien);
+                        sinhvien.Xoa = true;
+                        //sinhviens.DeleteOnSubmit(sinhvien);
+                        db.SubmitChanges();
+                        MessageBox.Show("Xóa thành công", "Thông Báo");
+                        load_HienThiSV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có Sinh viên");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Không có Sinh viên");
+                    MessageBox.Show("Chưa nhập thông tin", "Thông Báo");
                 }
             }
-            else
-            {
-                MessageBox.Show("Chưa nhập thông tin", "Thông Báo");
-            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Thông Báo"); }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

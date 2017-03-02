@@ -38,8 +38,8 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -166,10 +166,10 @@
     <Compile Include="FormSoDoanVien.Designer.cs">
       <DependentUpon>FormSoDoanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormThongTinNopDoanPhi.cs">
+    <Compile Include="Trash\FormThongTinNopDoanPhi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormThongTinNopDoanPhi.Designer.cs">
+    <Compile Include="Trash\FormThongTinNopDoanPhi.Designer.cs">
       <DependentUpon>FormThongTinNopDoanPhi.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTinhTrangHocTap.cs">
@@ -177,6 +177,18 @@
     </Compile>
     <Compile Include="FormTinhTrangHocTap.Designer.cs">
       <DependentUpon>FormTinhTrangHocTap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi.Designer.cs">
+      <DependentUpon>frmThongTinNopDoanPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi_Them.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinNopDoanPhi_Them.Designer.cs">
+      <DependentUpon>frmThongTinNopDoanPhi_Them.cs</DependentUpon>
     </Compile>
     <Compile Include="ManHinhChinh.cs">
       <SubType>Form</SubType>
@@ -251,11 +263,17 @@
     <EmbeddedResource Include="FormSoDoanVien.resx">
       <DependentUpon>FormSoDoanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormThongTinNopDoanPhi.resx">
+    <EmbeddedResource Include="Trash\FormThongTinNopDoanPhi.resx">
       <DependentUpon>FormThongTinNopDoanPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTinhTrangHocTap.resx">
       <DependentUpon>FormTinhTrangHocTap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinNopDoanPhi.resx">
+      <DependentUpon>frmThongTinNopDoanPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinNopDoanPhi_Them.resx">
+      <DependentUpon>frmThongTinNopDoanPhi_Them.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
@@ -268,6 +286,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SinhVienChuyenLop.rdlc" />
     <EmbeddedResource Include="SinhVienChuyenTruong.rdlc" />
@@ -303,10 +322,51 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

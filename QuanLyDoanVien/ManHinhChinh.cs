@@ -93,7 +93,7 @@ namespace QuanLyDoanVien
 
         private void mnUpdateDP_Click(object sender, EventArgs e)
         {
-            FormThongTinNopDoanPhi frm = new FormThongTinNopDoanPhi();
+            frmThongTinNopDoanPhi frm = new frmThongTinNopDoanPhi();
             frm.Show();
         }
 

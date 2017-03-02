@@ -16,5 +16,13 @@ namespace QuanLyDoanVien
         {
             InitializeComponent();
         }
+
+        private void chkShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowPass.Checked)
+                txtPassWord.UseSystemPasswordChar = false;
+            else
+                txtPassWord.UseSystemPasswordChar = true;
+        }
     }
 }
