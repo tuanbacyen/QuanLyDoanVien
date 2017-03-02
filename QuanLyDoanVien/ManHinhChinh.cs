@@ -117,23 +117,26 @@ namespace QuanLyDoanVien
 
         private void reportDP_Click(object sender, EventArgs e)
         {
-            FormBaoCaoChuyenTruong frm = new FormBaoCaoChuyenTruong();
+            FormBCChuyenTruong frm = new FormBCChuyenTruong();
             frm.Show();
         }
 
         private void báoCáoChuyểnLớpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormBCChuyenLop frm = new FormBCChuyenLop();
+            frm.Show();
         }
 
         private void báoCáoNợĐoànPhíToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormBCNoDoanPhi frm = new FormBCNoDoanPhi();
+            frm.Show();
         }
 
         private void báoCáoTổngThuĐoànPhíToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormBCTongThuChi frm = new FormBCTongThuChi();
+            frm.Show();
         }
     }
 }
