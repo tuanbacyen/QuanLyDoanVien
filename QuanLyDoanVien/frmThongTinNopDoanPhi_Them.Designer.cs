@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinNopDoanPhi_Them));
             this.gbxCongCuLoc = new System.Windows.Forms.GroupBox();
             this.lblKhoa = new System.Windows.Forms.Label();
             this.cbxLoc = new System.Windows.Forms.Button();
@@ -89,11 +90,14 @@
             // 
             // cbxLoc
             // 
+            this.cbxLoc.Image = ((System.Drawing.Image)(resources.GetObject("cbxLoc.Image")));
             this.cbxLoc.Location = new System.Drawing.Point(171, 105);
             this.cbxLoc.Name = "cbxLoc";
-            this.cbxLoc.Size = new System.Drawing.Size(64, 23);
+            this.cbxLoc.Size = new System.Drawing.Size(64, 29);
             this.cbxLoc.TabIndex = 7;
             this.cbxLoc.Text = "LỌC";
+            this.cbxLoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxLoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.cbxLoc.UseVisualStyleBackColor = true;
             this.cbxLoc.Click += new System.EventHandler(this.cbxLoc_Click);
             // 
@@ -313,11 +317,14 @@
             // 
             this.btnXacNhan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXacNhan.Enabled = false;
+            this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
             this.btnXacNhan.Location = new System.Drawing.Point(517, 509);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(123, 30);
             this.btnXacNhan.TabIndex = 10;
-            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.Text = " Xác nhận";
+            this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXacNhan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXacNhan.UseVisualStyleBackColor = true;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
@@ -350,7 +357,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(723, 558);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkXacNhan);
             this.Controls.Add(this.btnHuyBo);
@@ -358,9 +368,9 @@
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.gbxDanhSach);
             this.Controls.Add(this.gbxCongCuLoc);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmThongTinNopDoanPhi_Them";
-            this.Text = "frmThongTinNopDoanPhi_Them";
+            this.Text = "Thêm danh sách nộp đoàn phí";
             this.gbxCongCuLoc.ResumeLayout(false);
             this.gbxCongCuLoc.PerformLayout();
             this.gbxDanhSach.ResumeLayout(false);

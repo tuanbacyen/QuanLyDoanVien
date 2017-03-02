@@ -30,18 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBaoCaoChuyenTruong));
+            this.V_SVChuyenTruongBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.QLDV = new QuanLyDoanVien.QLDV();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnBaoCao = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtf = new System.Windows.Forms.DateTimePicker();
             this.dtt = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.QLDV = new QuanLyDoanVien.QLDV();
-            this.V_SVChuyenTruongBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.V_SVChuyenTruongTableAdapter = new QuanLyDoanVien.QLDVTableAdapters.V_SVChuyenTruongTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.QLDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.V_SVChuyenTruongBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDV)).BeginInit();
             this.SuspendLayout();
+            // 
+            // V_SVChuyenTruongBindingSource
+            // 
+            this.V_SVChuyenTruongBindingSource.DataMember = "V_SVChuyenTruong";
+            this.V_SVChuyenTruongBindingSource.DataSource = this.QLDV;
+            // 
+            // QLDV
+            // 
+            this.QLDV.DataSetName = "QLDV";
+            this.QLDV.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -102,16 +113,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Đến ngày";
             // 
-            // QLDV
-            // 
-            this.QLDV.DataSetName = "QLDV";
-            this.QLDV.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // V_SVChuyenTruongBindingSource
-            // 
-            this.V_SVChuyenTruongBindingSource.DataMember = "V_SVChuyenTruong";
-            this.V_SVChuyenTruongBindingSource.DataSource = this.QLDV;
-            // 
             // V_SVChuyenTruongTableAdapter
             // 
             this.V_SVChuyenTruongTableAdapter.ClearBeforeFill = true;
@@ -127,11 +128,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBaoCao);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBaoCaoChuyenTruong";
-            this.Text = "FormBaoCao";
+            this.Text = "Báo cáo chuyển trường";
             this.Load += new System.EventHandler(this.FormBaoCao_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.QLDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.V_SVChuyenTruongBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QLDV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
