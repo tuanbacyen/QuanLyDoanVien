@@ -1,6 +1,6 @@
 ﻿namespace QuanLyDoanVien
 {
-    partial class FormBaoCaoChuyenTruong
+    partial class FormBCChuyenTruong
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBaoCaoChuyenTruong));
             this.V_SVChuyenTruongBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QLDV = new QuanLyDoanVien.QLDV();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtf = new System.Windows.Forms.DateTimePicker();
-            this.dtt = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
             this.V_SVChuyenTruongTableAdapter = new QuanLyDoanVien.QLDVTableAdapters.V_SVChuyenTruongTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnClick = new System.Windows.Forms.Button();
+            this.dtToYear = new System.Windows.Forms.DateTimePicker();
+            this.dtFrom = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.V_SVChuyenTruongBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDV)).BeginInit();
             this.SuspendLayout();
@@ -63,75 +62,73 @@
             reportDataSource1.Value = this.V_SVChuyenTruongBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyDoanVien.SinhVienChuyenTruong.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 50);
+            this.reportViewer1.Location = new System.Drawing.Point(-3, 45);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1114, 409);
+            this.reportViewer1.Size = new System.Drawing.Size(906, 446);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // btnBaoCao
-            // 
-            this.btnBaoCao.Location = new System.Drawing.Point(311, 11);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(86, 21);
-            this.btnBaoCao.TabIndex = 2;
-            this.btnBaoCao.Text = "Chọn";
-            this.btnBaoCao.UseVisualStyleBackColor = true;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Từ ngày";
-            // 
-            // dtf
-            // 
-            this.dtf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtf.Location = new System.Drawing.Point(64, 12);
-            this.dtf.Name = "dtf";
-            this.dtf.Size = new System.Drawing.Size(85, 20);
-            this.dtf.TabIndex = 4;
-            this.dtf.Value = new System.DateTime(1999, 9, 9, 0, 0, 0, 0);
-            // 
-            // dtt
-            // 
-            this.dtt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtt.Location = new System.Drawing.Point(220, 9);
-            this.dtt.Name = "dtt";
-            this.dtt.Size = new System.Drawing.Size(85, 20);
-            this.dtt.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Đến ngày";
             // 
             // V_SVChuyenTruongTableAdapter
             // 
             this.V_SVChuyenTruongTableAdapter.ClearBeforeFill = true;
             // 
-            // FormBaoCaoChuyenTruong
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(202, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Đến ngày";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Từ ngày";
+            // 
+            // btnClick
+            // 
+            this.btnClick.Location = new System.Drawing.Point(384, 9);
+            this.btnClick.Name = "btnClick";
+            this.btnClick.Size = new System.Drawing.Size(92, 24);
+            this.btnClick.TabIndex = 6;
+            this.btnClick.Text = "Lọc";
+            this.btnClick.UseVisualStyleBackColor = true;
+            this.btnClick.Click += new System.EventHandler(this.btnClick_Click);
+            // 
+            // dtToYear
+            // 
+            this.dtToYear.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtToYear.Location = new System.Drawing.Point(269, 12);
+            this.dtToYear.Name = "dtToYear";
+            this.dtToYear.Size = new System.Drawing.Size(109, 20);
+            this.dtToYear.TabIndex = 4;
+            // 
+            // dtFrom
+            // 
+            this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFrom.Location = new System.Drawing.Point(67, 12);
+            this.dtFrom.Name = "dtFrom";
+            this.dtFrom.Size = new System.Drawing.Size(109, 20);
+            this.dtFrom.TabIndex = 5;
+            // 
+            // FormBCChuyenTruong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 471);
-            this.Controls.Add(this.dtt);
+            this.ClientSize = new System.Drawing.Size(903, 490);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dtf);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnBaoCao);
+            this.Controls.Add(this.btnClick);
+            this.Controls.Add(this.dtToYear);
+            this.Controls.Add(this.dtFrom);
             this.Controls.Add(this.reportViewer1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormBaoCaoChuyenTruong";
-            this.Text = "Báo cáo chuyển trường";
-            this.Load += new System.EventHandler(this.FormBaoCao_Load);
+            this.Name = "FormBCChuyenTruong";
+            this.Text = "FormChuyenTruong";
+            this.Load += new System.EventHandler(this.FormChuyenTruong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.V_SVChuyenTruongBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDV)).EndInit();
             this.ResumeLayout(false);
@@ -142,13 +139,13 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.Button btnBaoCao;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtf;
-        private System.Windows.Forms.DateTimePicker dtt;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource V_SVChuyenTruongBindingSource;
         private QLDV QLDV;
         private QLDVTableAdapters.V_SVChuyenTruongTableAdapter V_SVChuyenTruongTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClick;
+        private System.Windows.Forms.DateTimePicker dtToYear;
+        private System.Windows.Forms.DateTimePicker dtFrom;
     }
 }
