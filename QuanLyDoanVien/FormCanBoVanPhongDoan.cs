@@ -229,5 +229,30 @@ namespace QuanLyDoanVien
         {
             e.Handled = true;
         }
+
+        Bitmap bmp;
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtgCanBo.BackgroundColor = Color.White;
+                int height = dtgCanBo.Height;
+                dtgCanBo.Height = dtgCanBo.RowCount * dtgCanBo.RowTemplate.Height * 2;
+                bmp = new Bitmap(dtgCanBo.Width, dtgCanBo.Height);
+                dtgCanBo.DrawToBitmap(bmp, new Rectangle(0, 0, dtgCanBo.Width, dtgCanBo.Height));
+                dtgCanBo.Height = height;
+                printPreviewDialog1.ShowDialog();
+            }
+            catch { }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+                e.Graphics.DrawImage(bmp, 0, 0);
+            }
+            catch { }
+        }
     }
 }

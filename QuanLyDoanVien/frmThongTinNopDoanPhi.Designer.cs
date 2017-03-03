@@ -65,6 +65,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnIn = new System.Windows.Forms.Button();
             this.gbxThongTinNopDoanPhi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinNopDoanPhi)).BeginInit();
             this.gbxCongCuLoc.SuspendLayout();
@@ -417,9 +418,9 @@
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(613, 510);
+            this.btnThem.Location = new System.Drawing.Point(619, 510);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(123, 23);
+            this.btnThem.Size = new System.Drawing.Size(117, 29);
             this.btnThem.TabIndex = 15;
             this.btnThem.Text = "Thêm danh sách nộp";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -428,9 +429,9 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(504, 510);
+            this.btnSua.Location = new System.Drawing.Point(510, 463);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(103, 23);
+            this.btnSua.Size = new System.Drawing.Size(73, 23);
             this.btnSua.TabIndex = 16;
             this.btnSua.Text = "Sửa phiếu này";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -448,6 +449,17 @@
             this.label8.TabIndex = 97;
             this.label8.Text = "THÔNG TIN NỘP ĐOÀN PHÍ";
             // 
+            // btnIn
+            // 
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
+            this.btnIn.Location = new System.Drawing.Point(505, 510);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(30, 29);
+            this.btnIn.TabIndex = 98;
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // frmThongTinNopDoanPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +467,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(748, 551);
+            this.Controls.Add(this.btnIn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
@@ -514,5 +527,6 @@
         private System.Windows.Forms.CheckBox chkGhiNo;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnIn;
     }
 }
