@@ -138,5 +138,11 @@ namespace QuanLyDoanVien
             FormBCTongThuChi frm = new FormBCTongThuChi();
             frm.Show();
         }
+
+        private void importSinhVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormImportFileSinhVien frm = new FormImportFileSinhVien();
+            frm.Show();
+        }
     }
 }

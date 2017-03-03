@@ -607,7 +607,6 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.dtNgaySinh);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(12, 91);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(793, 187);
@@ -625,7 +624,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(833, 727);
+            this.MinimumSize = new System.Drawing.Size(833, 726);
             this.Name = "FormSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh Viện";

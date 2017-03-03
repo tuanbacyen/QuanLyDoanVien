@@ -55,6 +55,8 @@
             this.mnConnect = new System.Windows.Forms.ToolStripMenuItem();
             this.mnQLHT = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.importFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importSinhVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -262,12 +264,29 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnQLHT,
             this.mnData,
-            this.reportBC});
+            this.reportBC,
+            this.importFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(655, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // importFileToolStripMenuItem
+            // 
+            this.importFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importSinhVienToolStripMenuItem});
+            this.importFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importFileToolStripMenuItem.Image")));
+            this.importFileToolStripMenuItem.Name = "importFileToolStripMenuItem";
+            this.importFileToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.importFileToolStripMenuItem.Text = "Import File";
+            // 
+            // importSinhVienToolStripMenuItem
+            // 
+            this.importSinhVienToolStripMenuItem.Name = "importSinhVienToolStripMenuItem";
+            this.importSinhVienToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.importSinhVienToolStripMenuItem.Text = "Import Sinh Viên";
+            this.importSinhVienToolStripMenuItem.Click += new System.EventHandler(this.importSinhVienToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -312,5 +331,7 @@
         private System.Windows.Forms.ToolStripMenuItem báoCáoChuyểnLớpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem báoCáoNợĐoànPhíToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem báoCáoTổngThuĐoànPhíToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importSinhVienToolStripMenuItem;
     }
 }
