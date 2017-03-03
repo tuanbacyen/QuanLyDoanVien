@@ -47,6 +47,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+<!--<<<<<<< HEAD-->
+  <PropertyGroup>
+    <ApplicationIcon>Graphicloads-100-Flat-2-People.ico</ApplicationIcon>
+	</PropertyGroup>
+<!--=======-->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
@@ -66,6 +71,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+<!-->>>>>>> refs/remotes/origin/master-->
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -213,11 +219,16 @@
     <Compile Include="FormSoDoanVien.Designer.cs">
       <DependentUpon>FormSoDoanVien.cs</DependentUpon>
     </Compile>
+<!--<<<<<<< HEAD-->
+    <Compile Include="SFileName.cs" />
+    <Compile Include="StringHelper.cs" />
+<!--=======-->
     <Compile Include="QLDV.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDV.xsd</DependentUpon>
     </Compile>
+<!-->>>>>>> refs/remotes/origin/master-->
     <Compile Include="Trash\FormThongTinNopDoanPhi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +433,9 @@
     <None Include="Resources\search1.ico" />
   </ItemGroup>
   <ItemGroup>
+<!--<<<<<<< HEAD-->
+    <Content Include="Graphicloads-100-Flat-2-People.ico" />
+<!--=======-->
     <Content Include="Resources\import.png" />
   </ItemGroup>
   <ItemGroup>
@@ -435,6 +449,7 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+<!-->>>>>>> refs/remotes/origin/master-->
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
