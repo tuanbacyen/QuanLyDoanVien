@@ -115,5 +115,10 @@ namespace QuanLyDoanVien
             //fmConnect.MdiParent = this;
             fmConnect.Show();
         }
+
+        private void FormDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Environment.Exit(1);
+        }
     }
 }
