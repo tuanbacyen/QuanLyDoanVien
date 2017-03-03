@@ -99,6 +99,7 @@
             this.dtgNganhHoc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgNganhHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgNganhHoc.Location = new System.Drawing.Point(6, 54);
             this.dtgNganhHoc.Name = "dtgNganhHoc";
             this.dtgNganhHoc.Size = new System.Drawing.Size(443, 249);
