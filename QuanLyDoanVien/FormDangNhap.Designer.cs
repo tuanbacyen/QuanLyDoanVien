@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangNhap));
-            this.btnHuyBo = new System.Windows.Forms.Button();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.txtPassWord = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,21 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.chkShowPass = new System.Windows.Forms.CheckBox();
+            this.chkGhiNho = new System.Windows.Forms.CheckBox();
+            this.btnHuyBo = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnHuyBo
-            // 
-            this.btnHuyBo.Location = new System.Drawing.Point(348, 170);
-            this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(65, 33);
-            this.btnHuyBo.TabIndex = 15;
-            this.btnHuyBo.Text = "Hủy Bỏ";
-            this.btnHuyBo.UseVisualStyleBackColor = true;
             // 
             // btnDangNhap
             // 
             this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
-            this.btnDangNhap.Location = new System.Drawing.Point(240, 170);
+            this.btnDangNhap.Location = new System.Drawing.Point(240, 193);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(102, 33);
             this.btnDangNhap.TabIndex = 14;
@@ -60,6 +52,7 @@
             this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // txtPassWord
             // 
@@ -127,6 +120,26 @@
             this.chkShowPass.UseVisualStyleBackColor = true;
             this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
             // 
+            // chkGhiNho
+            // 
+            this.chkGhiNho.AutoSize = true;
+            this.chkGhiNho.Location = new System.Drawing.Point(240, 170);
+            this.chkGhiNho.Name = "chkGhiNho";
+            this.chkGhiNho.Size = new System.Drawing.Size(118, 17);
+            this.chkGhiNho.TabIndex = 17;
+            this.chkGhiNho.Text = "Ghi nhớ đăng nhập";
+            this.chkGhiNho.UseVisualStyleBackColor = true;
+            // 
+            // btnHuyBo
+            // 
+            this.btnHuyBo.Location = new System.Drawing.Point(348, 193);
+            this.btnHuyBo.Name = "btnHuyBo";
+            this.btnHuyBo.Size = new System.Drawing.Size(65, 33);
+            this.btnHuyBo.TabIndex = 15;
+            this.btnHuyBo.Text = "Hủy Bỏ";
+            this.btnHuyBo.UseVisualStyleBackColor = true;
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
+            // 
             // FormDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -134,7 +147,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(483, 252);
+            this.ClientSize = new System.Drawing.Size(483, 268);
+            this.Controls.Add(this.chkGhiNho);
             this.Controls.Add(this.chkShowPass);
             this.Controls.Add(this.btnHuyBo);
             this.Controls.Add(this.btnDangNhap);
@@ -149,14 +163,13 @@
             this.MinimizeBox = false;
             this.Name = "FormDangNhap";
             this.Text = "Đăng Nhập";
+            this.Load += new System.EventHandler(this.FormDangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.TextBox txtPassWord;
         private System.Windows.Forms.Label label4;
@@ -165,5 +178,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkShowPass;
+        private System.Windows.Forms.CheckBox chkGhiNho;
+        private System.Windows.Forms.Button btnHuyBo;
     }
 }

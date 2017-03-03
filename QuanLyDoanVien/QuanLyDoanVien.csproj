@@ -169,6 +169,8 @@
     <Compile Include="FormSoDoanVien.Designer.cs">
       <DependentUpon>FormSoDoanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="SFileName.cs" />
+    <Compile Include="StringHelper.cs" />
     <Compile Include="Trash\FormThongTinNopDoanPhi.cs">
       <SubType>Form</SubType>
     </Compile>
