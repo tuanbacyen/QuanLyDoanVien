@@ -299,5 +299,43 @@ namespace QuanLyDoanVien
         {
 
         }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            System.Drawing.Printing.PrintDocument pd = new System.Drawing.Printing.PrintDocument();
+            ppd.Document = pd;
+            pd.PrintPage += Pd_PrintPage;
+
+            ppd.ShowDialog();
+
+        }
+
+        public Bitmap GetBmp(DataGridView dgv)
+        {
+            try
+            {
+                dgv.BackgroundColor = Color.White;
+                dgv.BorderStyle = BorderStyle.None;
+
+                int height = dgv.Height;
+                dgv.Height = dgv.RowCount * dgv.RowTemplate.Height * 2;
+                Bitmap bmp = new Bitmap(dgv.Width, dgv.Height);
+                dgv.DrawToBitmap(bmp, new Rectangle(0, 0, dgv.Width, dgv.Height));
+                dgv.Height = height;
+
+                dgv.BorderStyle = BorderStyle.FixedSingle;
+                return bmp;
+            }
+            catch { return null; }
+
+        }
+
+        private void Pd_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try { e.Graphics.DrawImage(GetBmp(dtgSoDoan), 0, 0); }
+            catch { }
+        }
     }
 }

@@ -85,96 +85,108 @@ namespace QuanLyDoanVien
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
+            try
             {
-                CanBoVPDoan canbovpdoan = new CanBoVPDoan();
-                canbovpdoan.MaCanBoDoan = txtMaCanBo.Text;
-                canbovpdoan.HoVaTenKhaiSinh = txtHoVaTen.Text;
-                canbovpdoan.MaChucVu = cbChucVu.SelectedValue.ToString();
-                canbovpdoan.DiaChi = txtDiaChi.Text;
-                canbovpdoan.SoDienThoai = txtSDT.Text;
-                canbovpdoan.GioiTinh = true;
-                if (cbGioiTinh.SelectedIndex == 0)
+                if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
                 {
-                    canbovpdoan.GioiTinh = false;
-                }
-                canbovpdoans = db.GetTable<CanBoVPDoan>();
-                Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
-                if (has)
-                {
-                    MessageBox.Show("Đã Tồn tại cán bộ");
-                }
-                else
-                {
-                    canbovpdoans.InsertOnSubmit(canbovpdoan);
-                    db.SubmitChanges();
-                    MessageBox.Show("Thêm thành công", "Thông Báo");
-                    HienThiDuLieuCB();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
-            }
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
-            {
-                Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
-                if (has)
-                {
-                    string macanbo = txtMaCanBo.Text;
-                    CanBoVPDoan canbo = canbovpdoans.Single(sv => sv.MaCanBoDoan == macanbo);
-                    canbo.HoVaTenKhaiSinh = txtHoVaTen.Text;
-                    canbo.DiaChi = txtDiaChi.Text;
-                    canbo.GioiTinh = true;
+                    CanBoVPDoan canbovpdoan = new CanBoVPDoan();
+                    canbovpdoan.MaCanBoDoan = txtMaCanBo.Text;
+                    canbovpdoan.HoVaTenKhaiSinh = txtHoVaTen.Text;
+                    canbovpdoan.MaChucVu = cbChucVu.SelectedValue.ToString();
+                    canbovpdoan.DiaChi = txtDiaChi.Text;
+                    canbovpdoan.SoDienThoai = txtSDT.Text;
+                    canbovpdoan.GioiTinh = true;
                     if (cbGioiTinh.SelectedIndex == 0)
                     {
-                        canbo.GioiTinh = false;
+                        canbovpdoan.GioiTinh = false;
                     }
-                    canbo.MaChucVu = cbChucVu.SelectedValue.ToString();
-                    canbo.SoDienThoai = txtSDT.Text;
-                    db.SubmitChanges();
-                    MessageBox.Show("Sửa thành công", "Thông Báo");
-                    HienThiDuLieuCB();
-                }
-                else
-                {
-                    MessageBox.Show("Không Tồn tại cán bộ");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
-            }
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
-            {
-                Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
-                if (has)
-                {
-                    string macanbo = txtMaCanBo.Text;
-                    CanBoVPDoan canbo = canbovpdoans.Single(sv => sv.MaCanBoDoan == macanbo);
-                    canbovpdoans.DeleteOnSubmit(canbo);
-                    db.SubmitChanges();
-                    MessageBox.Show("Xóa thành công", "Thông Báo");
-                    HienThiDuLieuCB();
+                    canbovpdoans = db.GetTable<CanBoVPDoan>();
+                    Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
+                    if (has)
+                    {
+                        MessageBox.Show("Đã Tồn tại cán bộ");
+                    }
+                    else
+                    {
+                        canbovpdoans.InsertOnSubmit(canbovpdoan);
+                        db.SubmitChanges();
+                        MessageBox.Show("Thêm thành công", "Thông Báo");
+                        HienThiDuLieuCB();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
                 }
             }
-            else
-            //aaaa
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Thông Báo"); }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
+                {
+                    Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
+                    if (has)
+                    {
+                        string macanbo = txtMaCanBo.Text;
+                        CanBoVPDoan canbo = canbovpdoans.Single(sv => sv.MaCanBoDoan == macanbo);
+                        canbo.HoVaTenKhaiSinh = txtHoVaTen.Text;
+                        canbo.DiaChi = txtDiaChi.Text;
+                        canbo.GioiTinh = true;
+                        if (cbGioiTinh.SelectedIndex == 0)
+                        {
+                            canbo.GioiTinh = false;
+                        }
+                        canbo.MaChucVu = cbChucVu.SelectedValue.ToString();
+                        canbo.SoDienThoai = txtSDT.Text;
+                        db.SubmitChanges();
+                        MessageBox.Show("Sửa thành công", "Thông Báo");
+                        HienThiDuLieuCB();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không Tồn tại cán bộ");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Thông Báo"); }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtMaCanBo.Text.Trim() != "" && txtHoVaTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "" && txtSDT.Text.Trim() != "")
+                {
+                    Boolean has = canbovpdoans.Any(cb => cb.MaCanBoDoan == txtMaCanBo.Text);
+                    if (has)
+                    {
+                        string macanbo = txtMaCanBo.Text.Trim();
+                        CanBoVPDoan canbo = canbovpdoans.Single(sv => sv.MaCanBoDoan == macanbo);
+                        canbovpdoans.DeleteOnSubmit(canbo);
+                        db.SubmitChanges();
+                        MessageBox.Show("Xóa thành công", "Thông Báo");
+                        HienThiDuLieuCB();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                    }
+                }
+                else
+                //aaaa
+                {
+                    MessageBox.Show("Chưa nhập đủ thông tin", "Thông Báo");
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Thông Báo"); }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -216,6 +228,31 @@ namespace QuanLyDoanVien
         private void DontInput(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        Bitmap bmp;
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtgCanBo.BackgroundColor = Color.White;
+                int height = dtgCanBo.Height;
+                dtgCanBo.Height = dtgCanBo.RowCount * dtgCanBo.RowTemplate.Height * 2;
+                bmp = new Bitmap(dtgCanBo.Width, dtgCanBo.Height);
+                dtgCanBo.DrawToBitmap(bmp, new Rectangle(0, 0, dtgCanBo.Width, dtgCanBo.Height));
+                dtgCanBo.Height = height;
+                printPreviewDialog1.ShowDialog();
+            }
+            catch { }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            try
+            {
+                e.Graphics.DrawImage(bmp, 0, 0);
+            }
+            catch { }
         }
     }
 }
