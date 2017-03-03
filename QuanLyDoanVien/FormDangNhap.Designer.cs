@@ -39,6 +39,7 @@
             this.chkShowPass = new System.Windows.Forms.CheckBox();
             this.chkGhiNho = new System.Windows.Forms.CheckBox();
             this.btnHuyBo = new System.Windows.Forms.Button();
+            this.linkKetNoiCSDL = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnDangNhap
@@ -140,6 +141,20 @@
             this.btnHuyBo.UseVisualStyleBackColor = true;
             this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
+            // linkKetNoiCSDL
+            // 
+            this.linkKetNoiCSDL.AutoSize = true;
+            this.linkKetNoiCSDL.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkKetNoiCSDL.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkKetNoiCSDL.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.linkKetNoiCSDL.Location = new System.Drawing.Point(12, 242);
+            this.linkKetNoiCSDL.Name = "linkKetNoiCSDL";
+            this.linkKetNoiCSDL.Size = new System.Drawing.Size(186, 17);
+            this.linkKetNoiCSDL.TabIndex = 18;
+            this.linkKetNoiCSDL.TabStop = true;
+            this.linkKetNoiCSDL.Text = "Thiết lập kết nối cơ sở dữ liệu ...";
+            this.linkKetNoiCSDL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkKetNoiCSDL_LinkClicked);
+            // 
             // FormDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -148,6 +163,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(483, 268);
+            this.Controls.Add(this.linkKetNoiCSDL);
             this.Controls.Add(this.chkGhiNho);
             this.Controls.Add(this.chkShowPass);
             this.Controls.Add(this.btnHuyBo);
@@ -180,5 +196,6 @@
         private System.Windows.Forms.CheckBox chkShowPass;
         private System.Windows.Forms.CheckBox chkGhiNho;
         private System.Windows.Forms.Button btnHuyBo;
+        private System.Windows.Forms.LinkLabel linkKetNoiCSDL;
     }
 }

@@ -31,60 +31,89 @@ namespace QuanLyDoanVien
 
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Environment.Exit(1);
         }
 
+        int dem = 0;
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (txtUser.Text.Trim().Equals("") ||
-                txtPassWord.Text.Trim().Equals(""))
+            if (dem == 3)
             {
-                MessageBox.Show("Vui lòng nhập đủ thông tin đăng nhập!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn đăng nhập sai quá nhiều!\nĐang thoát", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Environment.Exit(1);
             }
             else
             {
-                bool TaiKhoanHopLe = AuthenticateUser(txtUser.Text, txtPassWord.Text);
-                if (TaiKhoanHopLe)
+                if (txtUser.Text.Trim().Equals("") ||
+                    txtPassWord.Text.Trim().Equals(""))
                 {
-                    if (chkGhiNho.Checked)
+                    MessageBox.Show("Vui lòng nhập đủ thông tin đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    bool TaiKhoanHopLe = AuthenticateUser(txtUser.Text, txtPassWord.Text);
+                    if (TaiKhoanHopLe)
                     {
-                        string[] line = new string[] { StringHelper.Base64Encode(txtUser.Text), StringHelper.Base64Encode(txtPassWord.Text) };
-                        StringHelper.WriteLine(SFileName.loginFile, line);
+                        if (chkGhiNho.Checked)
+                        {
+                            string[] line = new string[] { StringHelper.Base64Encode(txtUser.Text), StringHelper.Base64Encode(txtPassWord.Text) };
+                            StringHelper.WriteLine(SFileName.loginFile, line);
+                        }
+                        else
+                        {
+                            string[] line = new string[] { " ", " " };
+                            StringHelper.WriteLine(SFileName.loginFile, line);
+                        }
+                        Hide();
+                        Main f = new Main();
+                        f.Show();
                     }
                     else
                     {
-                        string[] line = new string[] { " ", " " };
-                        StringHelper.WriteLine(SFileName.loginFile, line);
+                        dem++;
+                        MessageBox.Show("Đăng nhập không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    Hide();
-                    Main f = new Main();
-                    f.Show();
                 }
-                else MessageBox.Show("Sai thông tin đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
         }
 
         private bool AuthenticateUser(string id, string pass)
         {
-            TAIKHOAN = database.GetTable<TaiKhoan>();
+            try
+            {
+                TAIKHOAN = database.GetTable<TaiKhoan>();
 
-            var taiKhoan = from tk in TAIKHOAN
-                           where tk.TenDangNhap == id &&
-                                 tk.MatKhau == pass
-                           select tk;
+                var taiKhoan = from tk in TAIKHOAN
+                               where tk.TenDangNhap == id &&
+                                     tk.MatKhau == pass
+                               select tk;
 
-            return taiKhoan.Any() ? true : false;
+                return taiKhoan.Any() ? true : false;
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Unkown error! "+ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
 
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
-            
-            try {
+
+            try
+            {
                 txtUser.Text = StringHelper.Base64Decode(StringHelper.GetLine(SFileName.loginFile, 1));
                 txtPassWord.Text = StringHelper.Base64Decode(StringHelper.GetLine(SFileName.loginFile, 2));
+                if (txtUser.Text.Trim() == "") chkGhiNho.Checked = false;
+                else chkGhiNho.Checked = true;
             }
             catch { }
+        }
+
+        private void linkKetNoiCSDL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormConnect fmConnect = new FormConnect();
+            //fmConnect.MdiParent = this;
+            fmConnect.Show();
         }
     }
 }
