@@ -72,6 +72,9 @@ namespace QuanLyDoanVien
     partial void InsertThongTinNopDoanPhi(ThongTinNopDoanPhi instance);
     partial void UpdateThongTinNopDoanPhi(ThongTinNopDoanPhi instance);
     partial void DeleteThongTinNopDoanPhi(ThongTinNopDoanPhi instance);
+    partial void InsertTaiKhoan(TaiKhoan instance);
+    partial void UpdateTaiKhoan(TaiKhoan instance);
+    partial void DeleteTaiKhoan(TaiKhoan instance);
     #endregion
 		
 		public QuanLyDoanVienDataContext() : 
@@ -4109,8 +4112,10 @@ namespace QuanLyDoanVien
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoan")]
-	public partial class TaiKhoan
+	public partial class TaiKhoan : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
@@ -4118,8 +4123,21 @@ namespace QuanLyDoanVien
 		
 		private string _MatKhau;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnTenDangNhapChanging(string value);
+    partial void OnTenDangNhapChanged();
+    partial void OnMatKhauChanging(string value);
+    partial void OnMatKhauChanged();
+    #endregion
+		
 		public TaiKhoan()
 		{
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
@@ -4133,12 +4151,16 @@ namespace QuanLyDoanVien
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="VarChar(20)", IsPrimaryKey=true)]
 		public string TenDangNhap
 		{
 			get
@@ -4149,7 +4171,11 @@ namespace QuanLyDoanVien
 			{
 				if ((this._TenDangNhap != value))
 				{
+					this.OnTenDangNhapChanging(value);
+					this.SendPropertyChanging();
 					this._TenDangNhap = value;
+					this.SendPropertyChanged("TenDangNhap");
+					this.OnTenDangNhapChanged();
 				}
 			}
 		}
@@ -4165,8 +4191,32 @@ namespace QuanLyDoanVien
 			{
 				if ((this._MatKhau != value))
 				{
+					this.OnMatKhauChanging(value);
+					this.SendPropertyChanging();
 					this._MatKhau = value;
+					this.SendPropertyChanged("MatKhau");
+					this.OnMatKhauChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
