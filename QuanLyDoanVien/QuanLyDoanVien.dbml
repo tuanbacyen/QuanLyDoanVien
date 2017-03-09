@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyDoanVien" Class="QuanLyDoanVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-0C81TR7;Initial Catalog=QuanLyDoanVien;Integrated Security=True" SettingsObjectName="QuanLyDoanVien.Properties.Settings" SettingsPropertyName="QuanLyDoanVienConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=QuanLyDoanVien;Integrated Security=True" SettingsObjectName="QuanLyDoanVien.Properties.Settings" SettingsPropertyName="QuanLyDoanVienConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CanBoVPDoan" Member="CanBoVPDoans">
     <Type Name="CanBoVPDoan">
       <Column Name="CanBoDoanID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -101,7 +101,8 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
       <Column Name="SoDienThoai" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="NgayVaoDoan" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="SinhVien_LopDuBiCamTinhDang" Member="LopDuBiCamTinhDangs" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="LopDuBiCamTinhDang" />
+      <Column Name="Xoa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SinhVien_LopDuBiCamTinhDang" Member="LopDuBiCamTinhDang" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="LopDuBiCamTinhDang" Cardinality="One" />
       <Association Name="SinhVien_SinhVien_LopQuanLy" Member="SinhVien_LopQuanLies" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="SinhVien_LopQuanLy" />
       <Association Name="SinhVien_SoDoanVien" Member="SoDoanViens" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="SoDoanVien" />
       <Association Name="SinhVien_ThongTinChuyenSinhHoatDoan" Member="ThongTinChuyenSinhHoatDoans" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="ThongTinChuyenSinhHoatDoan" />
@@ -145,6 +146,7 @@
       <Column Name="NoiChuyen" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="MaCanBoDoan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MaSinhVien" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ChuyenTruong" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="CanBoVPDoan_ThongTinChuyenSinhHoatDoan" Member="CanBoVPDoan" ThisKey="MaCanBoDoan" OtherKey="MaCanBoDoan" Type="CanBoVPDoan" IsForeignKey="true" />
       <Association Name="SinhVien_ThongTinChuyenSinhHoatDoan" Member="SinhVien" ThisKey="MaSinhVien" OtherKey="MaSinhVien" Type="SinhVien" IsForeignKey="true" />
     </Type>
